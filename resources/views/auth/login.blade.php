@@ -69,9 +69,7 @@
                                 </button>
                             </div>
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Create Account') }}
-                                </button>
+                                <a class="btn btn-primary" href="{{route('register')}}" role="button">{{ __('Create Account') }}</a>
                             </div>
                         </div>
                     </form>
