@@ -1,3 +1,7 @@
+<!-- import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/SignIn.css'; -->
+
 @extends('layouts.app')
 
 @section('content')
@@ -78,9 +82,21 @@
         </div>
     </div>
 </div>
-<footer class="py-16 text-center text-sm text-black dark:text-white/70">
-    <!-- Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}) -->
+<!-- <footer class="py-16 text-center text-sm text-black dark:text-white/70">
+    Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}) 
     <p class="copyright">&copy; Designed and Developed by Faculty Of Computing.</p>
     <p>Terms & Conditionssss | Privacy Policy | Accessibility Statement | Last Updated : Jul 21 2024 | Site Map</p>
-</footer>
+</footer> -->
+<!-- <footer className="footer">
+      <div className="footer-text">
+        © Designed and Developed by Faculty Of Computing
+      </div>
+      <div className="footer-links">
+        <a href="/terms" className="footer-link">Terms & Conditions</a> |
+        <a href="/privacy" className="footer-link">Privacy Policy</a> |
+        <a href="/accessibility" className="footer-link">Accessibility Statement</a> |
+        <span>Last Updated: Jul 21, 2024</span> |
+        <a href="/sitemap" className="footer-link">Site Map</a>
+      </div>
+    </footer> -->
 @endsection

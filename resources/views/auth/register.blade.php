@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,133 +73,167 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <section class="vh-100 gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row justify-content-center align-items-center h-100">
-      <div class="col-12 col-lg-9 col-xl-7">
-        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-          <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" align="center">{{ __('Create Account') }}</h3>
-            <form>
-            <div class="row">
-                <div class="col-md-6 mb-4">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" align="center">{{ __('Create Account') }}</h3>
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
 
-                  <div data-mdb-input-init class="form-outline">
+                                    <div data-mdb-input-init class="form-outline">
 
-                  <label class="form-label" for="firstName">Email Address</label>
-                    <input type="text" id="firstName" class="form-control form-control-lg" />
-                    
-                  </div>
+                                        <!-- <label class="form-label" for="firstName">Email Address</label> -->
+                                        <label for="email" class="form-label">{{ __('Email Address') }}</label>
+                                        <!-- <input type="text" id="firstName" class="form-control form-control-lg" /> -->
+                                        <input id="email" type="email"
+                                            class="form-control @error('email') is-invalid @enderror" name="email"
+                                            value="{{ old('email') }}" required autocomplete="email">
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
 
-                </div>
-                <div class="col-md-6 mb-4">
+                                </div>
+                                <div class="col-md-6 mb-4">
 
-                  <div data-mdb-input-init class="form-outline">
-                  <label class="form-label" for="lastName">Address</label>
-                    <input type="text" id="lastName" class="form-control form-control-lg" />
-                    
-                  </div>
+                                    <div data-mdb-input-init class="form-outline">
+                                        <label class="form-label" for="lastName">Address</label>
+                                        <input type="text" id="lastName" class="form-control form-control-lg" />
 
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 mb-4">
+                                    </div>
 
-                  <div data-mdb-input-init class="form-outline">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
 
-                  <label class="form-label" for="firstName">Username</label>
-                    <input type="text" id="firstName" class="form-control form-control-lg" />
-                    
-                  </div>
+                                    <div data-mdb-input-init class="form-outline">
 
-                </div>
-                <div class="col-md-6 mb-4">
+                                        <!-- <label class="form-label" for="firstName">Username</label> -->
+                                        <label for="name" class="form-label">{{ __('Name')
+                                            }}</label>
+                                        <!-- <input type="text" id="firstName" class="form-control form-control-lg" /> -->
+                                        <input id="name" type="text"
+                                            class="form-control @error('name') is-invalid @enderror" name="name"
+                                            value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
 
-                  <div data-mdb-input-init class="form-outline">
-                  <label class="form-label" for="lastName">Province</label>
-                    <input type="text" id="lastName" class="form-control form-control-lg" />
-                    
-                  </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
 
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 mb-4">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <label class="form-label" for="lastName">Province</label>
+                                        <input type="text" id="lastName" class="form-control form-control-lg" />
 
-                  <div data-mdb-input-init class="form-outline">
+                                    </div>
 
-                  <label class="form-label" for="firstName">Password</label>
-                    <input type="text" id="firstName" class="form-control form-control-lg" />
-                    
-                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
 
-                </div>
-                <div class="col-md-6 mb-4">
+                                    <div data-mdb-input-init class="form-outline">
 
-                  <div data-mdb-input-init class="form-outline">
-                  <label class="form-label" for="lastName">District</label>
-                    <input type="text" id="lastName" class="form-control form-control-lg" />
-                    
-                  </div>
+                                        <!-- <label class="form-label" for="firstName">Password</label> -->
+                                        <label for="password" class="form-label">{{
+                                            __('Password') }}</label>
 
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 mb-4">
+                                        <!-- <input type="text" id="firstName" class="form-control form-control-lg" /> -->
+                                        <input id="password" type="password"
+                                            class="form-control @error('password') is-invalid @enderror" name="password"
+                                            required autocomplete="new-password">
 
-                  <div data-mdb-input-init class="form-outline">
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
 
-                  <label class="form-label" for="firstName">Verified password</label>
-                    <input type="text" id="firstName" class="form-control form-control-lg" />
-                    
-                  </div>
+                                    </div>
 
-                </div>
-                <div class="col-md-6 mb-4">
+                                </div>
+                                <div class="col-md-6 mb-4">
 
-                  <div data-mdb-input-init class="form-outline">
-                  <label class="form-label" for="lastName">Company Name</label>
-                    <input type="text" id="lastName" class="form-control form-control-lg" />
-                    
-                  </div>
+                                    <div data-mdb-input-init class="form-outline">
+                                        <label class="form-label" for="lastName">District</label>
+                                        <input type="text" id="lastName" class="form-control form-control-lg" />
 
-                </div>
-              </div>
+                                    </div>
 
-              <div class="row">
-                <div class="col-md-6 mb-4 d-flex align-items-center">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
 
-                  <div data-mdb-input-init class="form-outline datepicker w-100">
-                  <label for="birthdayDate" class="form-label">Your role</label>
-                    <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                    
-                  </div>
+                                    <div data-mdb-input-init class="form-outline">
 
-                </div>
-                <div class="col-md-6 mb-4">
+                                        <!-- <label class="form-label" for="firstName">Verified password</label> -->
+                                        <label for="password-confirm" class="form-label">{{__('Confirm Password') }}</label>
+                                        <!-- <input type="text" id="firstName" class="form-control form-control-lg" /> -->
+                                        <input id="password-confirm" type="password" class="form-control"
+                                            name="password_confirmation" required autocomplete="new-password">
 
-                  <div data-mdb-input-init class="form-outline">
-                  <label class="form-label" for="lastName">Address</label>
-                  <textarea rows="4" cols="30"></textarea>
-                  <!-- <input type="text" id="lastName" class="form-control form-control-lg" width="30px"/> -->
-                    
-                  </div>
+                                    </div>
 
-                </div>
-              </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
 
-              <div class="row">
-                <div class="col-md-6 mb-4 pb-2">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <label class="form-label" for="lastName">Company Name</label>
+                                        <input type="text" id="lastName" class="form-control form-control-lg" />
 
-                  <div data-mdb-input-init class="form-outline">
-                  <label class="form-label" for="emailAddress">First name</label>
-                    <input type="email" id="emailAddress" class="form-control form-control-lg" />
-                    
-                  </div>
+                                    </div>
 
-                </div>
-                <!-- <div class="col-md-6 mb-4 pb-2">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                                    <div data-mdb-input-init class="form-outline datepicker w-100">
+                                        <label for="birthdayDate" class="form-label">Your role</label>
+                                        <input type="text" class="form-control form-control-lg" id="birthdayDate" />
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4">
+
+                                    <div data-mdb-input-init class="form-outline">
+                                        <label class="form-label" for="lastName">Address</label>
+                                        <textarea rows="4" cols="30"></textarea>
+                                        <!-- <input type="text" id="lastName" class="form-control form-control-lg" width="30px"/> -->
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <div data-mdb-input-init class="form-outline">
+                                        <label class="form-label" for="emailAddress">First name</label>
+                                        <!-- <input type="email" id="emailAddress" class="form-control form-control-lg" /> -->
+                                        <input type="text" id="lastName" class="form-control form-control-lg" />
+
+                                    </div>
+
+                                </div>
+                                <!-- <div class="col-md-6 mb-4 pb-2">
 
                   <div data-mdb-input-init class="form-outline">
                     <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
@@ -207,29 +241,33 @@
                   </div>
 
                 </div> -->
-              </div>
+                            </div>
 
-              <div class="row">
-                <div class="col-md-6 mb-4 pb-2">
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
 
-                  <div data-mdb-input-init class="form-outline">
-                  <label class="form-label" for="emailAddress">Last name</label>
-                    <input type="email" id="emailAddress" class="form-control form-control-lg" />
-                    
-                  </div>
+                                    <div data-mdb-input-init class="form-outline">
+                                        <label class="form-label" for="emailAddress">Last name</label>
+                                        <!-- <input type="email" id="emailAddress" class="form-control form-control-lg" /> -->
+                                        <input type="text" id="lastName" class="form-control form-control-lg" />
+                                    </div>
 
+                                </div>
+                            </div>
+
+                            <div class="mt-4 pt-2">
+                                <!-- <input data-mdb-ripple-init class="btn btn-primary btn-lg" type="submit"
+                                    value="Register" /> -->
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
-              </div>
-
-              <div class="mt-4 pt-2">
-                <input data-mdb-ripple-init class="btn btn-primary btn-lg" type="submit" value="Register" />
-              </div>
-
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 @endsection
