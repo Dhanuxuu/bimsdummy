@@ -173,3 +173,34 @@
     </body>
 </html>--}}
 @extends('layouts.app')
+
+@section('content')
+<h1>Welcome to Red-Lifestream</h1>
+<div class="card-body p-4 p-md-5">
+    <div class="row justify-content-center align-items-center h-50">
+        <div class="col-md-6 mb-4">
+        <a href="#"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Availability</h3></a>
+           
+        </div>
+        <div class="col-md-6 mb-4">
+        <a href="#"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Bank</h3></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center h-50">
+        <div class="col-md-6 mb-4">
+        <a href="#"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Donation Camp</h3></a>
+        </div>
+        <div class="col-md-6 mb-4">
+        <a href="#"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Education</h3></a>
+        </div>
+    </div>
+</div>
+<div class="card-body p-4 p-md-5">
+<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">About Us</h3>
+<p>
+Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum 
+non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit 
+voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
+</p>
+</div>
+@endsection

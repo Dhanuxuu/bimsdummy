@@ -49,7 +49,7 @@
                             <a class="nav-link" href="#">{{ __('Blood Education') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('About Us') }}</a>
+                            <a class="nav-link" href="{{ url('/') }}">{{ __('About Us') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">{{ __('Contact Us') }}</a>
@@ -95,7 +95,6 @@
         </main>
     </div>
     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-        <!-- Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}) -->
         <p class="copyright">&copy; Designed and Developed by Faculty Of Computing.</p>
         <p>Terms & Conditions | Privacy Policy | Accessibility Statement | Last Updated : Jul 21 2024 | Site Map</p>
     </footer>
