@@ -261,10 +261,10 @@
                                 </div>
                             </div>
 
-                            <div class="mt-4 pt-2">
+                            <div class="mt-4 pt-2" align="center">
                                 <!-- <input data-mdb-ripple-init class="btn btn-primary btn-lg" type="submit"
                                     value="Register" /> -->
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" >
                                     {{ __('Register') }}
                                 </button>
                             </div>

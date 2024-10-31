@@ -37,7 +37,7 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Blood Availability') }}</a>
+                            <a class="nav-link" href="{{route('bloodavailability')}}">{{ __('Blood Availability') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">{{ __('Blood Bank') }}</a>
