@@ -55,4 +55,29 @@ class HomeController extends Controller
     {
         return view('hospitalrequest');
     }
+
+    public function index7()
+    {
+        return view('auditlog');
+    }
+
+    public function index8()
+    {
+        return view('adddonacamp');
+    }
+
+    public function index9()
+    {
+        return view('addbloodbank');
+    }
+
+    public function index10()
+    {
+        return view('updatebloodbank');
+    }
+
+    public function index11()
+    {
+        return view('delbloodbank');
+    }
 }
