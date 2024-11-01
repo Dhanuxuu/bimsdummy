@@ -55,6 +55,27 @@
                 </button>
             </div>
         </form>
+        <br><br>
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>S.no</th>
+                <th>Blood Bank</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Available</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        </table>
         </div>
 
 @endsection
