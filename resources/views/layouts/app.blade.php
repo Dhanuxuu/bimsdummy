@@ -46,7 +46,7 @@
                             <a class="nav-link" href="{{route('donationcamp')}}">{{ __('Blood Donation Camp') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Blood Education') }}</a>
+                            <a class="nav-link" href="{{route('bloodeducation')}}">{{ __('Blood Education') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">{{ __('About Us') }}</a>

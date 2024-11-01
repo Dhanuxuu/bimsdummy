@@ -40,4 +40,14 @@ class HomeController extends Controller
     {
         return view('donationcamp');
     }
+
+    public function index4()
+    {
+        return view('bloodeducation');
+    }
+
+    public function index5()
+    {
+        return view('bloodeduadd');
+    }
 }

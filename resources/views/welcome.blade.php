@@ -191,7 +191,7 @@
         <a href="{{route('donationcamp')}}"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Donation Camp</h3></a>
         </div>
         <div class="col-md-6 mb-4">
-        <a href="#"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Education</h3></a>
+        <a href="{{route('bloodeducation')}}"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Education</h3></a>
         </div>
     </div>
 </div>
