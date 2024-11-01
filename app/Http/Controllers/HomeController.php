@@ -50,4 +50,9 @@ class HomeController extends Controller
     {
         return view('bloodeduadd');
     }
+
+    public function index6()
+    {
+        return view('hospitalrequest');
+    }
 }

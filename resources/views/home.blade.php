@@ -2,7 +2,35 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <h1>Profile</h1>
+    <br>
+    <div class="row">
+
+        <div class="col">
+            <h3>User Details</h3><br>
+            <!-- <label for="email" class="form-label">{{ __('First name') }}</label><br> -->
+            <h5>First name</h5><br>
+            <h5>Last Name</h5><br>
+            <h5>Company name</h5><br>
+            <h5>Occupation</h5><br>
+            <h5>City/Town</h5><br>
+            <h5>Email</h5><br>
+            <h5>Telephone</h5><br>
+        </div>
+
+        <div class="col">
+            <h3>Login Activities</h3><br>
+            <h5>First access to site</h5><br>
+            <h5>Last access to site</h5><br>
+            <h5>Activities did through last month</h5><br>
+        </div>
+
+    </div>
+
+</div>
+@endsection
+
+<!-- <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
@@ -18,6 +46,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-@endsection
+    </div> -->

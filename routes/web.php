@@ -19,3 +19,5 @@ Route::get('/donationcamp', [App\Http\Controllers\HomeController::class, 'index3
 Route::get('/bloodeducation', [App\Http\Controllers\HomeController::class, 'index4'])->name('bloodeducation');
 
 Route::get('/bloodeduadd', [App\Http\Controllers\HomeController::class, 'index5'])->name('bloodeduadd');
+
+Route::get('/hospitalrequest', [App\Http\Controllers\HomeController::class, 'index6'])->name('hospitalrequest');
