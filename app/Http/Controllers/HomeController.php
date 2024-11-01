@@ -35,4 +35,9 @@ class HomeController extends Controller
     {
         return view('bloodbank');
     }
+
+    public function index3()
+    {
+        return view('donationcamp');
+    }
 }
