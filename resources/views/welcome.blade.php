@@ -179,11 +179,11 @@
 <div class="card-body p-4 p-md-5">
     <div class="row justify-content-center align-items-center h-50">
         <div class="col-md-6 mb-4">
-        <a href="#"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Availability</h3></a>
+        <a href="{{route('bloodavailability')}}"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Availability</h3></a>
            
         </div>
         <div class="col-md-6 mb-4">
-        <a href="#"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Bank</h3></a>
+        <a href="{{route('bloodbank')}}"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Bank</h3></a>
         </div>
     </div>
     <div class="row justify-content-center align-items-center h-50">

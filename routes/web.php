@@ -11,3 +11,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/bloodavailability', [App\Http\Controllers\HomeController::class, 'index1'])->name('bloodavailability');
+
+Route::get('/bloodbank', [App\Http\Controllers\HomeController::class, 'index2'])->name('bloodbank');
