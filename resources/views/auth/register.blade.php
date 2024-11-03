@@ -112,7 +112,7 @@
 
                                     <div data-mdb-input-init class="form-outline">
                                         <label class="form-label" for="lastName">Address</label>
-                                        <input type="text" id="lastName" class="form-control form-control-lg" />
+                                        <input type="text" id="address" class="form-control form-control-lg" name="address"/>
 
                                     </div>
 
@@ -142,7 +142,7 @@
 
                                     <div data-mdb-input-init class="form-outline">
                                         <label class="form-label" for="lastName">Province</label>
-                                        <input type="text" id="lastName" class="form-control form-control-lg" />
+                                        <input type="text" id="province" class="form-control form-control-lg" name="province"/>
 
                                     </div>
 
@@ -175,7 +175,7 @@
 
                                     <div data-mdb-input-init class="form-outline">
                                         <label class="form-label" for="lastName">District</label>
-                                        <input type="text" id="lastName" class="form-control form-control-lg" />
+                                        <input type="text" id="district" class="form-control form-control-lg" name="district"/>
 
                                     </div>
 
@@ -199,7 +199,7 @@
 
                                     <div data-mdb-input-init class="form-outline">
                                         <label class="form-label" for="lastName">Company Name</label>
-                                        <input type="text" id="lastName" class="form-control form-control-lg" />
+                                        <input type="text" id="cname" class="form-control form-control-lg" name="cname"/>
 
                                     </div>
 
@@ -211,7 +211,7 @@
 
                                     <div data-mdb-input-init class="form-outline datepicker w-100">
                                         <label for="birthdayDate" class="form-label">Your role</label>
-                                        <input type="text" class="form-control form-control-lg" id="birthdayDate" />
+                                        <input type="text" class="form-control form-control-lg" id="yrole" name="yrole" />
 
                                     </div>
 
@@ -219,8 +219,8 @@
                                 <div class="col-md-6 mb-4">
 
                                     <div data-mdb-input-init class="form-outline">
-                                        <label class="form-label" for="lastName">Address</label>
-                                        <textarea rows="4" cols="30"></textarea>
+                                        <label class="form-label" for="lastName">Company Address</label>
+                                        <textarea rows="4" cols="30" name="caddress" ></textarea>
                                         <!-- <input type="text" id="lastName" class="form-control form-control-lg" width="30px"/> -->
 
                                     </div>
@@ -234,7 +234,7 @@
                                     <div data-mdb-input-init class="form-outline">
                                         <label class="form-label" for="emailAddress">First name</label>
                                         <!-- <input type="email" id="emailAddress" class="form-control form-control-lg" /> -->
-                                        <input type="text" id="lastName" class="form-control form-control-lg" />
+                                        <input type="text" id="fname" class="form-control form-control-lg" name="fname"/>
 
                                     </div>
 
@@ -255,7 +255,7 @@
                                     <div data-mdb-input-init class="form-outline">
                                         <label class="form-label" for="emailAddress">Last name</label>
                                         <!-- <input type="email" id="emailAddress" class="form-control form-control-lg" /> -->
-                                        <input type="text" id="lastName" class="form-control form-control-lg" />
+                                        <input type="text" id="lname" class="form-control form-control-lg" name="lname"/>
                                     </div>
 
                                 </div>

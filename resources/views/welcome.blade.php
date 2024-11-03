@@ -179,24 +179,24 @@
 <div class="card-body p-4 p-md-5">
     <div class="row justify-content-center align-items-center h-50">
         <div class="col-md-6 mb-4">
-        <a href="{{route('bloodavailability')}}"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Availability</h3></a>
+        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"><a href="{{route('bloodavailability')}}">Blood Availability</a></h3>
            
         </div>
         <div class="col-md-6 mb-4">
-        <a href="{{route('bloodbank')}}"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Bank</h3></a>
+        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"><a href="{{route('bloodbank')}}">Blood Bank</a></h3>
         </div>
     </div>
     <div class="row justify-content-center align-items-center h-50">
         <div class="col-md-6 mb-4">
-        <a href="{{route('donationcamp')}}"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Donation Camp</h3></a>
+        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"><a href="{{route('donationcamp')}}">Blood Donation Camp</a></h3>
         </div>
         <div class="col-md-6 mb-4">
-        <a href="{{route('bloodeducation')}}"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Education</h3></a>
+        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"><a href="{{route('bloodeducation')}}">Blood Education</a></h3>
         </div>
     </div>
     <div class="row justify-content-center align-items-center h-50">
         <div class="col-md-6 mb-4">
-        <a href="{{route('donationcamp')}}"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Request</h3></a>
+        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"><a href="{{route('hospitalrequest')}}">Blood Request</a></h3>
         </div>
     </div>
 </div>
