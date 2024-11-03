@@ -194,6 +194,11 @@
         <a href="{{route('bloodeducation')}}"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Education</h3></a>
         </div>
     </div>
+    <div class="row justify-content-center align-items-center h-50">
+        <div class="col-md-6 mb-4">
+        <a href="{{route('donationcamp')}}"><h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Blood Request</h3></a>
+        </div>
+    </div>
 </div>
 <div class="card-body p-4 p-md-5">
 <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">About Us</h3>

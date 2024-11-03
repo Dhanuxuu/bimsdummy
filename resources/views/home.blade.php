@@ -8,14 +8,14 @@
 
         <div class="col">
             <h3>User Details</h3><br>
-            <!-- <label for="email" class="form-label">{{ __('First name') }}</label><br> -->
-            <h5>First name</h5><br>
-            <h5>Last Name</h5><br>
-            <h5>Company name</h5><br>
-            <h5>Occupation</h5><br>
-            <h5>City/Town</h5><br>
-            <h5>Email</h5><br>
-            <h5>Telephone</h5><br>
+            
+            <h5>First name: {{ Auth::user()->name }}</h5><br>
+            <h5>Last Name: </h5><br>
+            <h5>Company name:</h5><br>
+            <h5>Occupation:</h5><br>
+            <h5>City/Town:</h5><br>
+            <h5>Email: </h5><br>
+            <h5>Telephone:</h5><br>
         </div>
 
         <div class="col">

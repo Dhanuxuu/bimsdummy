@@ -80,4 +80,9 @@ class HomeController extends Controller
     {
         return view('delbloodbank');
     }
+
+    public function index12()
+    {
+        return view('modification');
+    }
 }

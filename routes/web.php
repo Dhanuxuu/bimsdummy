@@ -31,3 +31,5 @@ Route::get('/addbloodbank', [App\Http\Controllers\HomeController::class, 'index9
 Route::get('/updatebloodbank', [App\Http\Controllers\HomeController::class, 'index10'])->name('updatebloodbank');
 
 Route::get('/delbloodbank', [App\Http\Controllers\HomeController::class, 'index11'])->name('delbloodbank');
+
+Route::get('/modification', [App\Http\Controllers\HomeController::class, 'index12'])->name('modification');
