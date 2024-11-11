@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Blood Donation Camp</h1>
+<h1>Blood Education</h1>
 
 <div class="card-body p-4 p-md-5">
     <div class="row justify-content-center align-items-center h-50">

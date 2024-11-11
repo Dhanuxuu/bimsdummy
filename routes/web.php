@@ -14,9 +14,9 @@ Route::get('/bloodavailability', [App\Http\Controllers\HomeController::class, 'i
 
 Route::get('/bloodbank', [App\Http\Controllers\HomeController::class, 'index2'])->name('bloodbank');
 
-Route::get('/donationcamp', [App\Http\Controllers\HomeController::class, 'index3'])->name('donationcamp');
+Route::get('/donation/donationcamp', [App\Http\Controllers\HomeController::class, 'index3'])->name('donationcamp');
 
-Route::get('/bloodeducation', [App\Http\Controllers\HomeController::class, 'index4'])->name('bloodeducation');
+Route::get('/education/bloodeducation', [App\Http\Controllers\HomeController::class, 'index4'])->name('bloodeducation');
 
 Route::get('/bloodeduadd', [App\Http\Controllers\HomeController::class, 'index5'])->name('bloodeduadd');
 
@@ -33,3 +33,7 @@ Route::get('/updatebloodbank', [App\Http\Controllers\HomeController::class, 'ind
 Route::get('/delbloodbank', [App\Http\Controllers\HomeController::class, 'index11'])->name('delbloodbank');
 
 Route::get('/modification', [App\Http\Controllers\HomeController::class, 'index12'])->name('modification');
+
+Route::get('/auth/donoregister', [App\Http\Controllers\HomeController::class, 'index13'])->name('auth/donoregister');
+
+Route::get('/bloodbank/bbinventory', [App\Http\Controllers\HomeController::class, 'index14'])->name('bloodbank/bbinventory');

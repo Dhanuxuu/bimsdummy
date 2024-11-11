@@ -1,3 +1,4 @@
+<!-- This page done -->
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -20,11 +21,6 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-            </svg> -->
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -42,22 +38,25 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('bloodavailability')}}">{{ __('Blood Availability') }}</a>
+                            <a class="nav-link" href="{{url('/')}}">{{ __('Home') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('bloodbank')}}">{{ __('Blood Bank') }}</a>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>{{ 'Services'}}</a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="nav-link" href="{{route('bloodavailability')}}">{{ __('Blood Availability') }}</a>
+                                    <a class="nav-link" href="{{route('donationcamp')}}">{{ __('Blood Donation Camp') }}</a>
+                                    <a class="nav-link" href="{{route('bloodeducation')}}">{{ __('Blood Education') }}</a>
+                                    <a class="nav-link" href="{{route('auth/donoregister')}}">{{ __('Register for donation') }}</a>
+                                </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('donationcamp')}}">{{ __('Blood Donation Camp') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('bloodeducation')}}">{{ __('Blood Education') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">{{ __('About Us') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('modification')}}">{{ __('Modification') }}</a>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>{{ 'Who we are'}}</a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="nav-link" href="{{ url('/') }}">{{ __('Gallery') }}</a>
+                                    <a class="nav-link" href="{{ url('/') }}">{{ __('About Us') }}</a>
+                                    <a class="nav-link" href="{{ url('/') }}">{{ __('Contact Us') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Be a part of Red-Lifestream') }}</a>
+                                </div>
                         </li>
                         @guest
                             @if (Route::has('login'))
@@ -73,24 +72,72 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                                @if (Auth::user()->role == 'donor')
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                       <li class="nav-item dropdown">
+                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false" v-pre>
+                                                        {{ Auth::user()->name }}
+                                                    </a>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Donor') }}</a>
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Profile') }}</a>
+                                                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                                                         document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                                </div>
+                                            </li>
+                                    </div>
+                                @else
+                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                            <li class="nav-item dropdown">
+                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false" v-pre>
+                                                    {{ 'Hospital' }}
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Request Blood') }}</a>
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Register') }}</a>
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Blood Availability') }}</a>
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Blood Inventory') }}</a>
+                                                </div>
+                                            </li>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('home') }}">
-                                        {{ __('Profile') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+                                            <li class="nav-item dropdown">
+                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false" v-pre>
+                                                    {{ 'Blood Bank' }}
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Request Blood') }}</a>
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Register') }}</a>
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Blood Availability') }}</a>
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Blood Inventory') }}</a>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false" v-pre>
+                                                        {{ Auth::user()->name }}
+                                                    </a>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Staff') }}</a>
+                                                    <a class="nav-link" href="{{url('/')}}">{{ __('Profile') }}</a>
+                                                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                                                         document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                                </div>
+                                            </li>
+                                        </div>
+                                @endif
                             </li>
                         @endguest
                     </ul>

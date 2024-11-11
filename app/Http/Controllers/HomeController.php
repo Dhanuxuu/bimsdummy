@@ -13,7 +13,9 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');allow access the navigation bar items with login
+        $this->middleware('auth')->except(['index1', 'index2', 'index3','index4', 'index5', 'index6','index7', 'index8', 'index9','index10', 'index11', 'index12',
+                                    'index14',]);//'index13',
     }
 
     /**
@@ -38,12 +40,12 @@ class HomeController extends Controller
 
     public function index3()
     {
-        return view('donationcamp');
+        return view('donation/donationcamp');
     }
 
     public function index4()
     {
-        return view('bloodeducation');
+        return view('education/bloodeducation');
     }
 
     public function index5()
@@ -84,5 +86,15 @@ class HomeController extends Controller
     public function index12()
     {
         return view('modification');
+    }
+
+    public function index13()
+    {
+        return view('auth/donoregister');
+    }
+
+    public function index14()
+    {
+        return view('bloodbank/bbinventory');
     }
 }
