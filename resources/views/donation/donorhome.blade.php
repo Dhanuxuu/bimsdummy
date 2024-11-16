@@ -1,52 +1,25 @@
-@extends('donation.donorhome')
+@extends('layouts.app')
 
-@section('subcontent')
-<!-- <h1 style="padding: 16px;margin-top: 30px;">Blood Donation Camp</h1><br>-->
-<!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="padding: 16px;margin-top: 30px;">
-    <div class="container">
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/')}}">{{ __('Create Blood Camp') }}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/')}}">{{ __('Modify Blood Camp') }}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/')}}">{{ __('Registered Donors Details') }}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/')}}">{{ __('Display Donors') }}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/')}}">{{ __('Camp Analysis') }}</a>
-            </li>
-        </ul>
-    </div>
-</nav> -->
-{{--<div class="container-fluid" style="padding: 16px;margin-top: 17px;">
+@section('content')
+<div class="container-fluid" style="padding: 16px;margin-top: 17px;">
   <div class="row">
     <!-- Sidebar / Vertical Navbar -->
-    <nav class="col-md-3 col-lg-2 d-md-block sidebar" style="background-color:#edeff0;">
+    <nav class="col-md-3 col-lg-2 d-md-block bg-white shadow-sm sidebar" style="margin-top:-2px">
       <div class="position-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <!-- <a class="nav-link text-black" href="#section1">Section 1</a> -->
-            <a class="nav-link text-black" href="{{url('/')}}">{{ __('Create Blood Camp') }}</a>
+            <a class="nav-link text-black" href="{{route('donation/adddonacamp')}}">{{ __('Create Blood Camp') }}</a>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link text-black" href="#section2">Section 2</a> -->
-            <a class="nav-link text-black" href="{{url('/')}}">{{ __('Modify Blood Camp') }}</a>
+            <a class="nav-link text-black" href="{{route('donation/modifycamp')}}">{{ __('Modify Blood Camp') }}</a>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link text-black" href="#section3">Section 3</a> -->
-            <a class="nav-link text-black" href="{{url('/')}}">{{ __('Registered Donors Details') }}</a>
+            <a class="nav-link text-black" href="{{route('donation/approvedonors')}}">{{ __('Registered Donors Details') }}</a>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link text-black" href="#section3">Section 3</a> -->
-            <a class="nav-link text-black" href="{{url('/')}}">{{ __('Display Donors') }}</a>
+            <a class="nav-link text-black" href="{{route('donation/donationcamp')}}">{{ __('Display Donors') }}</a>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link text-black" href="#section3">Section 3</a> -->
             <a class="nav-link text-black" href="{{url('/')}}">{{ __('Camp Analysis') }}</a>
           </li>
         </ul>
@@ -54,7 +27,7 @@
     </nav>
 
     <!-- Main Content Area -->
-    <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+    <!-- <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <h2>Page Content</h2>
       <p>This is the main content area. The vertical navbar is fixed on the left side.
       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 
@@ -84,43 +57,11 @@
       , nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse 
       quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
       </p>
+    </main> -->
+    <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="background-color:#c7c6c6;">
+    @yield('subcontent')
     </main>
   </div>
-</div>--}}
-<!-- <main class="py-4">
-    @yield('subcontent')
-</main> -->
-<div class="container">
-<h2>Create a Donation Camp</h2>
-<div class="card-body p-4 p-md-5">
-    <form>
-        <div class="row">
-            <div class="col-md-5 mb-4">
-                <h4>Add location</h4>
-                <input type="text" id="lastName" class="form-control" />
-            </div>
-            <div class="col-md-5 mb-4">
-                <h4>Add date</h4>
-                <input type="text" id="lastName" class="form-control" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-5 mb-4">
-                <h4>Add time</h4>
-                <input type="text" id="lastName" class="form-control" />
-            </div>
-            <div class="col-md-5 mb-4">
-                <h4>Add file/image</h4>
-                <input type="file" id="lastName" class="form-control" />
-            </div>
-        </div>
-        <div class="mt-4 pt-2">
-            <button type="submit" class="btn btn-primary">
-                Add camp
-            </button>
-        </div>
-    </form>
-    <br><br>
-</div> 
 </div>
 @endsection
+

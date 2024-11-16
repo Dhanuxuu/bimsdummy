@@ -2,9 +2,8 @@
 
 @section('content')
 <div class="container" style="padding: 16px;margin-top: 30px;">
-<h1>Request Blood Component</h1>
-<br>
-<form>
+<h1>Blood Requests</h1>
+<!-- <form>
     
         <div class="col-md-6 mb-4">
         <div data-mdb-input-init class="form-outline">
@@ -38,22 +37,24 @@
         </button>
     </div>
     
-</form>
+</form> -->
 </div>
-<br><br>
+<br>
 <div class="container">
 <table class="table table-bordered">
     <thead>
         <tr>
             <th>S.no</th><!--track number-->
-            <th>Blood Bank</th>
+            <th>Hospital Name</th>
             <th>Blood component</th>
             <th>Amount</th>
-            <th>Status</th>
+            <th>Status(Approve/Deny)</th>
+            <th>Date</th>
         </tr>
     </thead>
     <tbody>
         <tr>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>

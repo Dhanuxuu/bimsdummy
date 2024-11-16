@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
-        <div>
-            <div>
-                <div>
-                    <div class="card-body p-4 p-md-5">
+                <div class="container">
+                    <div class="card-body p-4 p-md-5" >
                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" align="center">{{ __('Create Account') }}</h3>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
@@ -13,7 +10,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="form-outline">
                                         <label for="email" class="form-label">{{ __('Email Address') }}</label>
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="If you're a hospital staff,enter work address">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -65,7 +62,7 @@
                                             <option value="staff" >Register as Hospital/BloodBank staff</option>
                                         </select> -->
                                         <select name="role" id="role" class="form-control">
-                                            <option value="" {{ old('role') == '' ? 'selected' : '' }}>Select a role</option>
+                                            <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Select a role</option>
                                             <option value="donor" {{ old('role') == 'donor' ? 'selected' : '' }}>Register as a Donor</option>
                                             <option value="staff" {{ old('role') == 'staff' ? 'selected' : '' }}>Register as Hospital/BloodBank staff</option>
                                         </select>
@@ -81,7 +78,4 @@
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 @endsection

@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+<div class="container" style="padding: 16px;margin-top: 30px;">
     <h1>Profile</h1>
     <br>
     <div class="row">
@@ -17,16 +18,44 @@
             <h5>Email: {{ Auth::user()->email }}</h5><br>
             <h5>Telephone:{{ Auth::user()->name }}</h5><br>
         </div>
-
+        @if (Auth::user()->role == 'donor')
         <div class="col">
-            <h3>Login Activities</h3><br>
-            <h5>First access to site: {{ Auth::user()->created_at }}</h5><br>
-            <h5>Last access to site: {{ Auth::user()->lastseen}}</h5><br>
-            <h5>Activities did through last month</h5><br>
-        </div>
+            <h3>Donation History</h3><br>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>S.no</th>
+                        <th>Donated date</th>
+                        <th>Donated Place</th>
+                        <th>Donated Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
+        @endif
 
     </div>
-
+@if (Auth::user()->role == 'donor')
+    <div class="col-md-6 mb-4">
+        <a href="{{route('auth/donoregister')}}"><button class="btn btn-primary">
+                {{ __('Register as a donor') }}
+            </button></a>
+    </div>
+@else
+    <div class="col-md-6 mb-4">
+        <a href="{{route('auth/donoregister')}}"><button class="btn btn-primary">
+                {{ __('Update your profile') }}
+            </button></a>
+    </div>
+@endif
 </div>
 @endsection
 

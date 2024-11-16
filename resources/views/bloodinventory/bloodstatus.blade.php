@@ -1,8 +1,7 @@
-@extends('layouts.app')
+@extends('bloodinventory.bihome')
 
-@section('content')
-<div  style="padding: 16px;margin-top: 30px;">
-<h1>Blood Availability</h1>
+@section('subcontent')
+<h2>Blood Status</h2>
         <div class="card-body p-4 p-md-5" >
         <form>
             <div class="row">
