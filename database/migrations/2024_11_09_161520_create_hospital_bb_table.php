@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blood_banks', function (Blueprint $table) {
-            $table->id('BloodBankID');
-            $table->string('Name');
-            $table->string('Address');
-            $table->string('District');
-            $table->string('Province');
-            $table->string('ContactInfo');
-            $table->timestamp('LastUpdated')->useCurrent();
+        Schema::create('hospital_bb', function (Blueprint $table) {
+            $table->id('hbb_id');
+            $table->string('type');
+            $table->string('name');
+            $table->string('address');
+            $table->string('district');
+            $table->string('province');
+            $table->string('contact_info');
+            $table->timestamp('last_updated')->useCurrent();
             $table->timestamps();
         });
     }

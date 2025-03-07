@@ -12,18 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('donors', function (Blueprint $table) {
-            $table->id('DonorID');
-            $table->string('FirstName');
-            $table->string('LastName');
-            $table->string('Gender');
-            $table->integer('Age');
-            $table->integer('Weight');
-            $table->string('BloodType');
-            $table->text('Diseases')->nullable();
-            $table->string('NIC')->unique();
-            $table->string('ContactNo');
-            $table->string('Location');
-            $table->string('Email')->unique();
+            $table->id('donor_id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('gender');
+            $table->integer('weight');
+            $table->string('blood_type');
+            $table->text('diseases')->nullable();
+            $table->string('nic')->unique();
+            $table->string('contact_no');
+            $table->string('location');
+            //$table->string('Email')->unique();
             $table->timestamps();
         });
     }

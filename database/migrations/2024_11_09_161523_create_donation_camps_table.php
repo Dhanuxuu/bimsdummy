@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('donation_camps', function (Blueprint $table) {
-            $table->id('CampID');
-            $table->string('Location');
-            $table->date('Schedule');
-            $table->integer('NumberOfDonations')->default(0);
+            $table->id('camp_iD');
+            $table->string('location');
+            $table->date('schedule');
+            $table->integer('no_of_donations')->default(0);
             $table->timestamps();
         });
     }
