@@ -10,7 +10,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="form-outline">
                                         <label for="email" class="form-label">{{ __('Email Address') }}</label>
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="If you're a hospital staff,enter work address">
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -55,16 +55,16 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-4 d-flex align-items-center">
-                                    <div class="form-outline datepicker w-100">
+                                    <div class="form-outline datepicker w-100" hidden>
                                         <label for="role" class="form-label">Your role</label>
                                         <!-- <select name="role" id="role" class="form-control">
                                             <option value="donor" selected>Register as a Donor</option>
                                             <option value="staff" >Register as Hospital/BloodBank staff</option>
                                         </select> -->
                                         <select name="role" id="role" class="form-control">
-                                            <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Select a role</option>
-                                            <option value="donor" {{ old('role') == 'donor' ? 'selected' : '' }}>Register as a Donor</option>
-                                            <option value="staff" {{ old('role') == 'staff' ? 'selected' : '' }}>Register as Hospital/BloodBank staff</option>
+                                            <!-- <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Select a role</option> -->
+                                            <option value="donor" {{ old('role') == 'donor' ? 'selected' : '' }}></option>
+                                            <!-- <option value="staff" {{ old('role') == 'staff' ? 'selected' : '' }}>Register as Hospital/BloodBank staff</option> -->
                                         </select>
 
                                     </div>
