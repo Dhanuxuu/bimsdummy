@@ -15,6 +15,16 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <!-- Swiper CSS -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -159,7 +169,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('hospital.create') }}">{{ __('Register Blood Bank') }}</a>
-                                    <a class="dropdown-item" href="#">{{ __('Donation Camp Management') }}</a>
+                                    <a class="dropdown-item" href="{{ route('hospital.donationcamp') }}">{{ __('Donation Camp Management') }}</a>
                                     <a class="dropdown-item" href="#">{{ __('Blood Requests') }}</a>
                                     <a class="dropdown-item" href="#">{{ __('Blood Availability') }}</a>
                                     <a class="dropdown-item" href="{{ route('inventory.home') }}">{{ __('Blood Inventory') }}</a>

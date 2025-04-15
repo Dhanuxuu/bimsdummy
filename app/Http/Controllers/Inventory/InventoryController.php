@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Inventory;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Donation\Donation;
 
 class InventoryController extends Controller
 {
@@ -30,6 +31,7 @@ class InventoryController extends Controller
 
     public function index_check_exp()
     {
-        return view('inventory.check_exp');
+        $donate = Donation::all();
+        return view('inventory.check_exp',compact('donate'));
     }
 }

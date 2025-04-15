@@ -1,9 +1,16 @@
 <?php
 
+use App\Models\Hospital\DonationCamp;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    try{
+        $camps = DonationCamp::all();
+        return view('welcome',compact('camps'));
+    }catch(\Exception $e){
+        return view('welcome');
+    }
 });
 
 Auth::routes();
@@ -29,3 +36,9 @@ Route::get('/inventory/availability', [App\Http\Controllers\Inventory\InventoryC
 Route::get('/inventory/bloodstatus', [App\Http\Controllers\Inventory\InventoryController::class, 'index_bloodstatus'])->name('inventory.bloodstatus');//show profile
 Route::get('/inventory/check_exp', [App\Http\Controllers\Inventory\InventoryController::class, 'index_check_exp'])->name('inventory.check_exp');//show profile
 
+//Donation
+Route::post('/inventory/add', [App\Http\Controllers\Donation\DonationController::class, 'addDonations'])->name('inventory.store');//show profile
+
+//Donation camp management
+Route::get('/hospital/camp', [App\Http\Controllers\Hospital\HospitalController::class, 'donationCamp'])->name('hospital.donationcamp');//show profile
+Route::post('/hospital/camp', [App\Http\Controllers\Hospital\HospitalController::class, 'donationCampStore'])->name('hospital.storedonationcamp');//show profile

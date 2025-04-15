@@ -4,21 +4,22 @@
 <div class="container">
 <h2>Add Donations</h2>
 <div class="card-body p-4 p-md-5">
-    <form>
+    <form method="post" action="{{ route('inventory.store') }}">
+        @csrf
         <div class="row">
             <div class="col-md-5 mb-4">
                 <h4>Camp ID</h4>
-                <input type="text" id="lastName" class="form-control" />
+                <input type="text" id="campID" name="campID" class="form-control" />
             </div>
             <div class="col-md-5 mb-4">
                 <h4>date</h4>
-                <input type="date" id="lastName" class="form-control" />
+                <input type="date" id="date" name="date" class="form-control" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-5 mb-4">
                 <h4>NIC</h4>
-                <input type="text" id="lastName" class="form-control" />
+                <input type="text" id="nic" name="nic" class="form-control" />
             </div>
             <div class="col-md-5 mb-4">
                 <h4>Blood Category</h4>
@@ -37,17 +38,17 @@
         <div class="row">
             <div class="col-md-5 mb-4">
                 <h4>Amount</h4>
-                <input type="text" id="lastName" class="form-control" />
+                <input type="text" id="amount" name="amount" class="form-control" />
             </div>
             <div class="col-md-5 mb-4">
                 <h4>Expired Date(After 2 months)</h4>
-                <input type="Date" id="lastName" class="form-control" />
+                <input type="Date" id="expdate" name="expdate" class="form-control" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-5 mb-4">
                 <h4>Storage Location</h4>
-                <input type="text" id="lastName" class="form-control" />
+                <input type="text" id="storelocation" name="storelocation" class="form-control" />
             </div>
             <div class="mt-4 pt-2">
             <button type="submit" class="btn btn-primary">

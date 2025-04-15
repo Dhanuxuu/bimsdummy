@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Hospital;
 
 use App\Http\Controllers\Controller;
 use App\Models\Hospital\BloodType;
+use App\Models\Hospital\DonationCamp;
 use App\Models\Hospital\Hospital;
 use App\Models\Hospital\BloodReq;
 use Illuminate\Http\Request;
@@ -86,5 +87,23 @@ class HospitalController extends Controller
         return view('hospital.viewbloodreq',compact('requests'));
     }
 
+    public function donationCamp()
+    {
+        return view('hospital.donationcamp');
+    }
 
-}
+    public function donationCampStore(Request $request)
+    {
+        $camp = DonationCamp::create([
+            "s_date" => $request->s_date,
+            "location" => $request->location,
+            "hbid" => $request->hbid,
+            
+        ]);
+        if($camp){
+            $camps = DonationCamp::all();
+            return view('welcome',compact('camps'));
+        }
+    }
+
+}//
