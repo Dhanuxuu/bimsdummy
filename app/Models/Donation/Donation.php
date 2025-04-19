@@ -20,6 +20,7 @@ class Donation extends Model
         "amount",
         "expdate",
         "storelocation",
+        "hbid",
     ];
 
     public $timestamps = true;

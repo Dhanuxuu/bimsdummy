@@ -11,18 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('donations', function (Blueprint $table) {
+        Schema::create('blood_inventory', function (Blueprint $table) {
             $table->id();
-            $table->string('campID');
-            $table->date('date');
-            $table->string('nic');
-            $table->string('btype');
-            $table->string('amount');
-            $table->date('expdate');
-            $table->string('storelocation');
             $table->string('hbid');
+            $table->string('ap');
+            $table->string('an');
+            $table->string('bp');
+            $table->string('bn');
+            $table->string('op');
+            $table->string('on');
+            $table->string('abp');
+            $table->string('abn');
+            // $table->string('hbid');
             $table->timestamps();
-
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('donations');
+        Schema::dropIfExists('blood_inventory');
     }
 };

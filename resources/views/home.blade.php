@@ -33,7 +33,7 @@
         <h5>Email : {{ $staff->email }}</h5><br>
         <h5>Contact no : {{ $staff->phone }}</h5><br>
         <h5>Address : {{ $staff->hbaddress }}</h5><br>
-        <h5>Actions : </h5><br>
+        <h5>Actions :{{ $staff->id }} </h5><br>
         </div>
         @else
         <div class="col-md-8">

@@ -20,6 +20,7 @@ class BloodReq extends Model
         "btype",
         "amount",
         "status",
+        "remark",
     ];
 
     public $timestamps = true;
