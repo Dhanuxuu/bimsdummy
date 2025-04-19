@@ -98,10 +98,10 @@
                                                             {{ 'Modifications' }}
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                            <a class="nav-link" href="{{url('/')}}">{{ __('Add blood education') }}</a>
-                                                            <a class="nav-link" href="{{url('/')}}">{{ __('Update gallery') }}</a>
-                                                            <a class="nav-link" href="{{url('/')}}">{{ __('Delete gallery') }}</a>
-                                                            <a class="nav-link" href="{{url('/')}}">{{ __('other') }}</a>
+                                                            <a class="nav-link" href="{{route('admin.education')}}">{{ __('Update blood education') }}</a>
+                                                            <a class="nav-link" href="{{route('admin.gallery')}}">{{ __('Update gallery') }}</a>
+                                                            <a class="nav-link" href="{{route('admin.viewUsers')}}">{{ __('Update users') }}</a>
+                                                            <a class="nav-link" href="{{url('/')}}">{{ __('analysis') }}</a>
                                                         </div>
                                                     </li>
                                                     <li class="nav-item dropdown">
@@ -171,7 +171,7 @@
                                     <a class="dropdown-item" href="{{ route('hospital.create') }}">{{ __('Register Blood Bank') }}</a>
                                     <a class="dropdown-item" href="{{ route('hospital.donationcamp') }}">{{ __('Donation Camp Management') }}</a>
                                     <a class="dropdown-item" href="{{ route('hospital.bloodrequpdate') }}">{{ __('Blood Requests') }}</a>
-                                    <a class="dropdown-item" href="#">{{ __('Blood Availability') }}</a>
+                                    <!-- <a class="dropdown-item" href="#">{{ __('Blood Availability') }}</a> -->
                                     <a class="dropdown-item" href="{{ route('inventory.home') }}">{{ __('Blood Inventory') }}</a>
                                 </div>
                             </li>
