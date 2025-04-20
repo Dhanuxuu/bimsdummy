@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container" style="padding: 16px;margin-top: 30px;">
-<h1>Request Blood Component</h1>
+<h1>Create Donation Camp</h1>
 <br>
 <form method="post" action="{{ route('hospital.storedonationcamp') }}">
     @csrf

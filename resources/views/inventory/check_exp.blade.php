@@ -20,14 +20,14 @@
                     <h4>Category</h4>
                     <select id="btype" class="form-control">
                         <option value="">-- All --</option>
-                        <option value="ap">A+</option>
-                        <option value="an">A-</option>
-                        <option value="bp">B+</option>
-                        <option value="bn">B-</option>
-                        <option value="op">O+</option>
-                        <option value="on">O-</option>
-                        <option value="abp">AB+</option>
-                        <option value="abn">AB-</option>
+                        <option value="1">A+</option>
+                        <option value="2">A-</option>
+                        <option value="3">B+</option>
+                        <option value="4">B-</option>
+                        <option value="5">O+</option>
+                        <option value="6">O-</option>
+                        <option value="7">AB+</option>
+                        <option value="8">AB-</option>
                     </select>
                 </div>
                 <div class="mt-4 pt-2">

@@ -106,4 +106,22 @@ class HospitalController extends Controller
         }
     }
 
+    public function bloodrequpdate()
+    {
+        $requests = BloodReq::all();
+        return view('hospital.bloodrequpdate',compact('requests'));
+    }
+
+    public function storeBloodrequpdate(Request $request,$id)
+    {
+        
+        $record = BloodReq::find($id);
+        $record->update($request->all());
+        if($record){
+            // $requests = BloodReq::all();
+            // return view('',compact('requests'));
+            return Redirect::route("hospital.bloodrequpdate");
+        }
+    }
+
 }//

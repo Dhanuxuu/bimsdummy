@@ -157,6 +157,69 @@
             </div>
     
         </div>
+        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="camp">Blood Donation Camp</h3>
+        @if ($camps === null)
+            <p>No Donation camps...</p>
+        @else
+            <style>
+                .swiper {
+                    position: relative;
+                    padding: 20px 40px; /* space for arrows */
+                }
+
+                .swiper-slide {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .card {
+                    min-width: 18rem;
+                }
+
+                .swiper-button-next,
+                .swiper-button-prev {
+                    color: #000; /* Arrow color */
+                    z-index: 10;
+                }
+            </style>
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    @foreach ($camps as $camp)
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Donation Camp {{ $camp->id }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ $camp->location }}</h6>
+                                    <p class="card-text">{{ $camp->s_date }}</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <!-- Navigation arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <script>
+                const swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    loop: true,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                });
+            </script>
+        @endif
+
+        
+        <br><br>
 
         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="about">About Us</h3>
         <p>
@@ -219,20 +282,5 @@
         </div>
     </div>
     </div>
-    <script>
-    const swiper = new Swiper(".mySwiper", {
-        slidesPerView: 3,   // Show 3 cards at a time
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-        // el: ".swiper-pagination",
-        clickable: true,
-        },
-        navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-        },
-    });
-    </script>
 
     @endsection

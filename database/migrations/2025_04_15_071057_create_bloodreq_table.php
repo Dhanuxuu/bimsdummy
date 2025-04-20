@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('btype');
             $table->integer('amount');
             $table->string('status')->default('sent');
+            $table->string('remark')->default('no any updates.');
             $table->timestamps();
         });
     }

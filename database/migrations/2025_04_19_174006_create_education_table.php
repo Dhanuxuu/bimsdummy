@@ -11,18 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('donations', function (Blueprint $table) {
+        Schema::create('education', function (Blueprint $table) {
             $table->id();
-            $table->string('campID');
-            $table->date('date');
-            $table->string('nic');
-            $table->string('btype');
-            $table->string('amount');
-            $table->date('expdate');
-            $table->string('storelocation');
-            $table->string('hbid');
+            $table->string('name');
+            $table->string('description');
+            $table->string('image');
             $table->timestamps();
-
         });
     }
 
@@ -31,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('donations');
+        Schema::dropIfExists('education');
     }
 };

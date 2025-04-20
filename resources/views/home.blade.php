@@ -20,6 +20,30 @@
         <h5>Blood Type : {{ $donor->blood_type }}</h5><br>
         <h5>Actions : </h5><br>
         </div>
+        <h2>Donation History</h2><br>
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col"></th>
+            <th scope="col">CampID</th>
+            <th scope="col">Date</th>
+            <th scope="col">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php $count = 1; @endphp
+            @foreach ($donations as $donation)
+            @if ($donation->nic == $donor->nic)
+            <tr>
+            <th scope="row">{{ $count++ }}</th>
+            <td>{{$donation->campID}}</td>
+            <td>{{$donation->date}}</td>
+            <td>{{$donation->amount}}</td>
+            </tr>
+            @endif
+            @endforeach
+        </tbody>
+        </table>
         @elseif(Auth::user()->role == 'staff' && isset($staff))
         <div class="col-md-8">
             <br><br>
@@ -33,7 +57,7 @@
         <h5>Email : {{ $staff->email }}</h5><br>
         <h5>Contact no : {{ $staff->phone }}</h5><br>
         <h5>Address : {{ $staff->hbaddress }}</h5><br>
-        <h5>Actions : </h5><br>
+        <h5>Actions :{{ $staff->id }} </h5><br>
         </div>
         @else
         <div class="col-md-8">

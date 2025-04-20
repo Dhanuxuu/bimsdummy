@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid" style="padding: 16px;margin-top: 17px;">
+<div class="container-fluid" > {{-- Leave space for fixed header --}}
   <div class="row">
-    <!-- Sidebar / Vertical Navbar -->
-    <nav class="col-md-3 col-lg-2 d-md-block bg-white shadow-sm sidebar" style="margin-top:-2px">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 d-md-block bg-white shadow-sm sidebar" style="position: fixed; top: 70px; bottom: 0; overflow-y: auto;">
       <div class="position-sticky">
-        <ul class="nav flex-column">
+        <ul class="nav flex-column mt-3">
           <li class="nav-item">
             <a class="nav-link text-black" href="{{ route('inventory.add_donation') }}">{{ __('Add Donations') }}</a>
           </li>
@@ -20,16 +20,16 @@
             <a class="nav-link text-black" href="{{ route('inventory.availability') }}">{{ __('Current Availability') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-black" href="{{url('/')}}">{{ __('Inventory Analysis') }}</a>
+            <a class="nav-link text-black" href="{{ route('inventory.analysis') }}">{{ __('Inventory Analysis') }}</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="background-color:#c7c6c6;">
-    @yield('subcontent')
+    <!-- Main Content -->
+    <main class="col-md-9 offset-md-3 col-lg-10 offset-lg-2 px-md-4" style="background-color:#c7c6c6; min-height: 100vh;">
+      @yield('subcontent')
     </main>
   </div>
 </div>
 @endsection
-
