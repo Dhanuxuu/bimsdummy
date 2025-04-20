@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="padding: 16px;margin-top: 30px;">
+<!-- @push('styles')
+<link href="{{ asset('css/SignIn.css') }}" rel="stylesheet">
+@endpush -->
+<link href="{{ asset('css/SignIn.css') }}" rel="stylesheet">
+<div class="signin-container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" >{{ __('Sign in') }}</div>
+                <div class="card-header">{{ __('Sign in') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -70,7 +74,7 @@
                             </div>
                             <br><br>
                             <div class="col-md-8 offset-md-4">
-                                <a class="btn btn-primary" href="{{route('register')}}" role="button">{{ __('Create Account') }}</a>
+                                <a class="btn btn-primary create-account" href="{{route('register')}}" role="button">{{ __('Create Account') }}</a>
                             </div>
                         </div>
                     </form>

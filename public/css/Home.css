@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .home {
+    font-family: Arial, sans-serif;
+  }
+
+  /* Home Header as full background image */
+  .home-header {
+    width: 100vw;
+    height: 60vh;
+    min-height: 350px;
+    background: url('/images/Home.jpeg') center center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+  left: 75%;
+    transform: translate(-50%, -50%);
+  text-align: left;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  white-space: nowrap;
+  }
+
+  .black-text {
+    color: #222;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+  .red-text {
+    color: #DD3E3E;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 2px;
+  }
+
+  .chart {
+    flex-shrink: 0;
+  }
+  
+  .chart img {
+    width: 300px;
+    height: auto;
+  }
+  
+  .main-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0px 80px 80px 80px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .grid-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Set a fixed width */
+    height: 300px; /* Set a fixed height */
+}
+
+  .main-content .grid-item:nth-child(1) {
+    margin: 0px 0px 0px 0px;
+}
+
+.main-content .grid-item:nth-child(2) {
+    margin: 160px 0px 50px 0px;
+}
+
+.main-content .grid-item:nth-child(3) {
+    margin: -160px 0px 0px 0px;
+}
+
+.main-content .grid-item:nth-child(4) {
+    margin: 0px 0px 50px 0px;
+}
+  
+  .grid-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .grid-item:hover img {
+    transform: scale(1.05);
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 75%;
+    height: 30%;
+    border-radius: 10px;
+    background: rgba(218, 15, 15, 0.30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.2em;
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Centers the overlay */
+    transition: opacity 0.3s ease;
+  }
+  
+  .grid-item:hover .overlay {
+    opacity: 1;
+  }
+  
+  .faq-section {
+    position: relative;
+    width: 100vw; /* Change to viewport width */
+    min-height: 600px;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden; /* Prevent horizontal scroll */
+}
+
+.faq-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/FAQs.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.faq-section .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.faq-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.faq-section .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+    .faq-section .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.faq-section h2 {
+    font-family: "Inknut Antiqua";
+    font-size: 128px;
+    font-weight: 700;
+    line-height: normal;
+    background: linear-gradient(to right, #FF0404, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    margin-right: 150px; /* Add some spacing between h2 and ul */
+}
+  
+.faq-section ul {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the list items */
+    list-style: none; /* Removes bullets */
+    padding: 0; /* Removes default padding */
+}
+
+.faq-section ul li {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    padding-bottom: 10px; /* Adds some spacing below text */
+    border-bottom: 2px solid black; /* Adds a horizontal line */
+    width: 60%; /* Adjusts the length of the line */
+}
+
+.faq-section ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.faq-section ul li a:hover {
+    color: darkgrey;
+}
+
+@media (max-width: 600px) {
+    .home-header {
+        height: 35vh;
+        min-height: 180px;
+    }
+    .black-text, .red-text {
+        font-size: 1.3rem;
+    }
+}

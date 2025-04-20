@@ -1,0 +1,39 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1 0 auto;
+    width: 100%;
+    padding-bottom: 40px; /* Add some space before footer */
+}
+
+.footer {
+    background: linear-gradient(to right, #17139C, #DD3E3E);
+    color: white; /* White text */
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.footer-text {
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-link {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+  

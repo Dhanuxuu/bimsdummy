@@ -15,6 +15,9 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    
+
     <!-- Swiper CSS -->
     <link
     rel="stylesheet"
@@ -27,14 +30,20 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <style>
+    </style>
 </head>
 
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="position: fixed;width: 100%;">
+    <div id="app" class="page-container">
+        <nav class="navbar navbar-expand-md navbar-light">
+        <link href="{{ asset('css/Navbar.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/Footer.css') }}" rel="stylesheet">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
+                    Red-Lifestream
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -49,7 +58,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto nav-links">
                         <!-- Authentication Links -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/')}}">{{ __('Home') }}</a>
@@ -200,16 +209,22 @@
                 </ul>
             </div>
     </div>
-    </nav>
+        </nav>
 
-    <main class="py-4">
-        @yield('content')
-    </main>
+        <main class="main-content">
+            @yield('content')
+        </main>
+
+        <footer class="footer">
+            <p class="footer-text">&copy; Designed and Developed by Faculty Of Computing.</p>
+            <div class="footer-links">
+                <a href="{{ url('/') }}#about" class="footer-link">Terms and Conditions</a>
+                <a href="{{ url('/') }}#contact" class="footer-link">Accessibility Statement</a>
+                <a href="{{ url('/') }}#privacy" class="footer-link">Privacy Policy</a>
+                <a href="{{ url('/') }}#privacy" class="footer-link">Last Updated</a>
+                <a href="{{ url('/') }}#privacy" class="footer-link">Site Map</a>
+            </div>
+        </footer>
     </div>
-    <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-        <p class="copyright">&copy; Designed and Developed by Faculty Of Computing.</p>
-        <p>Terms & Conditions | Privacy Policy | Accessibility Statement | Last Updated : Jul 21 2024 | Site Map</p>
-    </footer>
 </body>
-
 </html>

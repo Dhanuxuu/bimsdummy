@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+<link href="{{ asset('css/SignIn.css') }}" rel="stylesheet">
+    <div class="signin-container">
+        <div class="card">
         <div class="card-body p-4 p-md-5" >
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" align="center">{{ __('Create Account') }}</h3>
             <form method="POST" action="{{ route('register') }}">
@@ -55,12 +57,8 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-4 d-flex align-items-center">
-                        <div class="form-outline datepicker w-100" hidden>
-                            <label for="role" class="form-label">Your role</label>
-                            <select name="role" id="role" class="form-control">
-                                <option value="donor" {{ old('role') == 'donor' ? 'selected' : '' }}></option>
-                            </select>
-
+                        <div class="form-outline w-100">
+                            <input type="hidden" name="role" id="role" value="donor">
                         </div>
                     </div>
                 </div>
@@ -70,6 +68,7 @@
                     </button>
                 </div>
             </form>
+        </div>
         </div>
     </div>
 @endsection
