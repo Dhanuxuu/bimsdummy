@@ -24,6 +24,9 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('styles/Navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/Footer.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -31,9 +34,10 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="position: fixed;width: 100%;">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="position: fixed; width: 100%; top: 0;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -202,13 +206,21 @@
     </div>
     </nav>
 
-    <main class="py-4">
+    <main class="py-4" style="padding-top: 80px;">
         @yield('content')
     </main>
     </div>
-    <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-        <p class="copyright">&copy; Designed and Developed by Faculty Of Computing.</p>
-        <p>Terms & Conditions | Privacy Policy | Accessibility Statement | Last Updated : Jul 21 2024 | Site Map</p>
+    <footer class="footer">
+        <div class="footer-text">
+            <p class="copyright">&copy; Designed and Developed by Faculty Of Computing.</p>
+        </div>
+        <div class="footer-links">
+            <a href="#" class="footer-link">Terms & Conditions</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Accessibility Statement</a>
+            <a href="#" class="footer-link">Last Updated : Jul 21 2024</a>
+            <a href="#" class="footer-link">Site Map</a>
+        </div>
     </footer>
 </body>
 

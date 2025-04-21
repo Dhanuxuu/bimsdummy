@@ -1,0 +1,81 @@
+.bloodbank-container {
+    background: url('../images/BloodBankBG.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.bloodbank-box {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto; /* Centers horizontally */
+}
+
+.page-title {
+    font-weight: 700;
+    background: linear-gradient(to right, #FF0404, black);
+    -webkit-background-clip: text;  /* This ensures the gradient only applies to text */
+    -webkit-text-fill-color: transparent; /* Makes the text color transparent, showing the gradient */
+    font-size: 2em;
+    text-align: left; /* Aligns the text to the left */
+    margin: 50px 0 20px 0; /* Adds some space around the title */
+}
+
+.search-filters {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    margin: 20px 0;
+    width: 80%; /* Adjust width as needed */
+    max-width: 1200px; /* Prevents it from becoming too wide on large screens */
+}
+
+  
+  .search-filters select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    width: 250px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .bloodbank-table {
+    width: 80%;
+    margin: 30px auto 0; /* 30px top margin, auto left/right margin */
+    border-collapse: collapse;
+}
+
+  .bloodbank-table th, .bloodbank-table td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .bloodbank-table th {
+    background-color: #A41717;
+    color: white;
+  }
+  
+  .no-data {
+    color: gray;
+    font-style: italic;
+  }
+  
