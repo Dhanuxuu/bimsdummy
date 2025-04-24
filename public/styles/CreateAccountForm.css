@@ -10,12 +10,13 @@
   }
   
   .form-container {
+    background: rgba(255, 255, 255, 0.6); 
     max-width: 100%; /* Set a max width for larger screens */
     margin: 40px auto;
-    background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
   }
   
   .form-container h1 {
@@ -23,7 +24,9 @@
     background: linear-gradient(to right, red, black);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 50px; /* Add space below the title */
+    margin-bottom: 20px; /* Add space below the title */
+    font-weight: bolder;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
   }
   
   form {
@@ -39,21 +42,21 @@
   
   @media (min-width: 600px) {
     .form-column {
-      width: 48%; /* Columns are 48% of the form width for larger screens */
+      width: 100%; /* Columns are 48% of the form width for larger screens */
     }
   }
   
   label {
     display: block;
-    margin-bottom: 6px;
-    margin-left: 10%;
-    font-weight: 500;
+    margin-top: 15px;
+    
+    font-weight: bold;
   }
   
   input,
   select,
-  textarea {
-    width: 80%;
+  textarea .input-cells {
+    width: 70%;
     padding: 10px; /* Increase padding for better touch targets */
     margin-bottom: 20px;
     margin-left: auto;
@@ -61,6 +64,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border-color 0.3s; /* Smooth transition for focus */
+    max-width: 80%;
   }
   
   input:focus,
@@ -145,5 +149,17 @@
     .form-actions {
       flex-direction: column; /* Stack buttons vertically */
     }
+  }
+  
+  .register-background {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../images/SignInBG.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   

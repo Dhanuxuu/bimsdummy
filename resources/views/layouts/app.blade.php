@@ -27,6 +27,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('styles/Navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('styles/Footer.css') }}">
+    @yield('styles')
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -34,7 +35,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="position: fixed; width: 100%; top: 0;">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
@@ -206,10 +207,10 @@
     </div>
     </nav>
 
-    <main class="py-4" style="padding-top: 80px;">
+    <main style="min-height: calc(100vh - 160px);">
         @yield('content')
     </main>
-    </div>
+
     <footer class="footer">
         <div class="footer-text">
             <p class="copyright">&copy; Designed and Developed by Faculty Of Computing.</p>
@@ -222,6 +223,7 @@
             <a href="#" class="footer-link">Site Map</a>
         </div>
     </footer>
+</div>
 </body>
 
 </html>
