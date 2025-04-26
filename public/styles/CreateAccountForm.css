@@ -39,6 +39,13 @@
     display: flex;
     flex-direction: column;
   }
+
+  .form-column-center {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  }
   
   @media (min-width: 600px) {
     .form-column {
@@ -151,15 +158,5 @@
     }
   }
   
-  .register-background {
-    width: 100vw;
-    height: 100vh;
-    background-image: url('../images/SignInBG.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  
   

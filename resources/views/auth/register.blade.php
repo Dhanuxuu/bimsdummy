@@ -2,10 +2,11 @@
 
 @section('styles')
     <link href="{{ asset('styles/CreateAccountForm.css') }}" rel="stylesheet">
+    <link href="{{ asset('styles/BgAdder.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
-    <div class="register-background">
+    <div class="pgbackground register-background">
         <div class="form-container" >
             <h1 class="" align="center">{{ __('Create Account') }}</h1>
             <form class="form-column" method="POST" action="{{ route('register') }}">
