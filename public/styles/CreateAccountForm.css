@@ -1,3 +1,7 @@
+@import "./variables.css";
+
+@import "./googlebutton.scss";
+
 * {
     box-sizing: border-box;
   }
@@ -21,7 +25,7 @@
   
   .form-container h1 {
     text-align: center;
-    background: linear-gradient(to right, red, black);
+    background: var(--gradient-color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px; /* Add space below the title */
@@ -129,7 +133,7 @@
   button {
     padding: 10px 20px;
     border: none;
-    background: linear-gradient(to right, #C11B1B, black);
+    background: var(--gradient-color);
     color: white;
     border-radius: 4px;
     cursor: pointer;

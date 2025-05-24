@@ -9,7 +9,7 @@
         <div class="col-md-6 mb-4">
 
         <div data-mdb-input-init class="form-outline" >
-        <input id="hbid"  class="form-control form-control-lg" name="hbid" value='{{ Auth::user()->id }}'>
+        <input id="hbid"  class="form-control form-control-lg" name="hbid" value='{{ Auth::user()->id }}' hidden>
         </div>
         
         <div data-mdb-input-init class="form-outline">

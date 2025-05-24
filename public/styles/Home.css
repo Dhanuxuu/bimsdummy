@@ -1,3 +1,5 @@
+@import "./variables.css";
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,19 +17,20 @@
 
 .overlay-text {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 75%;
   transform: translate(-50%, -50%);
   text-align: left;
   font-size: 2em;
-  font-weight: bold;
+  font-weight: extra-bold;
   margin-bottom: 10px;
   margin-top: 50px;
   white-space: nowrap;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .overlay-text .black-text {
-  color: black;
+  color: rgb(207, 201, 201);
   background: none;
   -webkit-background-clip: unset;
   -webkit-text-fill-color: unset;
@@ -35,7 +38,7 @@
 
 .overlay-text .red-text {
   color: transparent; /* Set the text color to transparent */
-  background: linear-gradient(to right, #FF0404, black); /* Apply the gradient as the background */
+  background: var(--gradient-color); /* Apply the gradient as the background */
   -webkit-background-clip: text;  /* This ensures the gradient only applies to text */
   -webkit-text-fill-color: transparent; /* Makes the text color transparent, showing the gradient */
   display: inline-block;

@@ -2,6 +2,8 @@
 
 use App\Models\Hospital\DonationCamp;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\GoogleController;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -14,6 +16,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+// Google Login Routes
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('auth/callback/google', [GoogleController::class, 'handleGoogleCallback']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//show profile
 

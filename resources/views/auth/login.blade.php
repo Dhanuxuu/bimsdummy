@@ -2,6 +2,7 @@
 
 @section('styles')
     <link href="{{ asset('styles/SignIn.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('styles/googlebutton.css') }}" rel="stylesheet"> -->
 @endsection
 
 @section('content')
@@ -59,7 +60,7 @@
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>
-                                <div class="divider">
+                                <div>
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
@@ -75,10 +76,15 @@
                                     {{ __('Sign in') }}
                                 </button>
                             </div>
-                            <br><br><br>
-                            <div class="signin-form">
-                                <a class="create-account-button" href="{{route('register')}}"
-                                    role="button">{{ __('Create Account') }}</a>
+
+                            <div class="signin-form" style="margin-top: 20px;">
+                                <button class="login-with-google-btn" href="{{ route('auth.google') }}">
+                                    {{ __('Sign in with Google') }}
+                                </button>
+                            </div>
+                            <div class="signin-form" style="margin-top: 20px;">
+                                <button class="create-account-button" href="{{route('register')}}"
+                                    role="button">{{ __('Create Account') }}</button>
                             </div>
                         </div>
                     </form>
