@@ -25,8 +25,9 @@ class InventoryController extends Controller
     {
         $camps = DonationCamp::all();
         $btypes = BloodType::all();
-        $users = Hospital::all();
-        return view('inventory.add_donation',compact('camps','btypes','users'));
+        $hospitals = Hospital::all();
+        $user = Auth::user();
+        return view('inventory.add_donation', compact('camps', 'btypes', 'hospitals', 'user'));
     }
 
     public function index_availability()
@@ -87,6 +88,28 @@ class InventoryController extends Controller
         $districts = DB::table('hospital')->select('district')->distinct()->pluck('district');
 
         return view('inventory.bloodstatus',compact('hospitals','bloodtypes','latestInventories','provinces','districts'));
+    }
+
+    public function index_bloodsearch()
+    {
+        $hospitals = Hospital::all();
+        $bloodtypes = BloodType::all();
+        $latestInventories = BloodInventory::join(DB::raw('
+        (
+            SELECT hbid, MAX(updated_at) as latest_time
+            FROM blood_inventory
+            GROUP BY hbid
+        ) as latest'),
+        function ($join) {
+            $join->on('blood_inventory.hbid', '=', 'latest.hbid')
+                ->on('blood_inventory.updated_at', '=', 'latest.latest_time');
+        })
+        ->select('blood_inventory.*')
+        ->get();
+        $provinces = DB::table('hospital')->select('province')->distinct()->pluck('province');
+        $districts = DB::table('hospital')->select('district')->distinct()->pluck('district');
+
+        return view('guest.bloodsearch',compact('hospitals','bloodtypes','latestInventories','provinces','districts'));
     }
 
     public function index_check_exp()

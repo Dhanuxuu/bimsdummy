@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-md-6 mb-4">
                         <div data-mdb-input-init class="form-outline">
-                            <label for="hbname" class="form-label">{{ __('Hospital Name') }}</label>
+                            <label for="hbname" class="form-label">{{ __('Hospital/Bloodbank Name') }}</label>
                             <input type="text" id="hbname" class="form-control" name="hbname" required />
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <div data-mdb-input-init class="form-outline">
-                            <label for="email" class="form-label">{{ __('Hospital/Work Email Address') }}</label>
+                            <label for="email" class="form-label">{{ __('Hospital/Bloodbank Email Address') }}</label>
                             <input id="email" type="email" class="form-control form-control-lg" name="email" value='{{ Auth::user()->email }}' readonly>
                         </div>
                     </div>

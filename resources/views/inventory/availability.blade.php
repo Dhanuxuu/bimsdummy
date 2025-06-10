@@ -41,20 +41,38 @@
                 <td><input type="number" min="0" name="on" id="on" class="form-control new" data-type="on"></td>
                 <td><input type="number" min="0" name="abp" id="abp" class="form-control new" data-type="abp"></td>
                 <td><input type="number" min="0" name="abn" id="abn" class="form-control new" data-type="abn"></td>
-                <input type="text" name="hbid" id="hbid" class="form-control" value="{{ $users }}" hidden>
+                @php
+                    $hbid = $users ?? Auth::user()->id;
+                @endphp
+                <input type="text" name="hbid" id="hbid" class="form-control" value="{{ $hbid }}" hidden>
                 <td>
                 </td>
         </tr>
+        @php
+            $currentDate = now()->format('Y-m-d H:i:s');
+            $defaultInventory = (object)[
+                'created_at' => $currentDate,
+                'ap' => 0,
+                'an' => 0,
+                'bp' => 0,
+                'bn' => 0,
+                'op' => 0,
+                'on' => 0,
+                'abp' => 0,
+                'abn' => 0
+            ];
+            $inventory = $binventory ?? $defaultInventory;
+        @endphp
         <tr>
-            <td>Current amount as at {{ $binventory->created_at }}</td>
-            <td>{{ $binventory->ap ?? 0 }}</td>
-            <td>{{ $binventory->an ?? 0 }}</td>
-            <td>{{ $binventory->bp ?? 0 }}</td>
-            <td>{{ $binventory->bn ?? 0 }}</td>
-            <td>{{ $binventory->op ?? 0 }}</td>
-            <td>{{ $binventory->on ?? 0 }}</td>
-            <td>{{ $binventory->abp ?? 0 }}</td>
-            <td>{{ $binventory->abn ?? 0 }}</td>
+            <td>Current amount as at {{ $inventory->created_at }}</td>
+            <td>{{ $inventory->ap }}</td>
+            <td>{{ $inventory->an }}</td>
+            <td>{{ $inventory->bp }}</td>
+            <td>{{ $inventory->bn }}</td>
+            <td>{{ $inventory->op }}</td>
+            <td>{{ $inventory->on }}</td>
+            <td>{{ $inventory->abp }}</td>
+            <td>{{ $inventory->abn }}</td>
             <td></td>
         </tr>
         <tr>
@@ -75,11 +93,11 @@
                 @csrf
                 @foreach(['ap', 'an', 'bp', 'bn', 'op', 'on', 'abp', 'abn'] as $type)
                     <td>
-                        <span id="updated-{{ $type }}">{{ $binventory->$type ?? 0 }}</span>
-                        <input type="hidden" name="{{ $type }}" id="input-{{ $type }}" value="{{ $binventory->$type ?? 0 }}">
+                        <span id="updated-{{ $type }}">{{ $inventory->$type ?? 0 }}</span>
+                        <input type="hidden" name="{{ $type }}" id="input-{{ $type }}" value="{{ $inventory->$type ?? 0 }}">
                     </td>
                 @endforeach
-                <input type="hidden" name="hbid" value="{{ $users }}">
+                <input type="hidden" name="hbid" value="{{ $hbid }}">
                 <td>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </td>
@@ -91,14 +109,14 @@
 
 <script>
     const current = {
-        ap: {{ $binventory->ap ?? 0 }},
-        an: {{ $binventory->an ?? 0 }},
-        bp: {{ $binventory->bp ?? 0 }},
-        bn: {{ $binventory->bn ?? 0 }},
-        op: {{ $binventory->op ?? 0 }},
-        on: {{ $binventory->on ?? 0 }},
-        abp: {{ $binventory->abp ?? 0 }},
-        abn: {{ $binventory->abn ?? 0 }},
+        ap: {{ $inventory->ap ?? 0 }},
+        an: {{ $inventory->an ?? 0 }},
+        bp: {{ $inventory->bp ?? 0 }},
+        bn: {{ $inventory->bn ?? 0 }},
+        op: {{ $inventory->op ?? 0 }},
+        on: {{ $inventory->on ?? 0 }},
+        abp: {{ $inventory->abp ?? 0 }},
+        abn: {{ $inventory->abn ?? 0 }},
     };
 
     const newAmounts = {};

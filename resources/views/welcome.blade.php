@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('styles')
 <link href="{{ asset('styles/Home.css') }}" rel="stylesheet">
 @endsection
@@ -15,6 +16,17 @@
                 </div>
             </div>
         </header>
+
+     
+        <div class="d-flex justify-content-center mb-4">
+            <div class="grid-item" onclick="window.location.href='/emergencySearch'">
+                <img src="{{asset('../images/bloodavailability.jpg')}}" alt="Blood Availability" />
+                <div class="overlay">
+                    <h2>Blood Availability</h2>
+                </div>
+            </div>
+        </div>
+
         <div class="card-body p-4 p-md-5">
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="bloodeducation">Blood Education</h3>
             <div class="card-body p-4 p-md-5">
@@ -156,12 +168,7 @@
 
             <br><br>
 
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="availability">Blood Availability</h3>
-            <div class="col-md-6 mb-4" align="center">
-                <a href="#"><button class="btn btn-primary">
-                        {{ __('Blood Availability') }}
-                    </button></a>
-            </div>
+
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="join">Be a part of our Red-Lifestream</h3>
             <div class="row">
                 <div class="col-md-6 mb-4" align="center">
@@ -235,7 +242,7 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
 </div>
-
 @endsection

@@ -4,7 +4,7 @@
   --primary-dark: #cc0000;
   --primary-light: #ff1a1a;
 
-  --gradient-color: linear-gradient(to bottom, #ea2e2e, #e2104f, #e94a79);
+  --gradient-color: linear-gradient(to bottom, #f14758, #b30101);
   
   /* Secondary Colors */
   --secondary-color: #333333;
@@ -18,6 +18,8 @@
   --text-primary: #333333;
   --text-secondary: #666666;
   --text-light: #ffffff;
+  --text-gradient-color: linear-gradient(to right, #ec2323, #f14040);
+  
   
   /* Status Colors */
   --success: #28a745;

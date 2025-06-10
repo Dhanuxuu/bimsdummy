@@ -15,6 +15,9 @@
     padding-bottom: 50px;
   }
 
+  .h1{
+    
+  }
 .overlay-text {
   position: absolute;
   top: 40%;
@@ -38,7 +41,7 @@
 
 .overlay-text .red-text {
   color: transparent; /* Set the text color to transparent */
-  background: var(--gradient-color); /* Apply the gradient as the background */
+  background: var(--text-gradient-color); /* Apply the gradient as the background */
   -webkit-background-clip: text;  /* This ensures the gradient only applies to text */
   -webkit-text-fill-color: transparent; /* Makes the text color transparent, showing the gradient */
   display: inline-block;
@@ -68,7 +71,7 @@
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 90%; /* Set a fixed width */
+    width: 50%; /* Set a fixed width */
     height: 300px; /* Set a fixed height */
 }
 

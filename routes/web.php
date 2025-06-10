@@ -28,6 +28,7 @@ Route::get('/donor/create', [App\Http\Controllers\Donor\DonorController::class, 
 Route::post('/donor/create', [App\Http\Controllers\Donor\DonorController::class, 'store'])->name('donor.store');//show profile
 
 //Staff
+Route::get('/hospitals/search', [App\Http\Controllers\Hospital\HospitalController::class, 'searchAjax'])->name('hospitals.search');
 Route::get('/hospital/create', [App\Http\Controllers\Hospital\HospitalController::class, 'create'])->name('hospital.create');//show profile
 Route::post('/hospital/create', [App\Http\Controllers\Hospital\HospitalController::class, 'store'])->name('hospital.store');//show profile
 Route::get('/hospital/search', [App\Http\Controllers\Hospital\HospitalController::class, 'search'])->name('hospital.search');//show profile
@@ -45,6 +46,8 @@ Route::post('/inventory/availability', [App\Http\Controllers\Inventory\Inventory
 Route::post('/inventory/availability', [App\Http\Controllers\Inventory\InventoryController::class, 'index_newamount_update'])->name('inventory.newamount_update');//show profile
 Route::get('/inventory/analysis', [App\Http\Controllers\Inventory\InventoryController::class, 'viewanalysis'])->name('inventory.analysis');//show profile
 
+// Test Route
+Route::get('/BloodAvailability', [App\Http\Controllers\Inventory\InventoryController::class, 'index_bloodstatus'])->name('inventory.availability');
 
 //Donation
 Route::post('/inventory/add', [App\Http\Controllers\Donation\DonationController::class, 'addDonations'])->name('inventory.store');//show profile
@@ -69,3 +72,5 @@ Route::get('/Admin/deleteGallery/{id}', [App\Http\Controllers\AdminController::c
 Route::get('/Admin/users', [App\Http\Controllers\AdminController::class, 'viewUsers'])->name('admin.viewUsers');//show profile
 Route::post('/Admin/users/{id}', [App\Http\Controllers\AdminController::class, 'storeUserRequpdate'])->name('admin.userRequpdate');//show profileRoute::get('/Admin/deleteGallery/{id}', [App\Http\Controllers\AdminController::class, 'deleteGallery'])->name('admin.deleteGallery');//show profile
 Route::get('/Admin/deleteGallery/{id}', [App\Http\Controllers\AdminController::class, 'deleteGallery'])->name('admin.deleteGallery');//show profile
+
+Route::get('/emergencySearch', [App\Http\Controllers\Inventory\InventoryController::class, 'index_bloodsearch'])->name('guest.bloodsearch');

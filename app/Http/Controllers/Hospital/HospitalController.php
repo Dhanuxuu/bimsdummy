@@ -44,6 +44,21 @@ class HospitalController extends Controller
         return view('hospital.search',compact('staffs'));
     }
 
+    public function searchAjax(Request $request)
+    {
+        $search = $request->q;
+        
+        $hospitals = Hospital::where('hbname', 'like', '%'.$search.'%')
+            ->orWhere('hbid', 'like', '%'.$search.'%')
+            ->select('id', 'hbname as name', 'hbid as id')
+            ->paginate(10);
+
+        return response()->json([
+            'data' => $hospitals->items(),
+            'total' => $hospitals->total()
+        ]);
+    }
+
     public function requestBlood()
     {
         $banks = Hospital::select()->where('regtype','BloodBank')->get();
