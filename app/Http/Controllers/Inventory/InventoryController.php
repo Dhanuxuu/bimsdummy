@@ -61,11 +61,26 @@ class InventoryController extends Controller
                     ->where('hbid', $users)
                     ->sum('amount');
 
-        $binventory = BloodInventory::where('hbid',$users)
-                    ->orderBy('id', 'desc') // or 'created_at', 'desc'
+        $binventory = BloodInventory::where('hbid', $users)
+                    ->orderBy('id', 'desc')
                     ->first();
 
-        return view('inventory.availability',compact('camps','btypes','ap','an','bp','bn','op','on','abp','abn','binventory','users'));
+        // Ensure binventory is always an object with default values
+        if (!$binventory) {
+            $binventory = (object)[
+                'ap' => 0,
+                'an' => 0,
+                'bp' => 0,
+                'bn' => 0,
+                'op' => 0,
+                'on' => 0,
+                'abp' => 0,
+                'abn' => 0,
+                'created_at' => now()
+            ];
+        }
+
+        return view('inventory.availability', compact('camps', 'btypes', 'ap', 'an', 'bp', 'bn', 'op', 'on', 'abp', 'abn', 'binventory', 'users'));
     }
 
     public function index_bloodstatus()

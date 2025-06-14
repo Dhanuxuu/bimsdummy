@@ -116,7 +116,7 @@
         op: {{ $inventory->op ?? 0 }},
         on: {{ $inventory->on ?? 0 }},
         abp: {{ $inventory->abp ?? 0 }},
-        abn: {{ $inventory->abn ?? 0 }},
+        abn: {{ $inventory->abn ?? 0 }}
     };
 
     const newAmounts = {};

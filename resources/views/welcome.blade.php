@@ -27,6 +27,18 @@
             </div>
         </div>
 
+        <div class="d-flex justify-content-center mb-4">
+            <div class="details-card">
+                400+ Registered Donors
+            </div>
+            <div class="details-card">
+                50+ Registered Hospitals
+            </div>
+            <div class="details-card">
+                50+ Registered Bloodbanks
+            </div>            
+        </div>
+
         <div class="card-body p-4 p-md-5">
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="bloodeducation">Blood Education</h3>
             <div class="card-body p-4 p-md-5">

@@ -21,7 +21,7 @@
             </select>
         </div><br>
         <div data-mdb-input-init class="form-outline">
-            <h5>Select blood component</h5>
+            <h5>Select blood type</h5>
             <select name="btype" id="btype" class="form-control">
                 @foreach ($btypes as $btype)
                 <option value="{{$btype->id}}">{{$btype->name}}</option>
@@ -29,7 +29,7 @@
             </select>
         </div><br>
         <div data-mdb-input-init class="form-outline">
-            <h5>Amount of request</h5>
+            <h5>Amount of request (pints/packets)</h5>
             <input type="number" name="amount" id="amount" class="form-control form-control-lg" />
         </div><br>
         </div>
