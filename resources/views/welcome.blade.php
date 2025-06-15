@@ -22,22 +22,50 @@
             <div class="grid-item" onclick="window.location.href='/emergencySearch'">
                 <img src="{{asset('../images/bloodavailability.jpg')}}" alt="Blood Availability" />
                 <div class="overlay">
-                    <h2>Blood Availability</h2>
+                    <h2>Emergency Search</h2>
                 </div>
             </div>
         </div>
 
-        <div class="d-flex justify-content-center mb-4">
+        <h1 class="title">Be a part of our Red-Lifestream</h1>
+
+        <div class="stats-container">
             <div class="details-card">
-                400+ Registered Donors
+                <div class="card-content">
+                    <div class="card-icon">❤️</div>
+                    <div class="card-number">400+</div>
+                    <div class="card-label">Registered Donors</div>
+                </div>
             </div>
             <div class="details-card">
-                50+ Registered Hospitals
+                <div class="card-content">
+                    <div class="card-icon">🏥</div>
+                    <div class="card-number">50+</div>
+                    <div class="card-label">Registered Hospitals</div>
+                </div>
             </div>
             <div class="details-card">
-                50+ Registered Bloodbanks
-            </div>            
+                <div class="card-content">
+                    <div class="card-icon">🩸</div>
+                    <div class="card-number">50+</div>
+                    <div class="card-label">Registered Bloodbanks</div>
+                </div>
+            </div>
         </div>
+
+        
+            <div class="stats-container">
+                <div class="" >
+                    <a href="{{route('register')}}"><button class="btn btn-primary">
+                            {{ __('Register as a donor') }}
+                        </button></a>
+                </div>
+                <div class="" >
+                    <a href="{{route('register')}}"><button class="btn btn-primary">
+                            {{ __('Register as a hospital/Bloodbank staff') }}
+                        </button></a>
+                </div>
+            </div>
 
         <div class="card-body p-4 p-md-5">
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="bloodeducation">Blood Education</h3>
@@ -180,20 +208,6 @@
 
             <br><br>
 
-
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="join">Be a part of our Red-Lifestream</h3>
-            <div class="row">
-                <div class="col-md-6 mb-4" align="center">
-                    <a href="{{route('register')}}"><button class="btn btn-primary">
-                            {{ __('Register as a donor') }}
-                        </button></a>
-                </div>
-                <div class="col-md-6 mb-4" align="center">
-                    <a href="{{route('register')}}"><button class="btn btn-primary">
-                            {{ __('Register as a hospital/Bloodbank staff') }}
-                        </button></a>
-                </div>
-            </div>
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="gallery">Gallery</h3>
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="about">About Us</h3>
             <p>

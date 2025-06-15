@@ -16,7 +16,25 @@ class HospitalController extends Controller
     //
     public function create()
     {
-        return view('hospital.create');
+        $nextHospitalId = $this->getNextId('Hospital');
+        $nextBloodBankId = $this->getNextId('BloodBank');
+        return view('hospital.create', compact('nextHospitalId', 'nextBloodBankId'));
+    }
+
+    private function getNextId($type)
+    {
+        $prefix = $type === 'Hospital' ? 'H' : 'B';
+        $lastRecord = Hospital::where('regtype', $type)
+            ->orderBy('hbid', 'desc')
+            ->first();
+
+        if (!$lastRecord) {
+            return $prefix . '01';
+        }
+
+        $lastNumber = (int) substr($lastRecord->hbid, 1);
+        $nextNumber = $lastNumber + 1;
+        return $prefix . str_pad($nextNumber, 2, '0', STR_PAD_LEFT);
     }
 
     public function store(Request $request)

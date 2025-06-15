@@ -4,6 +4,7 @@ use App\Models\Hospital\DonationCamp;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\LocationController;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -74,3 +75,7 @@ Route::post('/Admin/users/{id}', [App\Http\Controllers\AdminController::class, '
 Route::get('/Admin/deleteGallery/{id}', [App\Http\Controllers\AdminController::class, 'deleteGallery'])->name('admin.deleteGallery');//show profile
 
 Route::get('/emergencySearch', [App\Http\Controllers\Inventory\InventoryController::class, 'index_bloodsearch'])->name('guest.bloodsearch');
+
+Route::get('/provinces', [LocationController::class, 'getProvinces']);
+Route::get('/districts', [LocationController::class, 'getDistricts']);
+Route::get('/location-data', [LocationController::class, 'getLocationData']);

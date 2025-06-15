@@ -35,8 +35,8 @@
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <div data-mdb-input-init class="form-outline">
-                            <label for="hbid" class="form-label">{{ __('HospitalID') }}</label>
-                            <input type="text" id="hbid" class="form-control form-control-lg" name="hbid" required />
+                            <label for="hbid" class="form-label">{{ __('Hospital/ Blood Bank ID') }}</label>
+                            <input type="text" id="hbid" class="form-control form-control-lg" name="hbid" value="{{ $nextHospitalId }}" readonly required />
                         </div>
                     </div>
                     <div class="col-md-6 mb-4">
@@ -50,16 +50,20 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 mb-4">
+                <div class="col-md-6 mb-4">
                         <div data-mdb-input-init class="form-outline">
-                            <label for="district" class="form-label">{{ __('District') }}</label>
-                            <input type="text" id="district" class="form-control form-control-lg" name="district" required />
+                            <label for="province" class="form-label">{{ __('Province') }}</label>
+                            <select id="province" name="province" class="form-control form-control-lg" required>
+                                <option value="">Select Province</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4">
                         <div data-mdb-input-init class="form-outline">
-                            <label for="province" class="form-label">{{ __('Province') }}</label>
-                            <input type="text" id="province" class="form-control form-control-lg" name="province" required />
+                            <label for="district" class="form-label">{{ __('District') }}</label>
+                            <select id="district" name="district" class="form-control form-control-lg" required disabled>
+                                <option value="">Select District</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -99,3 +103,51 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const regtypeSelect = document.getElementById('regtype');
+    const hbidInput = document.getElementById('hbid');
+    const provinceSelect = document.getElementById('province');
+    const districtSelect = document.getElementById('district');
+    
+    // Load provinces
+    fetch('/provinces')
+        .then(response => response.json())
+        .then(provinces => {
+            provinces.forEach(province => {
+                const option = new Option(province, province);
+                provinceSelect.add(option);
+            });
+        });
+
+    // Handle province change
+    provinceSelect.addEventListener('change', function() {
+        const selectedProvince = this.value;
+        districtSelect.disabled = !selectedProvince;
+        districtSelect.innerHTML = '<option value="">Select District</option>';
+        
+        if (selectedProvince) {
+            fetch(`/districts?province=${encodeURIComponent(selectedProvince)}`)
+                .then(response => response.json())
+                .then(districts => {
+                    districts.forEach(district => {
+                        const option = new Option(district, district);
+                        districtSelect.add(option);
+                    });
+                });
+        }
+    });
+
+    // Handle registration type change
+    regtypeSelect.addEventListener('change', function() {
+        if (this.value === 'Hospital') {
+            hbidInput.value = '{{ $nextHospitalId }}';
+        } else {
+            hbidInput.value = '{{ $nextBloodBankId }}';
+        }
+    });
+});
+</script>
+@endpush
