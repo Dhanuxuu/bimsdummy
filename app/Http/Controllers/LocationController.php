@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 class LocationController extends Controller
 {
     private $provinces = [
-        'Western Province' => ['Colombo', 'Gampaha', 'Kalutara'],
-        'Central Province' => ['Kandy', 'Matale', 'Nuwara Eliya'],
-        'Southern Province' => ['Galle', 'Matara', 'Hambantota'],
-        'Northern Province' => ['Jaffna', 'Kilinochchi', 'Mannar', 'Vavuniya', 'Mullaitivu'],
-        'Eastern Province' => ['Trincomalee', 'Batticaloa', 'Ampara'],
-        'North Western Province' => ['Kurunegala', 'Puttalam'],
-        'North Central Province' => ['Anuradhapura', 'Polonnaruwa'],
-        'Uva Province' => ['Badulla', 'Monaragala'],
-        'Sabaragamuwa Province' => ['Ratnapura', 'Kegalle']
+        'Western' => ['Colombo', 'Gampaha', 'Kalutara'],
+        'Central' => ['Kandy', 'Matale', 'Nuwara Eliya'],
+        'Southern' => ['Galle', 'Matara', 'Hambantota'],
+        'Northern' => ['Jaffna', 'Kilinochchi', 'Mannar', 'Vavuniya', 'Mullaitivu'],
+        'Eastern' => ['Trincomalee', 'Batticaloa', 'Ampara'],
+        'North Western' => ['Kurunegala', 'Puttalam'],
+        'North Central' => ['Anuradhapura', 'Polonnaruwa'],
+        'Uva' => ['Badulla', 'Monaragala'],
+        'Sabaragamuwa' => ['Ratnapura', 'Kegalle']
     ];
 
     public function getProvinces()

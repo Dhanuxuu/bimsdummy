@@ -16,7 +16,7 @@
                 <!-- <input type="text" id="campID" name="campID" class="form-control" /> -->
                 <select name="campID" id="campID" class="form-control">
                 @foreach ($camps as $camp)
-                    <option value="{{$camp->id}}">{{$camp->location}}</option>
+                    <option value="{{$camp->id}}">{{$camp->hbid}}</option>
                 @endforeach
             </select>
             </div>
