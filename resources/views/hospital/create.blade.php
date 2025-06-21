@@ -3,6 +3,53 @@
 @section('styles')
 <link href="{{ asset('styles/CreateAccountForm.css') }}" rel="stylesheet">
 <link href="{{ asset('styles/BgAdder.css') }}" rel="stylesheet">
+<style>
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+    
+    .overlay-content {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 500px;
+        width: 90%;
+    }
+    
+    .overlay h2 {
+        color: #d32f2f;
+        margin-bottom: 20px;
+    }
+    
+    .overlay p {
+        margin-bottom: 25px;
+        font-size: 1.1em;
+    }
+    
+    .btn-close-overlay {
+        background: #d32f2f;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+    
+    .btn-close-overlay:hover {
+        background: #b71c1c;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -101,7 +148,31 @@
             
         </form>
     </div>
+    </div>
 </div>
+
+@if($isRegistered)
+<div class="overlay">
+    <div class="overlay-content">
+        <h2>Already Registered</h2>
+        <p>You have already registered for Red-Lifestream.</p>
+        <button onclick="window.location.href='{{ route('home') }}'" class="btn-close-overlay">Close</button>
+    </div>
+</div>
+<script>
+    // Prevent form submission if already registered
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        if (form) {
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                return false;
+            };
+        }
+    });
+</script>
+@endif
+
 @endsection
 
 @push('scripts')

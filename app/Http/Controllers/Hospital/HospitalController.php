@@ -10,15 +10,39 @@ use App\Models\Hospital\BloodReq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
+use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class HospitalController extends Controller
 {
     //
     public function create()
     {
+        $user = Auth::user();
+        
+        // Check if user is already registered as a hospital or blood bank
+        $existingRegistration = Hospital::where('email', $user->email)->first();
+        $isRegistered = $existingRegistration ? true : false;
+        $registrationType = $isRegistered ? $existingRegistration->regtype : null;
+        
+        $accountType = null;
+        
+        if ($user) {
+            // Assuming user model has a relationship or method to get the account type
+            // Adjust this based on your actual user model structure
+            $accountType = $user->account_type; // or however you determine the account type
+        }
+        
         $nextHospitalId = $this->getNextId('Hospital');
         $nextBloodBankId = $this->getNextId('BloodBank');
-        return view('hospital.create', compact('nextHospitalId', 'nextBloodBankId'));
+        
+        return view('hospital.create', [
+            'nextHospitalId' => $nextHospitalId,
+            'nextBloodBankId' => $nextBloodBankId,
+            'accountType' => $accountType,
+            'isAuthenticated' => (bool) $user,
+            'isRegistered' => $isRegistered,
+            'registrationType' => $registrationType
+        ]);
     }
 
     private function getNextId($type)
