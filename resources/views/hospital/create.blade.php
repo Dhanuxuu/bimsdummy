@@ -174,6 +174,28 @@
 @else
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        const regTypeSelect = document.getElementById('regtype');
+        const hbidInput = document.getElementById('hbid');
+        const nextHospitalId = '{{ $nextHospitalId }}';
+        const nextBloodBankId = '{{ $nextBloodBankId }}';
+
+        // Function to update the ID based on selected type
+        function updateIdField() {
+            if (regTypeSelect.value === 'Hospital') {
+                hbidInput.value = nextHospitalId;
+            } else if (regTypeSelect.value === 'BloodBank') {
+                hbidInput.value = nextBloodBankId;
+            }
+        }
+
+        // Initial setup
+        updateIdField();
+
+        // Add event listener for change event
+        regTypeSelect.addEventListener('change', updateIdField);
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
         // Fetch and populate provinces
         fetch('/provinces')
             .then(response => response.json())
