@@ -64,6 +64,36 @@
         <h5>Address : {{ $staff->hbaddress }}</h5><br>
         <h5>Actions :{{ $staff->id }} </h5><br>
         </div>
+        @elseif(Auth::user()->role == 'hospital' && isset($staff))
+        <div class="col-md-8">
+            <br><br>
+        <h2>Profile</h2><br>
+        <h5>Registration Type : {{ $staff->regtype }}</h5><br>
+        <h5>Name : {{ $staff->hbname }}</h5><br>
+        <h5>Registration ID : {{ $staff->hbid }}</h5><br>
+        <h5>User Name : {{ $staff->uname }}</h5><br>
+        <h5>District : {{ $staff->district }}</h5><br>
+        <h5>Province : {{ $staff->province }}</h5><br>
+        <h5>Email : {{ $staff->email }}</h5><br>
+        <h5>Contact no : {{ $staff->phone }}</h5><br>
+        <h5>Address : {{ $staff->hbaddress }}</h5><br>
+        <h5>Actions :{{ $staff->id }} </h5><br>
+        </div>
+        @elseif(Auth::user()->role == 'blood_bank' && isset($staff))
+        <div class="col-md-8">
+            <br><br>
+        <h2>Profile</h2><br>
+        <h5>Registration Type : {{ $staff->regtype }}</h5><br>
+        <h5>Name : {{ $staff->hbname }}</h5><br>
+        <h5>Registration ID : {{ $staff->hbid }}</h5><br>
+        <h5>User Name : {{ $staff->uname }}</h5><br>
+        <h5>District : {{ $staff->district }}</h5><br>
+        <h5>Province : {{ $staff->province }}</h5><br>
+        <h5>Email : {{ $staff->email }}</h5><br>
+        <h5>Contact no : {{ $staff->phone }}</h5><br>
+        <h5>Address : {{ $staff->hbaddress }}</h5><br>
+        <h5>Actions :{{ $staff->id }} </h5><br>
+        </div>
         @else
         <div class="col-md-8">
             <br><br>
