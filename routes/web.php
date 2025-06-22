@@ -24,6 +24,11 @@ Route::get('auth/callback/google', [GoogleController::class, 'handleGoogleCallba
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//show profile
 
+// Blood Education
+Route::get('/education', function () {
+    return view('guest.blood-education');
+})->name('blood.education');
+
 //Donor
 Route::get('/donor/create', [App\Http\Controllers\Donor\DonorController::class, 'create'])->name('donor.create');//show profile
 Route::post('/donor/create', [App\Http\Controllers\Donor\DonorController::class, 'store'])->name('donor.store');//show profile

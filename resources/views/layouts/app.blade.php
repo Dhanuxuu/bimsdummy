@@ -42,7 +42,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
-                    {{ config('app.name', 'Laravel') }}
+                    Red-Lifestream
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -69,7 +69,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="nav-link" href="{{url('/')}}#availability">{{ __('Blood Availability') }}</a>
                                 <a class="nav-link" href="{{url('/')}}#camp">{{ __('Blood Donation Camp') }}</a>
-                                <a class="nav-link" href="{{url('/')}}#bloodeducation">{{ __('Blood Education') }}</a>
+                                <a class="nav-link" href="{{ route('blood.education') }}">{{ __('Blood Education') }}</a>
                                 <a class="nav-link"
                                     href="{{ route('donor.create') }}">{{ __('Register for donation') }}</a>
                             </div>
@@ -216,24 +216,7 @@
                                                 href="{{ route('inventory.home') }}">{{ __('Blood Inventory') }}</a>
                                         </div>
                                     </li>
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }}
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                            <a class="nav-link" href="{{url('/')}}">{{ __('Staff') }}</a>
-                                            <a class="nav-link" href="{{ route('home') }}">{{ __('Profile') }}</a>
-                                            <a class="nav-link" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                @csrf
-                                            </form>
-                                        </div>
-                                    </li>
+                                    
                                     <li class="nav-item dropdown">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
