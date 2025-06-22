@@ -73,9 +73,14 @@ Route::get('/Admin/deleteGallery/{id}', [App\Http\Controllers\AdminController::c
 Route::get('/Admin/users', [App\Http\Controllers\AdminController::class, 'viewUsers'])->name('admin.viewUsers');//show profile
 Route::post('/Admin/users/{id}', [App\Http\Controllers\AdminController::class, 'storeUserRequpdate'])->name('admin.userRequpdate');//show profileRoute::get('/Admin/deleteGallery/{id}', [App\Http\Controllers\AdminController::class, 'deleteGallery'])->name('admin.deleteGallery');//show profile
 Route::get('/Admin/deleteGallery/{id}', [App\Http\Controllers\AdminController::class, 'deleteGallery'])->name('admin.deleteGallery');//show profile
-
 Route::get('/emergencySearch', [App\Http\Controllers\Inventory\InventoryController::class, 'index_bloodsearch'])->name('guest.bloodsearch');
+
+// Page Loader Test Route
+Route::get('/test-loader', function () {
+    return view('test-loader');
+})->name('test.loader');
 
 Route::get('/provinces', [LocationController::class, 'getProvinces']);
 Route::get('/districts', [LocationController::class, 'getDistricts']);
 Route::get('/location-data', [LocationController::class, 'getLocationData']);
+
