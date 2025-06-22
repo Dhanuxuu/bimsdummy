@@ -1,5 +1,7 @@
+@import "./variables.css";
+
 .navbar {
-    background: linear-gradient(to right, #17139C, #DD3E3E);
+    background: var(--gradient-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,7 +52,7 @@
 }
 
 .dropdown-menu {
-    background: linear-gradient(to right, #17139C, #DD3E3E);
+    background: var(--gradient-color);
     border: none;
     border-radius: 0;
     display: none;

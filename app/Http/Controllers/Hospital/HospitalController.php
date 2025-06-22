@@ -10,13 +10,55 @@ use App\Models\Hospital\BloodReq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
+use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class HospitalController extends Controller
 {
     //
     public function create()
     {
-        return view('hospital.create');
+        $user = Auth::user();
+        
+        // Check if user is already registered as a hospital or blood bank
+        $existingRegistration = Hospital::where('email', $user->email)->first();
+        $isRegistered = $existingRegistration ? true : false;
+        $registrationType = $isRegistered ? $existingRegistration->regtype : null;
+        
+        $accountType = null;
+        
+        if ($user) {
+            // Assuming user model has a relationship or method to get the account type
+            // Adjust this based on your actual user model structure
+            $accountType = $user->account_type; // or however you determine the account type
+        }
+        
+        $nextHospitalId = $this->getNextId('Hospital');
+        $nextBloodBankId = $this->getNextId('BloodBank');
+        
+        return view('hospital.create', [
+            'nextHospitalId' => $nextHospitalId,
+            'nextBloodBankId' => $nextBloodBankId,
+            'accountType' => $accountType,
+            'isAuthenticated' => (bool) $user,
+            'isRegistered' => $isRegistered,
+            'registrationType' => $registrationType
+        ]);
+    }
+
+    private function getNextId($type)
+    {
+        $prefix = $type === 'Hospital' ? 'H' : 'B';
+        $lastRecord = Hospital::where('regtype', $type)
+            ->orderBy('hbid', 'desc')
+            ->first();
+
+        if (!$lastRecord) {
+            return $prefix . '01';
+        }
+
+        $lastNumber = (int) substr($lastRecord->hbid, 1);
+        $nextNumber = $lastNumber + 1;
+        return $prefix . str_pad($nextNumber, 2, '0', STR_PAD_LEFT);
     }
 
     public function store(Request $request)
@@ -42,6 +84,21 @@ class HospitalController extends Controller
     {
         $staffs = Hospital::all();
         return view('hospital.search',compact('staffs'));
+    }
+
+    public function searchAjax(Request $request)
+    {
+        $search = $request->q;
+        
+        $hospitals = Hospital::where('hbname', 'like', '%'.$search.'%')
+            ->orWhere('hbid', 'like', '%'.$search.'%')
+            ->select('id', 'hbname as name', 'hbid as id')
+            ->paginate(10);
+
+        return response()->json([
+            'data' => $hospitals->items(),
+            'total' => $hospitals->total()
+        ]);
     }
 
     public function requestBlood()

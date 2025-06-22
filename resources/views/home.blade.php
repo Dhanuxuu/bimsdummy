@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
+@section('styles')
+<link href="{{ asset('styles/ProfileView.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         @if (Auth::user()->role == 'donor' && isset($donor))

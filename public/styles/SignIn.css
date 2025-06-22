@@ -1,13 +1,12 @@
+@import "./googlebutton.css";
+
 .signin-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100vw;
   height: 100vh;
-  background-image: url('../images/SignInBG.jpg'); /* Replace with your actual image path */
-  background-size: cover; /* Ensures the image covers the entire container */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents repeating */
 }
 
 .signin-box {
@@ -25,8 +24,11 @@
     font-size: 2rem;
     background: linear-gradient(to right, red, black); 
     -webkit-background-clip: text; /* Clip the background to the text */
+    background-clip: text; /* For standard compatibility */
     -webkit-text-fill-color: transparent; /* Make the text color transparent */
     margin-bottom: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
   }
 
   
@@ -40,7 +42,7 @@
   .input-group {
     margin-bottom: 15px;
     position: relative;
-    width: 100%;
+    width: 100px;
   }
   
   .input-field {
@@ -48,6 +50,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+
   }
   
   .forgot-password {
@@ -88,7 +91,7 @@
   }
   
   .create-account-button {
-    width: 30%;
+    width: auto;
     padding: 10px;
     background-color: white;
     color: transparent; /* Make the text transparent */
@@ -110,4 +113,17 @@
     font-size: 0.9rem;
     color: gray;
   }
+
+  .login-background {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../images/SignInBG.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
   
