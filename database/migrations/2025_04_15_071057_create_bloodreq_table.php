@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('hbid', 100);
             $table->string('bloodbank');
             $table->string('btype');
+            $table->string('component');
             $table->integer('amount');
             $table->string('status')->default('sent');
             $table->string('remark')->default('no any updates.');
