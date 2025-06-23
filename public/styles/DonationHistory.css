@@ -1,0 +1,95 @@
+.donation-history {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: url('../images/DonationHistory\ BG.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Ensures the image covers the whole container */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centered content */
+}
+
+  
+  .title {
+    font-size: 24px;
+    margin: 50px;
+    background: linear-gradient(to right, #FF0404, black);
+    -webkit-background-clip: text; /* For Safari */
+    -webkit-text-fill-color: transparent; /* For WebKit browsers */
+    color: transparent; /* For non-WebKit browsers */
+    display: inline-block; /* Ensures the gradient only covers the text */
+    text-align: left;
+    align-self: flex-start; /* Aligns the title to the left */
+  }
+  
+  .filters {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+  }  
+  
+  .date-input-group,
+  .dropdown-group {
+    width: 35%;
+  }
+  
+  .date-input-container {
+    display: flex;
+    gap: 10%;
+    width: 70%;
+  }
+  
+  .date-input-group {
+    flex: 1;
+  }
+  
+  .date-input,
+  .dropdown {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .date-label,
+  .dropdown-label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .search-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* Donation Table */
+  .table-container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+  }
+  
+  .donation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 50px;
+  }
+  
+  .donation-table th {
+    background: #A41717;
+    color: white;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .donation-table td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+  }
+  
