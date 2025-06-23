@@ -18,6 +18,7 @@ class BloodReq extends Model
         "hbid",
         "bloodbank",
         "btype",
+        "component",
         "amount",
         "status",
         "remark",
