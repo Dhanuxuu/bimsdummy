@@ -17,7 +17,7 @@
             </div>
         </header>
 
-     
+    
         <div class="d-flex justify-content-center mb-4">
             <div class="grid-item" onclick="window.location.href='/emergencySearch'">
                 <img src="{{asset('../images/bloodavailability.jpg')}}" alt="Blood Availability" />
@@ -26,6 +26,15 @@
                 </div>
             </div>
         </div>
+        <div class="d-flex justify-content-center mb-4">
+            <div class="grid-item" onclick="window.location.href='/education'">
+                <img src="{{asset('../images/bloodeducation.jpg')}}" alt="Blood Education" />
+                <div class="overlay">
+                    <h2>Blood Education</h2>
+                </div>
+            </div>
+        </div>
+  
 
         <h1 class="title">Be a part of our Red-Lifestream</h1>
 
@@ -67,81 +76,7 @@
                 </div>
             </div>
 
-        <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="bloodeducation">Blood Education</h3>
-            <div class="card-body p-4 p-md-5">
-                <div class="row justify-content-center align-items-center h-50">
 
-                    <div class="col-md-6 mb-4">
-                        <h5 class="mb-4 pb-2 pb-md-0 mb-md-5">Red Blood Cells</h5>
-                        <table>
-                            <tr>
-                                <td style="width: 250px;"><img src="#"></td>
-                                <td style="width: 350px;">
-                                    <p>Lorem ipsum dolor sit amet. Et cupiditate error qui voluptatibus sunt et voluptatem
-                                        voluptate.
-                                        Aut aliquam exercitationem quo debitis voluptas hic porro quidem ut voluptatem nisi ab
-                                        natus
-                                        doloremque non quam officia id vero numquam.</p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="col-md-6 mb-4">
-                        <h5 class="mb-4 pb-2 pb-md-0 mb-md-5">Platelets</h5>
-                        <table>
-                            <tr>
-                                <td style="width: 250px;"><img src="#"></td>
-                                <td style="width: 350px;">
-                                    <p>Lorem ipsum dolor sit amet. Et cupiditate error qui voluptatibus sunt et voluptatem
-                                        voluptate.
-                                        Aut aliquam exercitationem quo debitis voluptas hic porro quidem ut voluptatem nisi ab
-                                        natus
-                                        doloremque non quam officia id vero numquam.</p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                </div>
-
-                <div class="row justify-content-center align-items-center h-50">
-
-                    <div class="col-md-6 mb-4">
-                        <h5 class="mb-4 pb-2 pb-md-0 mb-md-5">Plasma</h5>
-                        <table>
-                            <tr>
-                                <td style="width: 250px;"><img src="#"></td>
-                                <td style="width: 350px;">
-                                    <p>Lorem ipsum dolor sit amet. Et cupiditate error qui voluptatibus sunt et voluptatem
-                                        voluptate.
-                                        Aut aliquam exercitationem quo debitis voluptas hic porro quidem ut voluptatem nisi ab
-                                        natus
-                                        doloremque non quam officia id vero numquam.</p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="col-md-6 mb-4">
-                        <h5 class="mb-4 pb-2 pb-md-0 mb-md-5">White Blood Cells</h5>
-                        <table>
-                            <tr>
-                                <td style="width: 250px;"><img src="#"></td>
-                                <td style="width: 350px;">
-                                    <p>Lorem ipsum dolor sit amet. Et cupiditate error qui voluptatibus sunt et voluptatem
-                                        voluptate.
-                                        Aut aliquam exercitationem quo debitis voluptas hic porro quidem ut voluptatem nisi ab
-                                        natus
-                                        doloremque non quam officia id vero numquam.</p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-
-            </div>
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="camp">Blood Donation Camp</h3>
             @if ($camps === null)
             <p>No Donation camps...</p>

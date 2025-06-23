@@ -32,6 +32,8 @@
                                 <option value="donor">Donor</option>
                                 <option value="staff">Staff</option>
                                 <option value="admin">Admin</option>
+                                <option value="hospital">Hospital</option>
+                                <option value="blood_bank">BloodBank</option>
                             </select>
                         </td>
                         <td>
