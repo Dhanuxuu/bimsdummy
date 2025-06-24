@@ -10,6 +10,7 @@
                 </div>
                 <div class="card-body">
                     <h5>Test the custom page loader by clicking on these links:</h5>
+                    <h5>please follow </h5>
                     
                     <div class="row mt-4">
                         <div class="col-md-6">
