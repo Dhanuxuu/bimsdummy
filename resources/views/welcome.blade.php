@@ -36,7 +36,7 @@
         </div>
   
 
-        <h1 class="title">Be a part of our Red-Lifestream</h1>
+        <h1 class="title">Be a part of Red-Lifestream</h1>
 
         <div class="stats-container">
             <div class="details-card">
