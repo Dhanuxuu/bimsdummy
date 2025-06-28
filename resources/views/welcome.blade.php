@@ -146,18 +146,13 @@
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="gallery">Gallery</h3>
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="about">About Us</h3>
             <p>
-                Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
-                Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
-                Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
-                Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
+                At Red-Lifestream, we are driven by a single mission — to save lives by bridging the gap between blood donors and those in urgent medical need. Founded on compassion, community service, and the belief that every drop counts, our platform empowers individuals to become everyday heroes through the simple yet powerful act of donating blood.
+
+Our organization collaborates with hospitals, blood banks, and community centers to organize and manage blood donation camps across the country. We aim to make the process of blood donation more accessible, transparent, and efficient for both donors and recipients. Through our user-friendly web platform, donors can register, locate upcoming blood drives, and track their donation history, while healthcare institutions can manage inventories and issue requests in real time.
+
+We also believe in education and awareness. Many people are unaware of the critical need for blood or how easy it is to make a difference. That's why we regularly host awareness campaigns, collaborate with universities, and share verified health information to encourage more individuals to join our mission.
+
+At Red-Lifestream, we don’t just collect blood — we build a community of hope, resilience, and humanity. Whether it’s a routine surgery, an emergency transfusion, or a chronic condition, your donation can be the key to saving someone’s life. Join us in creating a healthier, stronger future — one drop at a time.
             </p>
             <br><br>
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="contact">Contact Us</h3>
@@ -165,12 +160,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <p>
-                            Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                            non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                            voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
-                            Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                            non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                            voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
+                            Have questions or want to become a part of our life-saving mission? We're here to help. Whether you're a first-time donor, an experienced volunteer, or a hospital looking to collaborate, reach out to us anytime. Use the form below to get in touch, and a member of our team will respond promptly. Together, we can ensure that no life is lost due to the lack of blood availability.
                         </p>
                     </div>
                     <div class="col-md-6 mb-4">
