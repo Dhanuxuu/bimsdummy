@@ -9,16 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('donation_camp', function (Blueprint $table) {
-            $table->id();
-            $table->date('s_date');
-            $table->string('location');
-            $table->string('hbid');
-            $table->timestamps();
-        });
-    }
+  public function up()
+{
+    Schema::create('donation_camp', function (Blueprint $table) {
+    $table->id();
+    $table->string('location');
+    $table->string('organizer')->nullable();
+    $table->date('s_date');
+    $table->timestamps();
+});
+
+}
+
 
     /**
      * Reverse the migrations.

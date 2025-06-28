@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('styles')
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
 <link href="{{ asset('styles/Home.css') }}" rel="stylesheet">
 @endsection
 
@@ -75,7 +78,7 @@
                         </button></a>
                 </div>
             </div>
-
+<!-- 
 
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="camp">Blood Donation Camp</h3>
             @if ($camps === null)
@@ -122,7 +125,7 @@
                     @endforeach
                 </div>
 
-                <!-- Navigation arrows -->
+                Navigation arrows 
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
@@ -138,9 +141,205 @@
                     },
                 });
             </script>
-            @endif
+            @endif -->
+
+<!--@if($camps && count($camps) > 0)
+<h2 class="text-center mt-5">Upcoming Blood Donation Camps</h2>
+
+<div class="swiper mySwiper mt-4">
+    <div class="swiper-wrapper">
+        @foreach($camps as $camp)
+        <div class="swiper-slide">
+            <div class="card p-3" style="min-width: 250px; max-width: 300px; margin: auto;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Camp #{{ $camp->id }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $camp->location }}</h6>
+                    <p class="card-text">Date: {{ \Carbon\Carbon::parse($camp->s_date)->format('M d, Y') }}</p>
+                    <p class="card-text">Organizer: {{ $camp->organizer ?? 'Red-Lifestream' }}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+@else
+<p class="text-center mt-5">No upcoming donation camps.</p>
+@endif
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<script>
+    const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+        }
+    });
+</script>
+-->
+<style>
+ .slider {
+    position: relative;
+    max-width: 900px;
+    margin: 30px auto;
+    overflow: hidden;
+  }
+  .slider-wrapper {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+  .slide {
+    flex: 0 0 300px; /* fixed width slides */
+    margin-right: 20px;
+    box-sizing: border-box;
+  }
+  .card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 6px;
+    background: #f9f9f9;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  /* Navigation buttons */
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #222;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.7;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    user-select: none;
+    transition: opacity 0.3s ease;
+  }
+  .nav-btn:hover {
+    opacity: 1;
+  }
+  .nav-prev {
+    left: 10px;
+  }
+  .nav-next {
+    right: 10px;
+  }
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .slide {
+      flex: 0 0 45%;
+    }
+  }
+  @media (max-width: 768px) {
+    .slide {
+      flex: 0 0 90%;
+      margin-right: 10px;
+    }
+  }
+</style>
 
 
+<h2>Upcoming Blood Donation Camps</h2>
+
+<div class="slider" id="slider">
+  <div class="slider-wrapper" id="sliderWrapper">
+    <!-- Slides will be injected here -->
+  </div>
+  <button class="nav-btn nav-prev" id="prevBtn">&#10094;</button>
+  <button class="nav-btn nav-next" id="nextBtn">&#10095;</button>
+</div>
+
+<script>
+  const camps = @json($camps);
+
+  function formatDate(dateStr) {
+    const options = { month: 'short', day: '2-digit', year: 'numeric' };
+    return new Date(dateStr).toLocaleDateString(undefined, options);
+  }
+
+  const sliderWrapper = document.getElementById('sliderWrapper');
+
+  camps.forEach(camp => {
+    const slide = document.createElement('div');
+    slide.className = 'slide';
+
+    slide.innerHTML = `
+      <div class="card">
+        <h5>Camp #${camp.id}</h5>
+        <h6 style="color:#666;">${camp.location}</h6>
+        <p>Date: ${formatDate(camp.s_date)}</p>
+        <p>Organizer: ${camp.organizer ?? 'Red-Lifestream'}</p>
+      </div>
+    `;
+    sliderWrapper.appendChild(slide);
+  });
+
+
+  // Slider functionality
+  const slides = document.querySelectorAll('.slide');
+  const slideWidth = slides[0].offsetWidth + 20; // width + margin-right
+  let currentIndex = 0;
+
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  function updateSlider() {
+    sliderWrapper.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = slides.length - 1; // loop to end
+    }
+    updateSlider();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < slides.length - 1) {
+      currentIndex++;
+    } else {
+      currentIndex = 0; // loop to start
+    }
+    updateSlider();
+  });
+
+  // Optional: autoplay every 4 seconds
+  setInterval(() => {
+    nextBtn.click();
+  }, 4000);
+
+  // Update slider on window resize (optional)
+  window.addEventListener('resize', () => {
+    // recalc slide width on resize
+    const newSlideWidth = slides[0].offsetWidth + 20;
+    if (newSlideWidth !== slideWidth) {
+      updateSlider();
+    }
+  });
+</script>
             <br><br>
 
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="gallery">Gallery</h3>
@@ -196,4 +395,7 @@ At Red-Lifestream, we don’t just collect blood — we build a community of hop
         </div>
     </div>
 </div>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 @endsection

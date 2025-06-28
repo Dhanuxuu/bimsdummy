@@ -20,6 +20,10 @@ class DatabaseSeeder extends Seeder
          $bloodTypes = [
             'A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-', 'Oh+', 'Oh-'
         ];
+        $this->call([
+    DonationCampSeeder::class,
+]);
+
 
         foreach ($bloodTypes as $type) {
             BloodType::firstOrCreate(['name' => $type]);
