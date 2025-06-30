@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Hospital\BloodType;
 use App\Models\Inventory\BloodComponent;
+use App\Models\DonationCamp;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

@@ -11,13 +11,15 @@ class DonationCampSeeder extends Seeder
     {
         DonationCamp::create([
             'location' => 'Colombo',
-            'organizer' => 'Red Cross',
+            'hbid' => 5,
+            // 'organizer' => 'Red Cross',
             's_date' => now()->addDays(7),
         ]);
 
         DonationCamp::create([
             'location' => 'Kandy',
-            'organizer' => 'NHS',
+            'hbid' => 6,
+            // 'organizer' => 'NHS',
             's_date' => now()->addDays(10),
         ]);
     }

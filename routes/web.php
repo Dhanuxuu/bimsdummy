@@ -89,5 +89,3 @@ Route::get('/test-loader', function () {
 Route::get('/provinces', [LocationController::class, 'getProvinces']);
 Route::get('/districts', [LocationController::class, 'getDistricts']);
 Route::get('/locations', [LocationController::class, 'getLocationData']);
-
-Route::get('/', [HomeController::class, 'showWelcome']);
