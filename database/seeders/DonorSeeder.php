@@ -25,16 +25,19 @@ class DonorSeeder extends Seeder
 
         for ($i = 1; $i <= 100; $i++) {
             // Birth date between 18 – 60 yrs ago
+            
+            $count = DB::table('donors')->count() + $i;
             $dob = $faker->dateTimeBetween('-60 years', '-18 years');
             $now = Carbon::instance($faker->dateTimeBetween('-2 years', 'now'));
 
             DB::table('donors')->insert([
-                'id'          => $i,
+                // 'id'          => $i,
                 'first_name'  => $faker->firstName,
                 'last_name'   => $faker->lastName,
                 'nic'         => $this->generateNic($dob, $faker),
                 'location'    => $faker->randomElement($districts),
-                'donor_id'    => 'DN' . str_pad($i, 5, '0', STR_PAD_LEFT),
+                // 'donor_id'    => 'DN' . str_pad($i, 5, '0', STR_PAD_LEFT),
+                'donor_id'    => 'DN' . str_pad($count, 5, '0', STR_PAD_LEFT),
                 'contact_no'  => '0' . $faker->numberBetween(700000000, 799999999),
                 'gender'      => $faker->randomElement($genders),
                 'dob'         => $dob->format('Y-m-d'),

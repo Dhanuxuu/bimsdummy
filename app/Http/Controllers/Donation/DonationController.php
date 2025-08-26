@@ -22,6 +22,7 @@ class DonationController extends Controller
             "date" => $request->date,
             "nic" => $request->nic,
             "btype" => $request->btype,
+            "bcomp" => $request->bcomp,
             "amount" => $request->amount,
             "expdate" => $request->expdate,
             "storelocation" => $request->storelocation,

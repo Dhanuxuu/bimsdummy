@@ -16,7 +16,7 @@
                 <!-- <input type="text" id="campID" name="campID" class="form-control" /> -->
                 <select name="campID" id="campID" class="form-control">
                 @foreach ($camps as $camp)
-                    <option value="{{$camp->id}}">{{$camp->hbid}}</option>
+                    <option value="{{$camp->id}}">{{$camp->id}} - {{$camp->location}}</option>
                 @endforeach
             </select>
             </div>
@@ -35,6 +35,14 @@
                 <select name="btype" id="btype" class="form-control">
                 @foreach ($btypes as $btype)
                     <option value="{{$btype->id}}">{{$btype->name}}</option>
+                @endforeach
+            </select>
+            </div>
+            <div class="col-md-5 mb-4">
+                <h4>Blood Component</h4>
+                <select name="bcomp" id="bcomp" class="form-control">
+                @foreach ($bcomp as $type)
+                    <option value="{{$type->id}}">{{$type->component}}</option>
                 @endforeach
             </select>
             </div>
@@ -62,8 +70,8 @@
                         </div>
                     </div>
                     <input type="hidden" id="storelocation" name="storelocation" class="form-control" required />
-                    <input type="hidden" id="storelocation_name" name="storelocation_name" />
-                    <div id="storage-results" class="list-group" style="max-height: 250px; overflow-y: auto; display: none;">
+                    <!-- <input type="hidden" id="storelocation_name" name="storelocation_name" /> -->
+                    <!-- <div id="storage-results" class="list-group" style="max-height: 250px; overflow-y: auto; display: none;">
                         @foreach($hospitals as $hospital)
                             <a href="#" class="list-group-item list-group-item-action storage-item" 
                                data-name="{{ strtolower($hospital->hbname) }}" 
@@ -71,7 +79,7 @@
                                 {{ $hospital->hbname }} (ID: {{ $hospital->id }})
                             </a>
                         @endforeach
-                    </div>
+                    </div> -->
                     <div id="no-storage-results" class="alert alert-info mt-2" style="display: none;">
                         No matching locations found.
                     </div>
