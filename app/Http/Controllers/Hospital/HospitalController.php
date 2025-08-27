@@ -110,7 +110,7 @@ class HospitalController extends Controller
         $btypes = BloodType::all();
         $bcomponents = BloodComponent::all();
         $staff = Hospital::select()->where('email',Auth::user()->email)->first();
-        return view('hospital.bloodreq',compact('banks','btypes','staff','bcomponents'));
+        return view('hospital.bloodreq',compact('banks','bcomponents','btypes','staff'));
     }
 
     public function requestBloodstore(Request $request)
@@ -118,6 +118,7 @@ class HospitalController extends Controller
         $newRequest = BloodReq::create([
             "hbid" => $request->hbid,
             "bloodbank" => $request->bloodbank,
+            "component" => $request->bcomponent,
             "btype" => $request->btype,
             "component" => $request->component,
             "amount" => $request->amount,
@@ -125,22 +126,11 @@ class HospitalController extends Controller
 
         if($newRequest) {
             $requests = BloodReq::all();
-            return view('hospital.viewbloodreq',compact('requests'));
+            // return view('hospital.viewbloodreq',compact('requests')); due to duplicate submission
+            return redirect()
+        ->route('hospital.viewbloodreq')
+        ->with('success', 'Blood request submitted successfully!');
         }
-
-
-        // if ($newRequest) {
-        //     // $reqs = BloodReq::whereIn('hbid', function ($query) {
-        //     //     $query->select('hbid')
-        //     //           ->from('hospital')
-        //     //           ->where('donor_id', Auth::user()->email);
-        //     // })->get();
-        //     $banks = Hospital::select()->where('regtype','BloodBank')->get();
-        //     $btypes = BloodType::all();
-        //     $staff = Hospital::select()->where('email',Auth::user()->email)->first();
-        //     $reqs = BloodReq::select()->where('hbid',Auth::user()->id)->get();
-        //     return view('hospital.bloodreq',compact('banks','btypes','staff','reqs'));
-        // }
     }
 
     public function viewrequestBlood()
@@ -151,7 +141,8 @@ class HospitalController extends Controller
 
     public function donationCamp()
     {
-        return view('hospital.donationcamp');
+        $banks = Hospital::select()->where('uname',Auth::user()->id)->first();
+        return view('hospital.donationcamp',compact('banks'));
     }
 
     public function donationCampStore(Request $request)

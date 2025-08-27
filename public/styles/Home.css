@@ -8,6 +8,7 @@
   
   .home {
     font-family: Arial, sans-serif;
+    background-color: #dfdddd;
   }
 
   .home-header img {
@@ -64,6 +65,11 @@
     max-width: 100%;
     margin: 0 auto;
   }
+
+  .d-flex.justify-content-center {
+        gap: 40px; /* Adjust the gap between the two items */
+        margin-bottom: 30px; /* Optional: adds space below the row */
+    }
   
   .grid-item {
     position: relative;

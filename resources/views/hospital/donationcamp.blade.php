@@ -20,7 +20,7 @@
 
         <div data-mdb-input-init class="form-outline">
             <h5>Blood Bank ID</h5>
-            <input type="text" id="hbid"  class="form-control form-control-lg" name="hbid">
+            <input type="text" id="hbid"  class="form-control form-control-lg" name="hbid" value="{{ $banks->id }}" readonly>
         </div><br>
         
         </div>

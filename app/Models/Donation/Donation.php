@@ -17,6 +17,7 @@ class Donation extends Model
         "date",
         "nic",
         "btype",
+        "bcomp",
         "amount",
         "expdate",
         "storelocation",

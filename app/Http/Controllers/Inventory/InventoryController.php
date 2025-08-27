@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Inventory;
 use App\Http\Controllers\Controller;
 use App\Models\Hospital\BloodType;
 use App\Models\Hospital\Hospital;
+use App\Models\Inventory\BloodComponent;
 use App\Models\Inventory\BloodInventory;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Hospital\DonationCamp;
@@ -26,8 +27,9 @@ class InventoryController extends Controller
         $camps = DonationCamp::all();
         $btypes = BloodType::all();
         $hospitals = Hospital::all();
+        $bcomp = BloodComponent::all();
         $user = Auth::user();
-        return view('inventory.add_donation', compact('camps', 'btypes', 'hospitals', 'user'));
+        return view('inventory.add_donation', compact('camps', 'btypes', 'hospitals', 'user', 'bcomp'));
     }
 
     public function index_availability()
