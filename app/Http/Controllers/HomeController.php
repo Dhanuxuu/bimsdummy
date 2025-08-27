@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Donor\Donor;
 use App\Models\Hospital\Hospital;
 use App\Models\Donation\Donation;
+use App\Models\DonationCamp;
 
 
 class HomeController extends Controller
@@ -20,7 +21,11 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-
+    public function showWelcome()
+{
+    $camps = DonationCamp::orderBy('s_date')->get();
+    return view('welcome', compact('camps'));
+}
     /**
      * Show the application dashboard.
      *

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -88,5 +89,3 @@ Route::get('/test-loader', function () {
 Route::get('/provinces', [LocationController::class, 'getProvinces']);
 Route::get('/districts', [LocationController::class, 'getDistricts']);
 Route::get('/locations', [LocationController::class, 'getLocationData']);
-
-

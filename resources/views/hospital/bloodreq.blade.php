@@ -16,11 +16,13 @@
             <h5>Select blood bank</h5>
             <select name="bloodbank" id="bloodbank" class="form-control">
                 @foreach ($banks as $bank)
-                <option value="{{$bank->id}}">{{$bank->hbname}}</option>
+                <option value="{{$bank->hbid}}">{{$bank->hbname}}</option>
                 @endforeach
             </select>
+
         </div><br> 
         <!-- Blood Component -->
+
         <div data-mdb-input-init class="form-outline">
             <h5>Select Blood Category</h5>
             <select name="btype" id="btype" class="form-control">
@@ -29,6 +31,16 @@
                 @endforeach
             </select>
         </div><br>
+
+        <div data-mdb-input-init class="form-outline">
+            <h5>Select blood component</h5>
+            <select name="component" id="component" class="form-control">
+                @foreach ($bcomponents as $bcomponent)
+                <option value="{{$bcomponent->id}}">{{$bcomponent->component}}</option>
+                @endforeach
+            </select>
+        </div><br>
+
         <div data-mdb-input-init class="form-outline">
             <h5>Select Blood Component</h5>
             <select name="bcomponent" id="bcomponent" class="form-control">

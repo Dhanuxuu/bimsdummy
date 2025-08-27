@@ -10,6 +10,7 @@ use App\Models\Hospital\BloodReq;
 use App\Models\Inventory\BloodComponent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+
 use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\PseudoTypes\True_;
 
@@ -104,6 +105,7 @@ class HospitalController extends Controller
 
     public function requestBlood()
     {
+
         $banks = Hospital::select()->where('regtype','BloodBank')->get();
         $btypes = BloodType::all();
         $bcomponents = BloodComponent::all();
@@ -118,6 +120,7 @@ class HospitalController extends Controller
             "bloodbank" => $request->bloodbank,
             "component" => $request->bcomponent,
             "btype" => $request->btype,
+            "component" => $request->component,
             "amount" => $request->amount,
         ]);
 

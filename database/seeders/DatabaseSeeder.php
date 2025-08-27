@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Hospital\BloodType;
 use App\Models\Inventory\BloodComponent;
+use App\Models\DonationCamp;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,6 +21,10 @@ class DatabaseSeeder extends Seeder
          $bloodTypes = [
             'A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-', 'Oh+', 'Oh-'
         ];
+        $this->call([
+    DonationCampSeeder::class,
+]);
+
 
         foreach ($bloodTypes as $type) {
             BloodType::firstOrCreate(['name' => $type]);
