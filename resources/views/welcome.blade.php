@@ -3,174 +3,225 @@
 @section('styles')
     <link href="{{ asset('styles/Home.css') }}" rel="stylesheet">
     <link href="{{ asset('styles/createaccountform.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 @endsection
 
 @section('content')
     <div id="app">
         <div class="home">
             <header class="home-header">
-                <div class="image-container">
-                    <img src="{{asset('../images/Home.jpg')}}" alt="Home Image" class="home" />
-                    <div class="overlay-text">
-                        <h1 class="black-text">Welcome to </h1>
-                        <h1 class="red-text">Red-LifeStream!</h1>
+                <div class="hero-carousel">
+                    <div class="swiper hero-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide hero-slide">
+                                <img src="{{asset('../images/Home.jpg')}}" alt="Hero Image 1" />
+                                <div class="hero-overlay">
+                                    <div class="overlay-text">
+                                        <h1 class="black-text">Welcome to </h1>
+                                        <h1 class="red-text">Red-LifeStream!</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide hero-slide">
+                                <img src="{{asset('../images/BloodBank.jpg')}}" alt="Hero Image 2" />
+                                <div class="hero-overlay">
+                                    <div class="overlay-text">
+                                        <h1 class="black-text">Save Lives</h1>
+                                        <h1 class="red-text">Donate Blood</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide hero-slide">
+                                <img src="{{asset('../images/BloodDonationCamp.jpg')}}" alt="Hero Image 3" />
+                                <div class="hero-overlay">
+                                    <div class="overlay-text">
+                                        <h1 class="black-text">Join Our</h1>
+                                        <h1 class="red-text">Donation Camps</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide hero-slide">
+                                <img src="{{asset('../images/BloodEducation.jpg')}}" alt="Hero Image 4" />
+                                <div class="hero-overlay">
+                                    <div class="overlay-text">
+                                        <h1 class="black-text">Learn About</h1>
+                                        <h1 class="red-text">Blood Health</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pagination dots -->
+                        <div class="swiper-pagination hero-pagination"></div>
+
+                        <!-- 5 Second Timer Bar -->
+                        <div class="swiper-timer">
+                            <div class="timer-bar"></div>
+                        </div>
                     </div>
                 </div>
             </header>
 
 
-            <div class="d-flex justify-content-center">
-                <div class="grid-item" onclick="window.location.href='/emergencySearch'" style="width: 42%; height: 300px;">
-                    <img src="{{asset('../images/bloodavailability.jpg')}}" alt="Blood Availability" />
-                    <div class="overlay">
-                        <h2>Emergency Search</h2>
+            <div class="block">
+                <div class="d-flex justify-content-center">
+                    <div class="grid-item" onclick="window.location.href='/emergencySearch'"
+                        style="width: 42%; height: 300px;">
+                        <img src="{{asset('../images/bloodavailability.jpg')}}" alt="Blood Availability" />
+                        <div class="overlay">
+                            <h2>Emergency Search</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="grid-item" onclick="window.location.href='/education'" style="width: 42%; height: 300px;">
-                    <img src="{{asset('../images/bloodeducation.jpg')}}" alt="Blood Education" />
-                    <div class="overlay">
-                        <h2>Blood Education</h2>
-                    </div>
-                </div>
-            </div>
-
-
-            <h1 class="title">Be a part of our Red-Lifestream</h1>
-
-            <div class="stats-container">
-                <div class="details-card">
-                    <div class="card-content">
-                        <div class="card-icon">❤️</div>
-                        <div class="card-number" id="donors-count">0</div>
-                        <div class="card-label">Registered Donors</div>
-                    </div>
-                </div>
-                <div class="details-card">
-                    <div class="card-content">
-                        <div class="card-icon">🏥</div>
-                        <div class="card-number" id="hospitals-count">0</div>
-                        <div class="card-label">Registered Hospitals</div>
-                    </div>
-                </div>
-                <div class="details-card">
-                    <div class="card-content">
-                        <div class="card-icon">🩸</div>
-                        <div class="card-number" id="bloodbanks-count">0</div>
-                        <div class="card-label">Registered Bloodbanks</div>
+                    <div class="grid-item" onclick="window.location.href='/education'" style="width: 42%; height: 300px;">
+                        <img src="{{asset('../images/bloodeducation.jpg')}}" alt="Blood Education" />
+                        <div class="overlay">
+                            <h2>Blood Education</h2>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <div class="block">
+                <h1 class="title">Be a part of our Red-Lifestream</h1>
 
-            <div class="stats-container">
-                <div class="">
-                    <a href="{{route('register')}}"><button class="button">
-                            {{ __('Register as a donor') }}
-                        </button></a>
+                <div class="stats-container">
+                    <div class="details-card">
+                        <div class="card-content">
+                            <div class="card-icon">❤️</div>
+                            <div class="card-number" id="donors-count">0</div>
+                            <div class="card-label">Registered Donors</div>
+                        </div>
+                    </div>
+                    <div class="details-card">
+                        <div class="card-content">
+                            <div class="card-icon">🏥</div>
+                            <div class="card-number" id="hospitals-count">0</div>
+                            <div class="card-label">Registered Hospitals</div>
+                        </div>
+                    </div>
+                    <div class="details-card">
+                        <div class="card-content">
+                            <div class="card-icon">🩸</div>
+                            <div class="card-number" id="bloodbanks-count">0</div>
+                            <div class="card-label">Registered Bloodbanks</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="">
-                    <a href="{{route('register')}}"><button class="button">
-                            {{ __('Register as a hospital/Bloodbank staff') }}
-                        </button></a>
+
+
+                <div class="stats-container">
+                    <div class="">
+                        <a href="{{route('register')}}"><button class="button">
+                                {{ __('Register as a donor') }}
+                            </button></a>
+                    </div>
+                    <div class="">
+                        <a href="{{route('register')}}"><button class="button">
+                                {{ __('Register as a hospital/Bloodbank staff') }}
+                            </button></a>
+                    </div>
                 </div>
             </div>
 
+            <div class="block">
 
-            <h3 class="title" id="camp">Blood Donation Camps</h3>
-            @if ($camps === null)
-                <p>No Donation camps...</p>
-            @else
-                <style>
-                    .swiper {
-                        position: relative;
-                        padding: 20px 40px;
-                        /* space for arrows */
-                    }
+                <h3 class="title" id="camp">Blood Donation Camps</h3>
+                @if ($camps === null)
+                    <p>No Donation camps...</p>
+                @else
+                    <style>
+                        .swiper {
+                            position: relative;
+                            padding: 20px 40px;
+                            /* space for arrows */
+                        }
 
-                    .swiper-slide {
-                        display: flex;
-                        justify-content: center;
-                    }
+                        .swiper-slide {
+                            display: flex;
+                            justify-content: center;
+                        }
 
-                    .card {
-                        min-width: 18rem;
-                    }
+                        .card {
+                            min-width: 18rem;
+                        }
 
-                    .swiper-button-next,
-                    .swiper-button-prev {
-                        color: #000;
-                        /* Arrow color */
-                        z-index: 10;
-                    }
+                        .swiper-button-next,
+                        .swiper-button-prev {
+                            color: #000;
+                            /* Arrow color */
+                            z-index: 10;
+                        }
 
-                    .card-body {    
-                        background-image: linear-gradient(to bottom right, #ffcccc, #ffe6e6);                
-                        background-repeat: no-repeat;
-                        background-position: center;
-                    }
+                        .card-body {
+                            background-image: linear-gradient(to bottom right, #ffcccc, #ffe6e6);
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
 
-                    .card-title {
-                        color: #d32f2f;
-                        font-weight: bold;
-                        text-align: center;
-                        margin-bottom: 20px;
-                        font-size: 1.5rem;
-                    }
+                        .card-title {
+                            color: #d32f2f;
+                            font-weight: bold;
+                            text-align: center;
+                            margin-bottom: 20px;
+                            font-size: 1.5rem;
+                        }
 
-                    .card-subtitle {
-                        text-align: center;
-                        color: #343434ff;
-                        margin-bottom: 10px;
-                        font-size: 1rem;
-                    }
+                        .card-subtitle {
+                            text-align: center;
+                            color: #343434ff;
+                            margin-bottom: 10px;
+                            font-size: 1rem;
+                        }
 
-                    .card-text {
-                        text-align: center;
-                        color: #555;
-                        margin-bottom: 15px;
-                        font-size: 1rem;
-                    }
-                </style>
+                        .card-text {
+                            text-align: center;
+                            color: #555;
+                            margin-bottom: 15px;
+                            font-size: 1rem;
+                        }
+                    </style>
 
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        @foreach ($camps as $camp)
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Donation Camp {{ $camp->id }}</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">📍{{ $camp->location }}</h6>
-                                        <p class="card-text">📆{{ $camp->s_date }}</p>
-                                        <a href="#" class="card-link">Card link</a>
-                                        <a href="#" class="card-link">Another link</a>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            @foreach ($camps as $camp)
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Donation Camp {{ $camp->id }}</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">📍{{ $camp->location }}</h6>
+                                            <p class="card-text">📆{{ $camp->s_date }}</p>
+                                            <a href="#" class="card-link">Card link</a>
+                                            <a href="#" class="card-link">Another link</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
+
+                        <!-- Navigation arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
 
-                    <!-- Navigation arrows -->
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-
-                <script>
-                    const swiper = new Swiper(".mySwiper", {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
-                        loop: true,
-                        navigation: {
-                            nextEl: ".swiper-button-next",
-                            prevEl: ".swiper-button-prev",
-                        },
-                    });
-                </script>
-            @endif
+                    <script>
+                        const swiper = new Swiper(".mySwiper", {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                            loop: true,
+                            navigation: {
+                                nextEl: ".swiper-button-next",
+                                prevEl: ".swiper-button-prev",
+                            },
+                        });
+                    </script>
+                @endif
 
 
-            <br><br>
+                <br><br>
 
-            <h3 class="title" id="gallery">Gallery</h3>
+                <h3 class="title" id="gallery">Gallery</h3>
+            </div>
+            <div class="block"></div>
             <h3 class="title" id="about">About Us</h3>
             <p>
                 Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
@@ -233,8 +284,59 @@
     </div>
     </div>
     </div>
+    </div>
 
     <script>
+        // Initialize Hero Carousel
+        const heroSwiper = new Swiper(".hero-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true
+            },
+            speed: 2000, // Transition speed
+            pagination: {
+                el: ".hero-pagination",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                768: {
+                    autoplay: {
+                        delay: 4000,
+                    }
+                }
+            },
+            on: {
+                slideChange: function () {
+                    // Reset timer animation when slide changes
+                    const timerBar = document.querySelector('.timer-bar');
+                    if (timerBar) {
+                        timerBar.style.animation = 'none';
+                        timerBar.offsetHeight; // Trigger reflow
+                        timerBar.style.animation = 'timerCountdown 6s linear infinite';
+                    }
+                }
+            }
+        });
+
+        // Pause autoplay when user interacts with pagination
+        document.querySelector('.hero-pagination').addEventListener('click', () => {
+            heroSwiper.autoplay.stop();
+            setTimeout(() => {
+                heroSwiper.autoplay.start();
+            }, 3000);
+        });
+
+        //count incrementer----------------------------------
         // Set the target numbers
         const targetDonors = 400;
         const targetHospitals = 100;
@@ -259,7 +361,7 @@
                 if (count >= target) {
                     clearInterval(interval);
                 }
-            }, 10); // adjust the speed here
+            }, 6); // adjust the speed here
         }
 
         // check if the element is in view

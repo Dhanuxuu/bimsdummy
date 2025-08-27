@@ -8,45 +8,173 @@
   
   .home {
     font-family: Arial, sans-serif;
-    background-color: #dfdddd;
+    background-color: #ff0a0a0d;
+    position: relative;
   }
 
-  .home-header img {
+  /* Fixed background image that sticks regardless of scrolling */
+  .home::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding-bottom: 50px;
+    height: 100%;
+    background-image: url('../images/Bg_image_RLS.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.05;
+    z-index: -1;
+    pointer-events: none;
   }
 
-  .h1{
-    
+  .hero-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 50px auto;
+    overflow: hidden;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: none;
   }
-.overlay-text {
-  position: absolute;
-  top: 40%;
-  left: 75%;
-  transform: translate(-50%, -50%);
-  text-align: left;
-  font-size: 2em;
-  font-weight: extra-bold;
-  margin-bottom: 10px;
-  margin-top: 50px;
-  white-space: nowrap;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
 
-.overlay-text .black-text {
-  color: rgb(207, 201, 201);
-  background: none;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
-}
+  .hero-swiper {
+    width: 100%;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+  }
 
-.overlay-text .red-text {
-  color: transparent; /* Set the text color to transparent */
-  background: var(--text-gradient-color); /* Apply the gradient as the background */
-  -webkit-background-clip: text;  /* This ensures the gradient only applies to text */
-  -webkit-text-fill-color: transparent; /* Makes the text color transparent, showing the gradient */
-  display: inline-block;
-}
+  .hero-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .overlay-text {
+    position: absolute;
+    top: 40%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    font-size: 2em;
+    font-weight: extra-bold;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    white-space: nowrap;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  .overlay-text .black-text {
+    color: rgb(207, 201, 201);
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+  }
+
+  .overlay-text .red-text {
+    color: transparent; /* Set the text color to transparent */
+    background: var(--text-gradient-color); /* Apply the gradient as the background */
+    -webkit-background-clip: text;  /* This ensures the gradient only applies to text */
+    -webkit-text-fill-color: transparent; /* Makes the text color transparent, showing the gradient */
+    display: inline-block;
+  }
+
+  /* Hero Timer Bar */
+  .swiper-timer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 10;
+  }
+
+  .timer-bar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #dc2626, #ef4444);
+    transform-origin: left;
+    animation: timerCountdown 6s linear infinite;
+  }
+
+  @keyframes timerCountdown {
+    0% {
+      transform: scaleX(1);
+    }
+    100% {
+      transform: scaleX(0);
+    }
+  }
+
+  /* Hero Pagination Styling */
+  .hero-pagination {
+    bottom: 20px !important;
+  }
+
+  .hero-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  .hero-pagination .swiper-pagination-bullet-active {
+    background: #dc2626;
+    transform: scale(1.2);
+  }
+
+  /* Remove any default Swiper styling that might cause borders */
+  .swiper {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+  }
+
+  .swiper-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .swiper-slide {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+  }
 
   .chart {
     flex-shrink: 0;
@@ -341,6 +469,53 @@
   .card-number {
       font-size: 1.5rem;
   }
+
+  .hero-carousel {
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .hero-swiper {
+    height: 400px;
+  }
+
+  .overlay-text {
+    font-size: 1.5em;
+    left: 70%;
+  }
+
+  .hero-swiper {
+    height: 400px;
+  }
+
+  .swiper-timer {
+    height: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay-text {
+    font-size: 1.2em;
+    left: 65%;
+    top: 35%;
+  }
+
+  .hero-swiper {
+    height: 300px;
+  }
+
+  .hero-pagination {
+    bottom: 10px !important;
+  }
+
+  .hero-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+  }
+
+  .swiper-timer {
+    height: 2px;
+  }
 }
 
 .title {
@@ -352,8 +527,33 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 
 .center-topic {
  text-align: center;
+}
+
+/* Full page height blocks styling */
+.block {
+  min-height: 60vh;
+}
+
+.home-header {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .block {
+    min-height: 70vh;
+    padding: 1rem 0.5rem;
+  }
+  
+  .home-header {
+    min-height: 70vh;
+  }
 }
