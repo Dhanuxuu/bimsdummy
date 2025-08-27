@@ -223,48 +223,50 @@
             </div>
             <div class="block"></div>
             <h3 class="title" id="about">About Us</h3>
-            <p>
-                Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
-                Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
-                Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
-                Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
+            <p style="max-width: 80%; margin: 0 auto; font-size: 1.2rem;">
+                At Red-LifeStream, we believe that every drop of blood has the power to save lives. Our Blood Inventory &
+                Management System is designed to streamline the donation and distribution process, connecting donors,
+                hospitals, and blood banks efficiently and securely.
+                <br>
+                We aim to make blood donation simpler, faster, and more transparent, ensuring that life-saving blood reaches
+                those in need without delay. By maintaining accurate records, managing inventories, and facilitating
+                communication, BIMS empowers communities to act swiftly in critical moments.
+                <br>
+                Whether you are a donor, a healthcare provider, or a volunteer, BIMS is committed to making your experience
+                seamless, trustworthy, and impactful. Together, we can save lives—one donation at a time.
             </p>
             <br><br>
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="contact">Contact Us</h3>
-            <div class="container">
+            <h3 class="title" id="contact">Contact Us</h3>
+            <div class="container" style="max-width: 80%;">
                 <div class="row">
                     <div class="col-md-6 mb-4">
-                        <p>
-                            Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                            non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                            voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
-                            Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
-                            non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
-                            voluptas aut laborum nihil id dolorem deleniti cum aspernatur veritatis.
+                        <p style="font-size: 1rem;">
+                            We’d love to hear from you! Whether you have questions, need assistance, or want to get
+                            involved, our team is here to help. Reach out to us anytime:
+                            <br><br>
+                            <b>Email: support@bims.com
+                            <br>
+                            Phone: +94 11 123 4567
+                            <br>
+                            Address: 123 Health Street, Colombo, Sri Lanka
+                            <br><br></b>
+                            Or fill out this form, and we’ll get back to you as soon as possible.
                         </p>
                     </div>
                     <div class="col-md-6 mb-4">
                         <form class="book-form">
                             <!-- <h3>Book an Appointment</h3> -->
                             <div class="row align-items-center">
-                                <div class="mb-3 mb-md-4 col-md-6">
+                                <div class="mb-md-4 col-md-6">
                                     <input type="text" class="form-control" placeholder="First name">
                                 </div>
-                                <div class="mb-3 mb-md-4 col-md-6">
+                                <div class="mb-md-4 col-md-6">
                                     <input type="text" class="form-control" placeholder="Last name">
                                 </div>
-                                <div class="mb-3 mb-md-4 col-md-12">
+                                <div class="mb-3 mb-md-4 col-md-30">
                                     <input type="email" class="form-control" placeholder="Email">
                                 </div>
-                                <div class="mb-3 mb-md-4 col-md-12">
+                                <div class="mb-3 mb-md-4 col-md-6">
                                     <div class="form-control-wrap">
                                         <input type="text" id="cf-4" placeholder="what can we help you with"
                                             class="form-control datepicker px-3">
