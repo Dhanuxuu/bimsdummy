@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('nic');
             $table->string('btype');
+            $table->string('bcomp');
             $table->string('amount');
             $table->date('expdate');
             $table->string('storelocation');

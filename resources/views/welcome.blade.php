@@ -2,6 +2,7 @@
 
 @section('styles')
 <link href="{{ asset('styles/Home.css') }}" rel="stylesheet">
+<link href="{{ asset('styles/createaccountform.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -18,16 +19,14 @@
         </header>
 
     
-        <div class="d-flex justify-content-center mb-4">
-            <div class="grid-item" onclick="window.location.href='/emergencySearch'">
+        <div class="d-flex justify-content-center">
+            <div class="grid-item" onclick="window.location.href='/emergencySearch'" style="width: 42%; height: 300px;">
                 <img src="{{asset('../images/bloodavailability.jpg')}}" alt="Blood Availability" />
                 <div class="overlay">
                     <h2>Emergency Search</h2>
                 </div>
             </div>
-        </div>
-        <div class="d-flex justify-content-center mb-4">
-            <div class="grid-item" onclick="window.location.href='/education'">
+            <div class="grid-item" onclick="window.location.href='/education'"style="width: 42%; height: 300px;" >
                 <img src="{{asset('../images/bloodeducation.jpg')}}" alt="Blood Education" />
                 <div class="overlay">
                     <h2>Blood Education</h2>
@@ -65,12 +64,12 @@
         
             <div class="stats-container">
                 <div class="" >
-                    <a href="{{route('register')}}"><button class="btn btn-primary">
+                    <a href="{{route('register')}}"><button class="button">
                             {{ __('Register as a donor') }}
                         </button></a>
                 </div>
                 <div class="" >
-                    <a href="{{route('register')}}"><button class="btn btn-primary">
+                    <a href="{{route('register')}}"><button class="button">
                             {{ __('Register as a hospital/Bloodbank staff') }}
                         </button></a>
                 </div>
