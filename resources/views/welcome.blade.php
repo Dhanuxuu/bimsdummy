@@ -1,74 +1,74 @@
 @extends('layouts.app')
 
 @section('styles')
-<link href="{{ asset('styles/Home.css') }}" rel="stylesheet">
-<link href="{{ asset('styles/createaccountform.css') }}" rel="stylesheet">
+    <link href="{{ asset('styles/Home.css') }}" rel="stylesheet">
+    <link href="{{ asset('styles/createaccountform.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
-<div id="app">
-    <div class="home">
-        <header class="home-header">
-            <div class="image-container">
-                <img src="{{asset('../images/Home.jpg')}}" alt="Home Image" class="home" />
-                <div class="overlay-text">
-                    <h1 class="black-text">Welcome to </h1>
-                    <h1 class="red-text">Red-LifeStream!</h1>
+    <div id="app">
+        <div class="home">
+            <header class="home-header">
+                <div class="image-container">
+                    <img src="{{asset('../images/Home.jpg')}}" alt="Home Image" class="home" />
+                    <div class="overlay-text">
+                        <h1 class="black-text">Welcome to </h1>
+                        <h1 class="red-text">Red-LifeStream!</h1>
+                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
 
-    
-        <div class="d-flex justify-content-center">
-            <div class="grid-item" onclick="window.location.href='/emergencySearch'" style="width: 42%; height: 300px;">
-                <img src="{{asset('../images/bloodavailability.jpg')}}" alt="Blood Availability" />
-                <div class="overlay">
-                    <h2>Emergency Search</h2>
-                </div>
-            </div>
-            <div class="grid-item" onclick="window.location.href='/education'"style="width: 42%; height: 300px;" >
-                <img src="{{asset('../images/bloodeducation.jpg')}}" alt="Blood Education" />
-                <div class="overlay">
-                    <h2>Blood Education</h2>
-                </div>
-            </div>
-        </div>
-  
 
-        <h1 class="title">Be a part of our Red-Lifestream</h1>
+            <div class="d-flex justify-content-center">
+                <div class="grid-item" onclick="window.location.href='/emergencySearch'" style="width: 42%; height: 300px;">
+                    <img src="{{asset('../images/bloodavailability.jpg')}}" alt="Blood Availability" />
+                    <div class="overlay">
+                        <h2>Emergency Search</h2>
+                    </div>
+                </div>
+                <div class="grid-item" onclick="window.location.href='/education'" style="width: 42%; height: 300px;">
+                    <img src="{{asset('../images/bloodeducation.jpg')}}" alt="Blood Education" />
+                    <div class="overlay">
+                        <h2>Blood Education</h2>
+                    </div>
+                </div>
+            </div>
 
-        <div class="stats-container">
-            <div class="details-card">
-                <div class="card-content">
-                    <div class="card-icon">❤️</div>
-                    <div class="card-number">400+</div>
-                    <div class="card-label">Registered Donors</div>
-                </div>
-            </div>
-            <div class="details-card">
-                <div class="card-content">
-                    <div class="card-icon">🏥</div>
-                    <div class="card-number">50+</div>
-                    <div class="card-label">Registered Hospitals</div>
-                </div>
-            </div>
-            <div class="details-card">
-                <div class="card-content">
-                    <div class="card-icon">🩸</div>
-                    <div class="card-number">50+</div>
-                    <div class="card-label">Registered Bloodbanks</div>
-                </div>
-            </div>
-        </div>
 
-        
+            <h1 class="title">Be a part of our Red-Lifestream</h1>
+
             <div class="stats-container">
-                <div class="" >
+                <div class="details-card">
+                    <div class="card-content">
+                        <div class="card-icon">❤️</div>
+                        <div class="card-number" id="donors-count">0</div>
+                        <div class="card-label">Registered Donors</div>
+                    </div>
+                </div>
+                <div class="details-card">
+                    <div class="card-content">
+                        <div class="card-icon">🏥</div>
+                        <div class="card-number" id="hospitals-count">0</div>
+                        <div class="card-label">Registered Hospitals</div>
+                    </div>
+                </div>
+                <div class="details-card">
+                    <div class="card-content">
+                        <div class="card-icon">🩸</div>
+                        <div class="card-number" id="bloodbanks-count">0</div>
+                        <div class="card-label">Registered Bloodbanks</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="stats-container">
+                <div class="">
                     <a href="{{route('register')}}"><button class="button">
                             {{ __('Register as a donor') }}
                         </button></a>
                 </div>
-                <div class="" >
+                <div class="">
                     <a href="{{route('register')}}"><button class="button">
                             {{ __('Register as a hospital/Bloodbank staff') }}
                         </button></a>
@@ -76,74 +76,102 @@
             </div>
 
 
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="camp">Blood Donation Camp</h3>
+            <h3 class="title" id="camp">Blood Donation Camps</h3>
             @if ($camps === null)
-            <p>No Donation camps...</p>
+                <p>No Donation camps...</p>
             @else
-            <style>
-                .swiper {
-                    position: relative;
-                    padding: 20px 40px;
-                    /* space for arrows */
-                }
+                <style>
+                    .swiper {
+                        position: relative;
+                        padding: 20px 40px;
+                        /* space for arrows */
+                    }
 
-                .swiper-slide {
-                    display: flex;
-                    justify-content: center;
-                }
+                    .swiper-slide {
+                        display: flex;
+                        justify-content: center;
+                    }
 
-                .card {
-                    min-width: 18rem;
-                }
+                    .card {
+                        min-width: 18rem;
+                    }
 
-                .swiper-button-next,
-                .swiper-button-prev {
-                    color: #000;
-                    /* Arrow color */
-                    z-index: 10;
-                }
-            </style>
+                    .swiper-button-next,
+                    .swiper-button-prev {
+                        color: #000;
+                        /* Arrow color */
+                        z-index: 10;
+                    }
 
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    @foreach ($camps as $camp)
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Donation Camp {{ $camp->id }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ $camp->location }}</h6>
-                                <p class="card-text">{{ $camp->s_date }}</p>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+                    .card-body {    
+                        background-image: linear-gradient(to bottom right, #ffcccc, #ffe6e6);                
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+
+                    .card-title {
+                        color: #d32f2f;
+                        font-weight: bold;
+                        text-align: center;
+                        margin-bottom: 20px;
+                        font-size: 1.5rem;
+                    }
+
+                    .card-subtitle {
+                        text-align: center;
+                        color: #343434ff;
+                        margin-bottom: 10px;
+                        font-size: 1rem;
+                    }
+
+                    .card-text {
+                        text-align: center;
+                        color: #555;
+                        margin-bottom: 15px;
+                        font-size: 1rem;
+                    }
+                </style>
+
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        @foreach ($camps as $camp)
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Donation Camp {{ $camp->id }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">📍{{ $camp->location }}</h6>
+                                        <p class="card-text">📆{{ $camp->s_date }}</p>
+                                        <a href="#" class="card-link">Card link</a>
+                                        <a href="#" class="card-link">Another link</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                    @endforeach
+
+                    <!-- Navigation arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
 
-                <!-- Navigation arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-
-            <script>
-                const swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                    loop: true,
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                });
-            </script>
+                <script>
+                    const swiper = new Swiper(".mySwiper", {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        loop: true,
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                    });
+                </script>
             @endif
 
 
             <br><br>
 
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="gallery">Gallery</h3>
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="about">About Us</h3>
+            <h3 class="title" id="gallery">Gallery</h3>
+            <h3 class="title" id="about">About Us</h3>
             <p>
                 Lorem ipsum dolor sit amet. Et iusto sapiente est natus quidem ea rerum dolor ea sunt harum
                 non recusandae similique. Sit laborum dolor rem dolores nostrum non optio voluptatem ex velit
@@ -202,7 +230,63 @@
                 </div>
             </div>
         </div>
-        </div>
     </div>
-</div>
+    </div>
+    </div>
+
+    <script>
+        // Set the target numbers
+        const targetDonors = 400;
+        const targetHospitals = 100;
+        const targetBloodbanks = 80;
+
+        // Get the elements
+        const donorsCount = document.getElementById('donors-count');
+        const hospitalsCount = document.getElementById('hospitals-count');
+        const bloodbanksCount = document.getElementById('bloodbanks-count');
+
+        // Flags to prevent re-animation
+        let donorsAnimated = false;
+        let hospitalsAnimated = false;
+        let bloodbanksAnimated = false;
+
+        //animate the count
+        function animateCount(element, target) {
+            let count = 0;
+            const interval = setInterval(() => {
+                count++;
+                element.textContent = count;
+                if (count >= target) {
+                    clearInterval(interval);
+                }
+            }, 10); // adjust the speed here
+        }
+
+        // check if the element is in view
+        function isElementInView(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top < window.innerHeight &&
+                rect.bottom > 0
+            );
+        }
+
+        // Animate the count when the element is in view
+        window.addEventListener('scroll', () => {
+            if (!donorsAnimated && isElementInView(donorsCount)) {
+                animateCount(donorsCount, targetDonors);
+                donorsAnimated = true;
+            }
+            if (!hospitalsAnimated && isElementInView(hospitalsCount)) {
+                animateCount(hospitalsCount, targetHospitals);
+                hospitalsAnimated = true;
+            }
+            if (!bloodbanksAnimated && isElementInView(bloodbanksCount)) {
+                animateCount(bloodbanksCount, targetBloodbanks);
+                bloodbanksAnimated = true;
+            }
+        });
+
+    </script>
+
 @endsection
