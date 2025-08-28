@@ -82,8 +82,12 @@
             </div>
 
             <div class="block">
-                <h1 class="title">Be a part of our Red-Lifestream</h1>
-
+            <h1 class="title">Be a part of our Red-Lifestream</h1>
+            <div class="row">
+                <div class="col-md-6 mb-4" >
+                 <p style="font-size: 1.2rem; max-width: 80%; margin: 0 auto;">Every drop of blood tells a story of hope, compassion, and survival. By joining our Red-Lifestream, you become a vital link in a life-saving chain that connects generous donors with the patients who need them most. Donors give the gift of life, blood banks ensure its safe collection and preservation, and hospitals deliver it at the most critical moments. Together, we create a seamless flow of humanity. Where one act of kindness can ripple across communities, touching countless lives. Whether you donate, manage, or heal, your role strengthens this lifeline of care, reminding us that the power to save lives truly flows within us all.</p>
+            </div>
+            <div class="col-md-6 mb-4">
                 <div class="stats-container">
                     <div class="details-card">
                         <div class="card-content">
@@ -121,6 +125,8 @@
                             </button></a>
                     </div>
                 </div>
+            </div>
+            </div>
             </div>
 
             <div class="block">

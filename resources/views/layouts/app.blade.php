@@ -307,17 +307,62 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-text">
-            <p class="copyright">&copy; Designed and Developed by Faculty Of Computing.</p>
+    <!-- Branding / Tagline -->
+    <div class="footer-brand">
+        <h2 class="footer-title" style="font-size: 2rem; padding-bottom: 10px;">Red-Lifestream</h2>
+        <p class="footer-tagline">A project by Faculty of Computing, University of Sri Jayewardenepura.</p>
+    </div>
+
+    <!-- 3 Column Layout -->
+    <div class="footer-columns">
+        <!-- Column 1: Quick Links -->
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#" class="footer-link">Home</a></li>
+                <li><a href="#" class="footer-link">About Us</a></li>
+                <li><a href="#" class="footer-link">Contact</a></li>
+                <li><a href="#" class="footer-link">FAQ</a></li>
+            </ul>
         </div>
-        <div class="footer-links">
-            <a href="#" class="footer-link">Terms & Conditions</a>
-            <a href="#" class="footer-link">Privacy Policy</a>
-            <a href="#" class="footer-link">Accessibility Statement</a>
-            <a href="#" class="footer-link">Last Updated : Jul 21 2024</a>
-            <a href="#" class="footer-link">Site Map</a>
+
+        <!-- Column 2: Policies -->
+        <div class="footer-col">
+            <h4>Policies</h4>
+            <ul>
+                <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+                <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                <li><a href="#" class="footer-link">Accessibility</a></li>
+                <li><a href="#" class="footer-link">Site Map</a></li>
+            </ul>
         </div>
-    </footer>
+
+        <!-- Column 3: Contact + Socials -->
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p>Email: <a href="mailto:info@facultyofcomputing.lk" class="footer-link">info@facultyofcomputing.lk</a></p>
+            <p>Phone: +94 11 123 4567</p>
+            <p>Address: Nugegoda, Sri Lanka</p>
+            <div class="footer-socials">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+        <p>© <span id="year"></span> Designed and Developed by Faculty Of Computing, University of Sri Jayewardenepura. All Rights Reserved.</p>
+        <p>Last Updated: Jul 21, 2024</p>
+    </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
     </div>
 </body>
 
