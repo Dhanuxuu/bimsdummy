@@ -31,36 +31,36 @@ class DonationController extends Controller
         ]);
         if($donate){
             // return view("inventory.availability")->with(['success' => 'Registered successfully!']);
-            $users = $hospitalId = Hospital::where('uname', Auth::id())->value('id');
-        $camps = Donation::all();
-        $btypes = BloodType::all();
-        $ap = Donation::where('btype', '1')
-                    ->where('hbid', $users)
-                    ->sum('amount');
-        $an = Donation::where('btype', '2')
-                    ->where('hbid', $users)
-                    ->sum('amount');
-        $bp = Donation::where('btype', '3')
-                    ->where('hbid', $users)
-                    ->sum('amount');
-        $bn = Donation::where('btype', '4')
-                    ->where('hbid', $users)
-                    ->sum('amount');
-        $op = Donation::where('btype', '5')
-                    ->where('hbid', $users)
-                    ->sum('amount');
-        $on = Donation::where('btype', '6')
-                    ->where('hbid', $users)
-                    ->sum('amount');
-        $abp = Donation::where('btype', '7')
-                    ->where('hbid', $users)
-                    ->sum('amount');
-        $abn = Donation::where('btype', '8')
-                    ->where('hbid', $users)
-                    ->sum('amount');
+        // $users = $hospitalId = Hospital::where('uname', Auth::id())->value('id');
+        // $camps = Donation::all();
+        // $btypes = BloodType::all();
+        // $ap = Donation::where('btype', '1')
+        //             ->where('hbid', $users)
+        //             ->sum('amount');
+        // $an = Donation::where('btype', '2')
+        //             ->where('hbid', $users)
+        //             ->sum('amount');
+        // $bp = Donation::where('btype', '3')
+        //             ->where('hbid', $users)
+        //             ->sum('amount');
+        // $bn = Donation::where('btype', '4')
+        //             ->where('hbid', $users)
+        //             ->sum('amount');
+        // $op = Donation::where('btype', '5')
+        //             ->where('hbid', $users)
+        //             ->sum('amount');
+        // $on = Donation::where('btype', '6')
+        //             ->where('hbid', $users)
+        //             ->sum('amount');
+        // $abp = Donation::where('btype', '7')
+        //             ->where('hbid', $users)
+        //             ->sum('amount');
+        // $abn = Donation::where('btype', '8')
+        //             ->where('hbid', $users)
+        //             ->sum('amount');
 
-        return view('inventory.availability',compact('camps','btypes','ap','an','bp','bn','op','on','abp','abn'));
-        }
+        // return view('inventory.availability',compact('camps','btypes','ap','an','bp','bn','op','on','abp','abn'));
+        return Redirect::route('inventory.home')->with('success', 'Donation Added Successfully');}
     }
 
     // public function search()

@@ -12,7 +12,7 @@ class DonorSeeder extends Seeder
     public function run(): void
     {
         $faker      = Faker::create('en_US');
-        $bloodTypes = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+        $bloodTypes = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'OH+', 'OH-'];
         $genders    = ['Male', 'Female', 'Other'];
         $diseases   = [
             'None', 'Hypertension', 'Diabetes', 'Asthma',
