@@ -208,7 +208,7 @@
                                             <a class="dropdown-item"
                                                 href="{{ route('hospital.create') }}">{{ __('Register Blood Bank') }}</a>
                                             <a class="dropdown-item"
-                                                href="{{ route('hospital.donationcamp') }}">{{ __('Donation Camp Management') }}</a>
+                                                href="{{ route('hospital.donationcamphome') }}">{{ __('Donation Camp Management') }}</a>
                                             <a class="dropdown-item"
                                                 href="{{ route('hospital.bloodrequpdate') }}">{{ __('Blood Requests') }}</a>
                                             <!-- <a class="dropdown-item" href="#">{{ __('Blood Availability') }}</a> -->
@@ -267,7 +267,7 @@
                                             <a class="dropdown-item"
                                                 href="{{ route('hospital.create') }}">{{ __('Register Blood Bank') }}</a>
                                             <a class="dropdown-item"
-                                                href="{{ route('hospital.donationcamp') }}">{{ __('Donation Camp Management') }}</a>
+                                                href="{{ route('hospital.donationcamphome') }}">{{ __('Donation Camp Management') }}</a>
                                             <a class="dropdown-item"
                                                 href="{{ route('hospital.bloodrequpdate') }}">{{ __('Blood Requests') }}</a>
                                             <!-- <a class="dropdown-item" href="#">{{ __('Blood Availability') }}</a> -->

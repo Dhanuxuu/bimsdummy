@@ -64,7 +64,7 @@
         <h5>Address : {{ $staff->hbaddress }}</h5><br>
         <h5>Actions :{{ $staff->id }} </h5><br>
         </div>
-        @elseif(Auth::user()->role == 'hospital' && isset($staff))
+        <!-- @elseif(Auth::user()->role == 'hospital' && isset($staff))
         <div class="col-md-8">
             <br><br>
         <h2>Profile</h2><br>
@@ -94,7 +94,7 @@
         <h5>Address : {{ $staff->hbaddress }}</h5><br>
         <h5>Actions :{{ $staff->id }} </h5><br>
         </div>
-        @else
+        @else -->
         <div class="col-md-8">
             <br><br>
         <h2>Profile</h2><br>

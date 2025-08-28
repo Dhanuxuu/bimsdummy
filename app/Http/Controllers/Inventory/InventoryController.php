@@ -140,7 +140,8 @@ class InventoryController extends Controller
     public function index_check_exp()
     {
         $donate = Donation::all();
-        return view('inventory.check_exp',compact('donate'));
+        $staff = Hospital::select()->where('uname', Auth::user()->id)->first();
+        return view('inventory.check_exp',compact('donate','staff'));
     }
 
     public function index_availability_update(Request $request)

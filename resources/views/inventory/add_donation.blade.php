@@ -132,12 +132,12 @@
 </script>
 
             <div class="col-md-5 mb-4">
-                <h4>Hospital/Blood Bank</h4>
+                <h4>Hospital/Blood Bank ID</h4>
                 <div class="hospital-search-container">
                     <div class="input-group mb-2"> 
                          @foreach ($hospitals as $user)
                             @if ($user->uname==Auth::user()->id)
-                            <input type="text" id="hbid" name="hbid" class="form-control" value="{{ $user->id }} - {{ $user->hbname }}" readonly/>
+                            <input type="text" id="hbid" name="hbid" class="form-control" value="{{ $user->id }}" readonly/>
                             @endif
                         @endforeach
                     </div>

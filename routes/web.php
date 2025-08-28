@@ -60,8 +60,17 @@ Route::get('/inventory/analysis', [App\Http\Controllers\Inventory\InventoryContr
 Route::post('/inventory/add', [App\Http\Controllers\Donation\DonationController::class, 'addDonations'])->name('inventory.store');//show profile
 
 //Donation camp management
-Route::get('/hospital/camp', [App\Http\Controllers\Hospital\HospitalController::class, 'donationCamp'])->name('hospital.donationcamp');//show profile
+Route::get('/hospital/camp', [App\Http\Controllers\Hospital\HospitalController::class, 'donationCamp'])->name('hospital.donationcamphome');//show profile 
+Route::get('/hospital/createcamp', [App\Http\Controllers\Hospital\HospitalController::class, 'createcamp'])->name('hospital.donationcamp');
 Route::post('/hospital/camp', [App\Http\Controllers\Hospital\HospitalController::class, 'donationCampStore'])->name('hospital.storedonationcamp');//show profile
+
+// Edit & Update
+Route::get('/hospital/camp/{id}/edit', [App\Http\Controllers\Hospital\HospitalController::class, 'editCamp'])->name('hospital.editcamp');
+Route::post('/hospital/camp/{id}/update', [App\Http\Controllers\Hospital\HospitalController::class, 'updateCamp'])->name('hospital.updatecamp');
+
+// Delete
+Route::delete('/hospital/camp/{id}', [App\Http\Controllers\Hospital\HospitalController::class, 'deleteCamp'])->name('hospital.deletecamp');
+
 
 //Blood Bank Management
 Route::get('/hospital/bloodrequpdate', [App\Http\Controllers\Hospital\HospitalController::class, 'bloodrequpdate'])->name('hospital.bloodrequpdate');//show profile

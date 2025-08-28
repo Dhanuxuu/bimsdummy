@@ -57,6 +57,7 @@
             </thead>
             <tbody>
                 @foreach ($donate as $item)
+                @if ($item->hbid == $staff->id)
                 <tr>
                     <td>{{ $item->campID }}</td>
                     <td>{{ $item->storelocation }}</td>
@@ -95,6 +96,7 @@
                     <td>{{ $item->amount }}</td>
                     <td>{{ $item->expdate }}</td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>
