@@ -95,12 +95,34 @@
         <h5>Actions :{{ $staff->id }} </h5><br>
         </div>
         @else -->
-        <div class="col-md-8">
-            <br><br>
-        <h2>Profile</h2><br>
-        <h2>Update your Profile</h2><br>
-        <h5>Actions : </h5><br>
+      @extends('layouts.app')
+
+@section('content')
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center" style="padding: 80px 20px;">
+            
+            <h1 class="mb-4 text-danger">Welcome to Your Profile Page!</h1>
+            
+            <p class="mb-4 fs-5">
+                It looks like you haven’t created your profile yet.  
+                To get started and join our lifesaving community, please register as a blood donor.  
+                By creating your profile, you’ll be able to manage your donations, track your impact,  
+                and receive reminders for future donation opportunities.
+            </p>
+            
+            <p class="mb-5 fs-5">
+                Join us today and take the first step toward saving lives and making a difference!
+            </p>
+            
+            <a href="{{ route('donor.create') }}" class="btn btn-primary btn-lg px-5 py-3">
+                Register as a Donor
+            </a>
+
         </div>
+    </div>
+</div>
+@endsection
         @endif
     </div>
 </div>
