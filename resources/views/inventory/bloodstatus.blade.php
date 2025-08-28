@@ -90,7 +90,9 @@
             op: "O+",
             on: "O-",
             abp: "AB+",
-            abn: "AB-"
+            abn: "AB-",
+            ohp: "OH+",
+            ohn: "OH-"
         };
 
         return Object.entries(typeLabels)

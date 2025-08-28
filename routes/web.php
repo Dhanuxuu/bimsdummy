@@ -53,7 +53,7 @@ Route::post('/inventory/availability', [App\Http\Controllers\Inventory\Inventory
 Route::get('/inventory/analysis', [App\Http\Controllers\Inventory\InventoryController::class, 'viewanalysis'])->name('inventory.analysis');//show profile
 
 // Test Route
-Route::get('/BloodAvailability', [App\Http\Controllers\Inventory\InventoryController::class, 'index_bloodstatus'])->name('inventory.availability');
+//Route::get('/BloodAvailability', [App\Http\Controllers\Inventory\InventoryController::class, 'index_bloodstatus'])->name('inventory.availability');
 
 //Donation
 Route::post('/inventory/add', [App\Http\Controllers\Donation\DonationController::class, 'addDonations'])->name('inventory.store');//show profile
