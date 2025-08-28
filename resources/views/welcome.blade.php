@@ -82,51 +82,58 @@
             </div>
 
             <div class="block">
-            <h1 class="title">Be a part of our Red-Lifestream</h1>
-            <div class="row">
-                <div class="col-md-6 mb-4" >
-                 <p style="font-size: 1.2rem; max-width: 80%; margin: 0 auto;">Every drop of blood tells a story of hope, compassion, and survival. By joining our Red-Lifestream, you become a vital link in a life-saving chain that connects generous donors with the patients who need them most. Donors give the gift of life, blood banks ensure its safe collection and preservation, and hospitals deliver it at the most critical moments. Together, we create a seamless flow of humanity. Where one act of kindness can ripple across communities, touching countless lives. Whether you donate, manage, or heal, your role strengthens this lifeline of care, reminding us that the power to save lives truly flows within us all.</p>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="stats-container">
-                    <div class="details-card">
-                        <div class="card-content">
-                            <div class="card-icon">❤️</div>
-                            <div class="card-number" id="donors-count">0</div>
-                            <div class="card-label">Registered Donors</div>
-                        </div>
+                <h1 class="title">Be a part of Red-Lifestream</h1>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <p style="font-size: 1.2rem; max-width: 80%; margin: 0 auto;">Every drop of blood tells a story of
+                            hope, compassion, and survival. By joining our Red-Lifestream, you become a vital link in a
+                            life-saving chain that connects generous donors with the patients who need them most. Donors
+                            give the gift of life, blood banks ensure its safe collection and preservation, and hospitals
+                            deliver it at the most critical moments. Together, we create a seamless flow of humanity. Where
+                            one act of kindness can ripple across communities, touching countless lives. Whether you donate,
+                            manage, or heal, your role strengthens this lifeline of care, reminding us that the power to
+                            save lives truly flows within us all.</p>
                     </div>
-                    <div class="details-card">
-                        <div class="card-content">
-                            <div class="card-icon">🏥</div>
-                            <div class="card-number" id="hospitals-count">0</div>
-                            <div class="card-label">Registered Hospitals</div>
+                    <div class="col-md-6 mb-4">
+                        <div class="stats-container">
+                            <div class="details-card">
+                                <div class="card-content">
+                                    <div class="card-icon">❤️</div>
+                                    <div class="card-number" id="donors-count">0</div>
+                                    <div class="card-label">Registered Donors</div>
+                                </div>
+                            </div>
+                            <div class="details-card">
+                                <div class="card-content">
+                                    <div class="card-icon">🏥</div>
+                                    <div class="card-number" id="hospitals-count">0</div>
+                                    <div class="card-label">Registered Hospitals</div>
+                                </div>
+                            </div>
+                            <div class="details-card">
+                                <div class="card-content">
+                                    <div class="card-icon">🩸</div>
+                                    <div class="card-number" id="bloodbanks-count">0</div>
+                                    <div class="card-label">Registered Bloodbanks</div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="details-card">
-                        <div class="card-content">
-                            <div class="card-icon">🩸</div>
-                            <div class="card-number" id="bloodbanks-count">0</div>
-                            <div class="card-label">Registered Bloodbanks</div>
+
+
+                        <div class="stats-container">
+                            <div class="">
+                                <a href="{{route('register')}}"><button class="button">
+                                        {{ __('Register as a donor') }}
+                                    </button></a>
+                            </div>
+                            <div class="">
+                                <a href="{{route('register')}}"><button class="button">
+                                        {{ __('Register as a hospital/Bloodbank staff') }}
+                                    </button></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="stats-container">
-                    <div class="">
-                        <a href="{{route('register')}}"><button class="button">
-                                {{ __('Register as a donor') }}
-                            </button></a>
-                    </div>
-                    <div class="">
-                        <a href="{{route('register')}}"><button class="button">
-                                {{ __('Register as a hospital/Bloodbank staff') }}
-                            </button></a>
-                    </div>
-                </div>
-            </div>
-            </div>
             </div>
 
             <div class="block">
@@ -230,7 +237,8 @@
             <div class="block"></div>
             <h3 class="title" id="about">About Us</h3>
             <p style="max-width: 80%; margin: 0 auto; font-size: 1.2rem;">
-                At <b>Red-LifeStream</b>, we believe that every drop of blood has the power to save lives. Our Blood Inventory &
+                At <b>Red-LifeStream</b>, we believe that every drop of blood has the power to save lives. Our Blood
+                Inventory &
                 Management System is designed to streamline the donation and distribution process, connecting donors,
                 hospitals, and blood banks efficiently and securely.
                 <br>
@@ -242,6 +250,75 @@
                 seamless, trustworthy, and impactful. Together, we can save lives—one donation at a time.
             </p>
             <br><br>
+            <h3 class="title">Frequently Asked Questions (FAQs)</h3>
+            <div class="container" style="max-width: 80%;">
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            How do I register as a donor?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Step 1 : You can register by clicking the "Register as a donor" button above and completing
+                                the form.</p>
+                            <p>Step 2 : Go to "Register for Donation" under services</p>
+                            <img src="../images/Services_Register4Donation.png" alt="" style="max-width: 50%;">
+                            <p>Step 3 : Complete the registration form</p>
+                            <img src="../images/donorRegForm.png" alt="Fill the form!" style="max-width: 50%;">
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            How do I register as a Blood Bank / Hospital?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Step 1 : You can register by clicking the "Register as a Hospital/Blood bank staff"
+                                button above and
+                                completing the form.</p>
+                            <p>Step 2 : Request your Access to hospital/Blood Bank services via contacting
+                                Red-lifestream. The team will review your request and approve, providing you the Access
+                            </p>
+                            <p>Step 3 : Go to register Blood Bank / Hospital from your relevant section as below</p>
+                            <img src="../images/registerBloodBank1.png" alt="" style="max-width: 50%;">
+                            <p>Step 4 : Complete the registration form!</p>
+                            <img src="../images/registerBloodBank2.png" alt="Fill the form!" style="max-width: 50%;">
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            Who is eligible to donate blood?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p><b>Generally, healthy individuals</b> <br> aged 18–60,<br> weighing at least 50kg,<br> and
+                                meeting basic health criteria are eligible. Specific eligibility may vary by guidelines.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            How often can I donate blood?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Whole blood donations are <b>typically allowed every 3–4 months.</b> Please consult your
+                                local regulations and your physician if unsure.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            Is my information secure on Red-LifeStream?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. We follow strict security and privacy practices to safeguard your personal data and only
+                                use it to provide our services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <h3 class="title" id="contact">Contact Us</h3>
             <div class="container" style="max-width: 80%;">
                 <div class="row">
@@ -251,11 +328,11 @@
                             involved, our team is here to help. Reach out to us anytime:
                             <br><br>
                             <b>Email: support@bims.com
-                            <br>
-                            Phone: +94 11 123 4567
-                            <br>
-                            Address: 123 Health Street, Colombo, Sri Lanka
-                            <br><br></b>
+                                <br>
+                                Phone: +94 11 123 4567
+                                <br>
+                                Address: 123 Health Street, Colombo, Sri Lanka
+                                <br><br></b>
                             Or fill out this form, and we’ll get back to you as soon as possible.
                         </p>
                     </div>
@@ -395,6 +472,31 @@
                 animateCount(bloodbanksCount, targetBloodbanks);
                 bloodbanksAnimated = true;
             }
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-item').forEach((item) => {
+            const button = item.querySelector('.faq-question');
+            const icon = item.querySelector('.faq-icon');
+            button.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                // Close others
+                document.querySelectorAll('.faq-item.active').forEach((open) => {
+                    if (open !== item) {
+                        open.classList.remove('active');
+                        const openIcon = open.querySelector('.faq-icon');
+                        if (openIcon) openIcon.textContent = '+';
+                    }
+                });
+                // Toggle current
+                if (isActive) {
+                    item.classList.remove('active');
+                    if (icon) icon.textContent = '+';
+                } else {
+                    item.classList.add('active');
+                    if (icon) icon.textContent = '−';
+                }
+            });
         });
 
     </script>
