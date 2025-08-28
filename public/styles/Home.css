@@ -97,6 +97,7 @@
   .overlay-text .black-text {
     color: rgb(207, 201, 201);
     background: none;
+    background-clip: unset;
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;
   }
@@ -104,6 +105,7 @@
   .overlay-text .red-text {
     color: transparent; /* Set the text color to transparent */
     background: var(--text-gradient-color); /* Apply the gradient as the background */
+    background-clip: text;
     -webkit-background-clip: text;  /* This ensures the gradient only applies to text */
     -webkit-text-fill-color: transparent; /* Makes the text color transparent, showing the gradient */
     display: inline-block;
@@ -145,13 +147,13 @@
   .hero-pagination .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.25);
     opacity: 1;
     transition: all 0.3s ease;
   }
 
   .hero-pagination .swiper-pagination-bullet-active {
-    background: #dc2626;
+    background: rgba(220, 38, 38, 0.85);
     transform: scale(1.2);
   }
 
@@ -297,6 +299,7 @@
     font-weight: 700;
     line-height: normal;
     background: linear-gradient(to right, #FF0404, black);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
@@ -556,4 +559,66 @@
   .home-header {
     min-height: 70vh;
   }
+}
+
+/* FAQ Accordion */
+.faq-accordion {
+  margin: 0 auto 2rem auto;
+}
+
+.faq-item {
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: linear-gradient(90deg, #f9fafb, #ffffff);
+  border: 0;
+  outline: none;
+  padding: 1rem 3rem 1rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  cursor: pointer;
+  position: relative;
+}
+
+.faq-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 700;
+  color: #dc2626;
+}
+
+.faq-item.active .faq-icon {
+  content: "-";
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background: #fff;
+  transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+  border-top: 1px solid #f3f4f6;
+  padding: 0 1.25rem;
+  opacity: 0;
+}
+
+.faq-answer p {
+  padding: 0.75rem 1.25rem 1rem 1.25rem;
+  color: #4b5563;
+  margin: 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 1000px;
+  padding: 0.75rem 1.25rem 1rem 1.25rem;
+  opacity: 1;
 }
