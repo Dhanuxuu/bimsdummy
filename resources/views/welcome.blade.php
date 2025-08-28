@@ -63,7 +63,7 @@
             </header>
 
 
-            <div class="block">
+            <div class="block" style="padding-top: 60px;">
                 <div class="d-flex justify-content-center">
                     <div class="grid-item" onclick="window.location.href='/emergencySearch'"
                         style="width: 42%; height: 300px;">
@@ -230,7 +230,7 @@
             <div class="block"></div>
             <h3 class="title" id="about">About Us</h3>
             <p style="max-width: 80%; margin: 0 auto; font-size: 1.2rem;">
-                At Red-LifeStream, we believe that every drop of blood has the power to save lives. Our Blood Inventory &
+                At <b>Red-LifeStream</b>, we believe that every drop of blood has the power to save lives. Our Blood Inventory &
                 Management System is designed to streamline the donation and distribution process, connecting donors,
                 hospitals, and blood banks efficiently and securely.
                 <br>

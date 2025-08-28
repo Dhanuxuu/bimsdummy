@@ -306,7 +306,7 @@
         @yield('content')
     </main>
 
-    <footer class="footer">
+    <footer class="footer mt-auto">
     <!-- Branding / Tagline -->
     <div class="footer-brand">
         <h2 class="footer-title" style="font-size: 2rem; padding-bottom: 10px;">Red-Lifestream</h2>
