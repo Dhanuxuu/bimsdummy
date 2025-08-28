@@ -69,7 +69,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="nav-link" href="{{url('/')}}#availability">{{ __('Blood Availability') }}</a>
                                 <a class="nav-link" href="{{url('/')}}#camp">{{ __('Blood Donation Camp') }}</a>
-                                <a class="nav-link" href="{{ route('blood.education') }}">{{ __('Blood Education') }}</a>
+                                <a class="nav-link" href="{{ route('guest.blood-education') }}">{{ __('Blood Education') }}</a>
                                 <a class="nav-link"
                                     href="{{ route('donor.create') }}">{{ __('Register for donation') }}</a>
                             </div>

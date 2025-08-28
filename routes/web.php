@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin\Gallery;
 use App\Models\Hospital\DonationCamp;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,8 @@ Route::get('/', function () {
     // return view('welcome');
     try{
         $camps = DonationCamp::all();
-        return view('welcome',compact('camps'));
+        $gallery = Gallery::all();
+        return view('welcome',compact('camps','gallery'));
     }catch(\Exception $e){
         return view('welcome');
     }
@@ -26,9 +28,10 @@ Route::get('auth/callback/google', [GoogleController::class, 'handleGoogleCallba
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//show profile
 
 // Blood Education
-Route::get('/education', function () {
-    return view('guest.blood-education');
-})->name('blood.education');
+// Route::get('/education', function () {
+//     return view('guest.blood-education');
+// })->name('blood.education');
+Route::get('/education', [App\Http\Controllers\HomeController::class, 'education'])->name('guest.blood-education');//show profile
 
 //Donor
 Route::get('/donor/create', [App\Http\Controllers\Donor\DonorController::class, 'create'])->name('donor.create');//show profile
