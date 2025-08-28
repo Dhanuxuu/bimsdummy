@@ -120,7 +120,7 @@ class HospitalController extends Controller
             "bloodbank" => $request->bloodbank,
             "component" => $request->bcomponent,
             "btype" => $request->btype,
-            "component" => $request->component,
+            //"component" => $request->component,
             "amount" => $request->amount,
         ]);
 
@@ -142,6 +142,12 @@ class HospitalController extends Controller
     public function donationCamp()
     {
         $banks = Hospital::select()->where('uname',Auth::user()->id)->first();
+        $camps = DonationCamp::all();
+        return view('hospital.donationcamphome',compact('camps','banks'));
+    }
+
+    public function createcamp(){
+        $banks = Hospital::select()->where('uname',Auth::user()->id)->first();
         return view('hospital.donationcamp',compact('banks'));
     }
 
@@ -155,8 +161,41 @@ class HospitalController extends Controller
         ]);
         if($camp){
             $camps = DonationCamp::all();
-            return view('welcome',compact('camps'));
+            return redirect()->route('hospital.donationcamphome')->with('success', 'Camp updated successfully');
         }
+    }
+
+    // Show edit form   
+    public function editCamp($id)
+    {
+        $camp = DonationCamp::findOrFail($id); // get camp by ID
+        $banks = Hospital::select()->where('uname', Auth::user()->id)->first(); // same as your createcamp
+        return view('hospital.editcamp', compact('camp', 'banks'));
+    }
+
+    // Update donation camp
+    public function updateCamp(Request $request, $id)
+    {
+        $camp = DonationCamp::findOrFail($id);
+
+        $camp->update([
+            "s_date" => $request->s_date,
+            "location" => $request->location,
+            "hbid" => $request->hbid,
+        ]);
+
+        if ($camp) {
+            $camps = DonationCamp::all();
+            return redirect()->route('hospital.donationcamphome')->with('success', 'Camp updated successfully');
+        }
+    }
+
+    // Delete donation camp
+    public function deleteCamp($id)
+    {
+        $camp = DonationCamp::findOrFail($id);
+        $camp->delete();
+        return redirect()->route('hospital.donationcamphome')->with('success', 'Camp deleted successfully');
     }
 
     public function bloodrequpdate()
