@@ -93,6 +93,11 @@ Route::post('/Admin/users/{id}', [App\Http\Controllers\AdminController::class, '
 Route::get('/Admin/deleteGallery/{id}', [App\Http\Controllers\AdminController::class, 'deleteGallery'])->name('admin.deleteGallery');//show profile
 Route::get('/emergencySearch', [App\Http\Controllers\Inventory\InventoryController::class, 'index_bloodsearch'])->name('guest.bloodsearch');
 
+Route::get('/analysis', [App\Http\Controllers\AdminController::class, 'system_analysis'])->name('admin.analysis');//show profile
+
+Route::get('/staff_update', [App\Http\Controllers\AdminController::class, 'staff_update'])->name('admin.staff_update');//show profile
+Route::post('/staff_update/{id}', [App\Http\Controllers\AdminController::class, 'staff_update_store'])->name('admin.staff_update_store');//show profileRoute::get('/Admin/deleteGallery/{id}', [App\Http\Controllers\AdminController::class, 'deleteGallery'])->name('admin.deleteGallery');//show profile
+
 // Page Loader Test Route
 Route::get('/test-loader', function () {
     return view('test-loader');

@@ -112,7 +112,8 @@
                                                                 href="{{route('admin.education')}}">{{ __('Update blood education') }}</a>
                                                             <a class="nav-link" href="{{route('admin.gallery')}}">{{ __('Update gallery') }}</a>
                                                             <a class="nav-link" href="{{route('admin.viewUsers')}}">{{ __('Update users') }}</a>
-                                                            <a class="nav-link" href="{{url('/')}}">{{ __('analysis') }}</a>
+                                                            <a class="nav-link" href="{{route('admin.staff_update')}}">{{ __('Update resign staff') }}</a>
+                                                            <a class="nav-link" href="{{route('admin.analysis')}}">{{ __('Blood Inventory Analysis') }}</a>
                                                         </div>
                                                     </li>
                                                     <li class="nav-item dropdown">
