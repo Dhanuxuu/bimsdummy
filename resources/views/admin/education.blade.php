@@ -11,7 +11,7 @@
     </div>
     <div class="mb-3">
         <label for="formFile" class="form-label">Upload image to display</label>
-        <input class="form-control" type="file" id="image" name="image" required>
+        <input class="form-control" type="file" id="image" name="image">
     </div>
     <div class="mb-3">
         <label for="formFile" class="form-label">Upload description to display</label>
