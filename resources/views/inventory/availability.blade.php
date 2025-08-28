@@ -15,6 +15,8 @@
             <th>O-</th>
             <th>AB+</th>
             <th>AB-</th>
+            <th>Oh+</th>
+            <th>Oh-</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -29,6 +31,8 @@
             <td>{{ $on }}</td>
             <td>{{ $abp }}</td>
             <td>{{ $abn }}</td>
+            <td>{{ $ohp }}</td>
+            <td>{{ $ohn }}</td>
             <td></td>
         </tr>
         <tr>
@@ -41,6 +45,8 @@
                 <td><input type="number" min="0" name="on" id="on" class="form-control new" data-type="on"></td>
                 <td><input type="number" min="0" name="abp" id="abp" class="form-control new" data-type="abp"></td>
                 <td><input type="number" min="0" name="abn" id="abn" class="form-control new" data-type="abn"></td>
+                <td><input type="number" min="0" name="ohp" id="ohp" class="form-control new" data-type="ohp"></td>
+                <td><input type="number" min="0" name="ohn" id="ohn" class="form-control new" data-type="ohn"></td>
                 @php
                     $hbid = $users ?? Auth::user()->id;
                 @endphp
@@ -59,7 +65,9 @@
                 'op' => 0,
                 'on' => 0,
                 'abp' => 0,
-                'abn' => 0
+                'abn' => 0,
+                'ohp' => 0,
+                'ohn' => 0
             ];
             $inventory = $binventory ?? $defaultInventory;
         @endphp
@@ -73,6 +81,8 @@
             <td>{{ $inventory->on }}</td>
             <td>{{ $inventory->abp }}</td>
             <td>{{ $inventory->abn }}</td>
+            <td>{{ $inventory->ohp }}</td>
+            <td>{{ $inventory->ohn }}</td>
             <td></td>
         </tr>
         <tr>
@@ -85,13 +95,15 @@
             <td><input type="number" min="0" class="transfer" data-type="on" value="0"></td>
             <td><input type="number" min="0" class="transfer" data-type="abp" value="0"></td>
             <td><input type="number" min="0" class="transfer" data-type="abn" value="0"></td>
+            <td><input type="number" min="0" class="transfer" data-type="ohp" value="0"></td>
+            <td><input type="number" min="0" class="transfer" data-type="ohn" value="0"></td>
             <td></td>
         </tr>
         <tr>
             <td>Updated amount as at {{ \Carbon\Carbon::now()->format('Y-m-d') }}</td>
             <form method="post" action="{{ route('inventory.newamount_update') }}">
                 @csrf
-                @foreach(['ap', 'an', 'bp', 'bn', 'op', 'on', 'abp', 'abn'] as $type)
+                @foreach(['ap', 'an', 'bp', 'bn', 'op', 'on', 'abp', 'abn', 'ohp', 'ohn'] as $type)
                     <td>
                         <span id="updated-{{ $type }}">{{ $inventory->$type ?? 0 }}</span>
                         <input type="hidden" name="{{ $type }}" id="input-{{ $type }}" value="{{ $inventory->$type ?? 0 }}">
@@ -116,7 +128,9 @@
         op: {{ $inventory->op ?? 0 }},
         on: {{ $inventory->on ?? 0 }},
         abp: {{ $inventory->abp ?? 0 }},
-        abn: {{ $inventory->abn ?? 0 }}
+        abn: {{ $inventory->abn ?? 0 }},
+        ohp: {{ $inventory->ohp ?? 0 }},
+        ohn: {{ $inventory->ohn ?? 0 }}
     };
 
     const newAmounts = {};

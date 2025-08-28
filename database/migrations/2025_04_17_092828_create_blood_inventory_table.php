@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('on');
             $table->string('abp');
             $table->string('abn');
+            $table->string('ohp');
+            $table->string('ohn');
             // $table->string('hbid');
             $table->timestamps();
         });

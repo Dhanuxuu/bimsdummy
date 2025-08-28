@@ -22,6 +22,8 @@ class BloodInventory extends Model
         "on",
         "abp",
         "abn",
+        "ohp",
+        "ohn",
         
     ];
 
