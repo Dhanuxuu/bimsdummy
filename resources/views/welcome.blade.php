@@ -406,6 +406,7 @@
                     seamless, trustworthy, and impactful. Together, we can save lives—one donation at a time.
                 </p>
                 <br><br>
+
                 <h3 class="title">Frequently Asked Questions (FAQs)</h3>
                 <div class="container" style="max-width: 80%;">
                     <div class="faq-accordion">

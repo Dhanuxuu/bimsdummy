@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Admin\Education;
 use App\Models\Admin\Gallery;
 use App\Models\User;
+use App\Models\Inventory\BloodInventory;
+use App\Models\Hospital\Hospital;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use File;
@@ -103,4 +105,31 @@ class AdminController extends Controller
         return redirect()->route("admin.viewUsers");
     }
 
+    public function system_analysis()
+    {
+        $inventory = BloodInventory::all();
+        $hospitals = Hospital::all();
+        return view('admin.analysis',compact('inventory','hospitals'));
+    }
+
+    public function staff_update()
+    {
+        $hospitals = Hospital::all();
+        return view('admin.staff_update',compact('hospitals'));
+    }
+
+    public function staff_update_store(Request $request, $id)
+    {
+        $request->validate([
+        'uname' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        ]);
+
+        $hospital = Hospital::findOrFail($id);
+        $hospital->uname = $request->uname;
+        $hospital->email = $request->email;
+        $hospital->save();
+
+        return redirect()->route("admin.staff_update");
+    }
 }
