@@ -234,7 +234,19 @@
 
                 <h3 class="title" id="gallery">Gallery</h3>
             </div>
-            <div class="block"></div>
+            <div class="block">
+                <div class="container">
+                    <div class="row">
+                        @foreach ($gallery as $photo)
+                            <div class="col-md-3 mb-4">
+                                <img src="{{ asset('assets/images/' . $photo->image . '') }}" class="img-fluid"
+                                    alt="Gallery Image">
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            
             <h3 class="title" id="about">About Us</h3>
             <p style="max-width: 80%; margin: 0 auto; font-size: 1.2rem;">
                 At <b>Red-LifeStream</b>, we believe that every drop of blood has the power to save lives. Our Blood

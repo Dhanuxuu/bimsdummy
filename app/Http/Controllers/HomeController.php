@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\Education;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Donor\Donor;
@@ -45,4 +46,12 @@ class HomeController extends Controller
             return view('home');
         }
     }
+
+    public function education()
+    {
+        $education = Education::all();
+        return view('guest.blood-education',compact('education'));
+    }
+
+    
 }

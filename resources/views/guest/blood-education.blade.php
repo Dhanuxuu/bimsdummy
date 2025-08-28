@@ -132,8 +132,7 @@
                     <!-- Blood Components Education -->
                     <div class="mb-4">
                         <h3 class="text-danger">Blood Components Explained</h3>
-                        <div class="row justify-content-center align-items-center h-50">
-
+                        <!-- <div class="row justify-content-center align-items-center h-50">
                             <div class="col-md-6 mb-4">
                                 <h5 class="mb-4">Red Blood Cells</h5>
                                 <table>
@@ -147,7 +146,6 @@
                                     </tr>
                                 </table>
                             </div>
-
                             <div class="col-md-6 mb-4">
                                 <h5 class="mb-4">Platelets</h5>
                                 <table>
@@ -162,7 +160,6 @@
                                 </table>
                             </div>
                         </div>
-
                         <div class="row justify-content-center align-items-center h-50">
 
                             <div class="col-md-6 mb-4">
@@ -192,6 +189,23 @@
                                     </tr>
                                 </table>
                             </div>
+                        </div> -->
+                        <div class="row justify-content-center align-items-center h-50">
+                            @foreach($education as $component)
+                                <div class="col-md-6 mb-4">
+                                    <h5 class="mb-4">{{ $component->name }}</h5>
+                                    <table>
+                                        <tr>
+                                            <td style="width: 250px;">
+                                                <img src="{{ asset('images/' . $component->image) }}" alt="{{ $component->name }}" class="img-fluid rounded shadow">
+                                            </td>
+                                            <td style="width: 350px;">
+                                                <p>{{ $component->description }}</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 
