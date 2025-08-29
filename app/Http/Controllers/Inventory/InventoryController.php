@@ -28,8 +28,8 @@ class InventoryController extends Controller
         $btypes = BloodType::all();
         $hospitals = Hospital::all();
         $bcomp = BloodComponent::all();
-        $user = Auth::user();
-        return view('inventory.add_donation', compact('camps', 'btypes', 'hospitals', 'user', 'bcomp'));
+        $users = Auth::user();
+        return view('inventory.add_donation', compact('camps', 'btypes', 'hospitals', 'users', 'bcomp'));
     }
 
     public function index_availability()
@@ -62,6 +62,12 @@ class InventoryController extends Controller
         $abn = Donation::where('btype', '8')
                     ->where('hbid', $users)
                     ->sum('amount');
+        $ohp = Donation::where('btype', '9')
+                    ->where('hbid', $users)
+                    ->sum('amount');
+        $ohn = Donation::where('btype', '10')
+                    ->where('hbid', $users)
+                    ->sum('amount');
 
         $binventory = BloodInventory::where('hbid', $users)
                     ->orderBy('id', 'desc')
@@ -78,11 +84,13 @@ class InventoryController extends Controller
                 'on' => 0,
                 'abp' => 0,
                 'abn' => 0,
+                'ohp' => 0,
+                'ohn' => 0,
                 'created_at' => now()
             ];
         }
 
-        return view('inventory.availability', compact('camps', 'btypes', 'ap', 'an', 'bp', 'bn', 'op', 'on', 'abp', 'abn', 'binventory', 'users'));
+        return view('inventory.availability', compact('camps', 'btypes', 'ap', 'an', 'bp', 'bn', 'op', 'on', 'abp', 'abn','ohp','ohn', 'binventory', 'users'));
     }
 
     public function index_bloodstatus()
@@ -147,6 +155,8 @@ class InventoryController extends Controller
             "on" => $request->on,
             "abp" => $request->abp,
             "abn" => $request->abn,
+            "ohp" => $request->ohp,
+            "ohn" => $request->ohn,
             
         ]);
         if($blood_inventory){
@@ -167,6 +177,8 @@ class InventoryController extends Controller
             "on" => $request->on,
             "abp" => $request->abp,
             "abn" => $request->abn,
+            "ohp" => $request->ohp,
+            "ohn" => $request->ohn,
             
         ]);
         if($blood_inventory){

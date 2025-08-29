@@ -59,70 +59,87 @@
         </div>
         <div class="row">
             <div class="col-md-5 mb-4">
-                <h4>Storage Location</h4>
-                <div class="storage-search-container">
-                    <div class="input-group mb-2">
-                        <input type="text" id="storage-search" class="form-control" placeholder="Type to search...">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary clear-storage-search" type="button">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <input type="hidden" id="storelocation" name="storelocation" class="form-control" required />
-                    <!-- <input type="hidden" id="storelocation_name" name="storelocation_name" /> -->
-                    <!-- <div id="storage-results" class="list-group" style="max-height: 250px; overflow-y: auto; display: none;">
-                        @foreach($hospitals as $hospital)
-                            <a href="#" class="list-group-item list-group-item-action storage-item" 
-                               data-name="{{ strtolower($hospital->hbname) }}" 
-                               data-id="{{ $hospital->id }}">
-                                {{ $hospital->hbname }} (ID: {{ $hospital->id }})
-                            </a>
-                        @endforeach
-                    </div> -->
-                    <div id="no-storage-results" class="alert alert-info mt-2" style="display: none;">
-                        No matching locations found.
-                    </div>
-                    <div id="storage-validation" class="invalid-feedback">
-                        Please select a valid storage location
-                    </div>
-                </div>
+    <h4>Storage Location</h4>
+    <div class="storage-search-container">
+        <div class="input-group mb-2">
+            <input type="text" id="storage-search" class="form-control" placeholder="Type to search...">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary clear-storage-search" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
+        </div>
+
+        <input type="hidden" id="storelocation" name="storelocation" required />
+
+        <div id="no-storage-results" class="alert alert-info mt-2" style="display:none;">
+            No matching locations found.
+        </div>
+        
+        <!-- Suggestion dropdown -->
+        <ul id="storage-suggestions" class="list-group" style="max-height:200px;overflow-y:auto;display:none;"></ul>
+
+        <div id="storage-validation" class="invalid-feedback">
+            Please select a valid storage location
+        </div>
+    </div>
+</div>
+
+<script>
+    // Example: locations from DB or hardcoded
+    const storageLocations = @json($hospitals->pluck('hbname'));
+
+    const input = document.getElementById("storage-search");
+    const hiddenInput = document.getElementById("storelocation");
+    const suggestionBox = document.getElementById("storage-suggestions");
+    const noResults = document.getElementById("no-storage-results");
+
+    input.addEventListener("input", function () {
+        const query = this.value.toLowerCase();
+        suggestionBox.innerHTML = "";
+        let matches = storageLocations.filter(loc => loc.toLowerCase().includes(query));
+
+        if (query.length === 0 || matches.length === 0) {
+            suggestionBox.style.display = "none";
+            noResults.style.display = matches.length === 0 && query.length > 0 ? "block" : "none";
+            return;
+        }
+
+        noResults.style.display = "none";
+        suggestionBox.style.display = "block";
+
+        matches.forEach(loc => {
+            let li = document.createElement("li");
+            li.textContent = loc;
+            li.className = "list-group-item list-group-item-action";
+            li.style.cursor = "pointer";
+            li.addEventListener("click", function () {
+                input.value = loc;         // fill text input
+                hiddenInput.value = loc;   // set hidden input
+                suggestionBox.style.display = "none"; 
+            });
+            suggestionBox.appendChild(li);
+        });
+    });
+
+    // Clear button
+    document.querySelector(".clear-storage-search").addEventListener("click", () => {
+        input.value = "";
+        hiddenInput.value = "";
+        suggestionBox.style.display = "none";
+        noResults.style.display = "none";
+    });
+</script>
+
             <div class="col-md-5 mb-4">
                 <h4>Hospital/Blood Bank</h4>
                 <div class="hospital-search-container">
-                    <div class="input-group mb-2">
-                        <input type="text" id="hospital-search" class="form-control" placeholder="Type to search...">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="clear-search">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <select id="hbid" name="hbid" class="form-control" required style="display: none;">
-                        <option value="">Select a hospital/blood bank</option>
-                        @foreach($hospitals as $hospital)
-                            <option value="{{ $hospital->id }}" data-hbname="{{ strtolower($hospital->hbname) }}" data-hbid="{{ $hospital->id }}"
-                                @if(isset($user) && $hospital->uname == $user->id) selected @endif>
-                                {{ $hospital->hbname }} (ID: {{ $hospital->id }})
-                            </option>
+                    <div class="input-group mb-2"> 
+                         @foreach ($hospitals as $user)
+                            @if ($user->uname==Auth::user()->id)
+                            <input type="text" id="hbid" name="hbid" class="form-control" value="{{ $user->id }} - {{ $user->hbname }}" readonly/>
+                            @endif
                         @endforeach
-                    </select>
-                    <div id="hospital-results" class="list-group" style="max-height: 250px; overflow-y: auto; display: none;">
-                        @foreach($hospitals as $hospital)
-                            <a href="#" class="list-group-item list-group-item-action hospital-item" 
-                               data-id="{{ $hospital->id }}" 
-                               data-hbname="{{ strtolower($hospital->hbname) }}" 
-                               data-hbid="{{ $hospital->id }}">
-                                {{ $hospital->hbname }} (ID: {{ $hospital->id }})
-                            </a>
-                        @endforeach
-                    </div>
-                    <div id="no-results" class="alert alert-info mt-2" style="display: none;">
-                        No matching hospitals found.
-                    </div>
-                    <div id="hospital-validation" class="invalid-feedback">
-                        Please select a valid hospital/blood bank
                     </div>
                 </div>
             </div>
@@ -177,295 +194,6 @@
             </style>
             @endpush
 
-            @push('scripts')
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script>
-                // Debug: Check if jQuery is loaded
-                console.log('jQuery version:', $.fn.jquery);
-                console.log('Document ready');
-                $(document).ready(function() {
-                    const $searchInput = $('#hospital-search');
-                    const $resultsContainer = $('#hospital-results');
-                    const $noResults = $('#no-results');
-                    const $select = $('#hbid');
-                    let selectedItem = null;
-
-                    // Show results on input focus
-                    $searchInput.on('focus', function() {
-                        console.log('Input focused');
-                        $resultsContainer.show();
-                        filterHospitals($(this).val().toLowerCase());
-                    });
-
-                    // Hide results when clicking outside
-                    $(document).on('click', function(e) {
-                        console.log('Document clicked');
-                        if (!$(e.target).closest('.hospital-search-container').length) {
-                            $resultsContainer.hide();
-                        }
-                    });
-                    
-                    // Prevent hiding when clicking inside the dropdown
-                    $resultsContainer.on('click', function(e) {
-                        e.stopPropagation();
-                    });
-
-                    // Clear search
-                    $('#clear-search').on('click', function() {
-                        $searchInput.val('').focus();
-                        filterHospitals('');
-                    });
-
-                    // Real-time search
-                    $searchInput.on('input', function() {
-                        const searchTerm = $(this).val().toLowerCase();
-                        filterHospitals(searchTerm);
-                    });
-
-                    // Handle keyboard navigation
-                    $searchInput.on('keydown', function(e) {
-                        const $items = $('.hospital-item:visible');
-                        const $highlighted = $('.hospital-item.highlighted');
-                        let index = $items.index($highlighted);
-
-                        switch(e.key) {
-                            case 'ArrowDown':
-                                e.preventDefault();
-                                $items.removeClass('highlighted');
-                                index = (index + 1) % $items.length;
-                                $items.eq(index).addClass('highlighted');
-                                scrollToItem($items.eq(index));
-                                break;
-                            case 'ArrowUp':
-                                e.preventDefault();
-                                $items.removeClass('highlighted');
-                                index = (index - 1 + $items.length) % $items.length;
-                                $items.eq(index).addClass('highlighted');
-                                scrollToItem($items.eq(index));
-                                break;
-                            case 'Enter':
-                                e.preventDefault();
-                                if ($highlighted.length) {
-                                    $highlighted.trigger('click');
-                                } else if ($items.length === 1) {
-                                    $items.first().trigger('click');
-                                }
-                                break;
-                        }
-                    });
-
-                    // Select hospital on click
-                    $resultsContainer.on('click', '.hospital-item', function(e) {
-                        e.preventDefault();
-                        selectHospital($(this));
-                    });
-
-                    function filterHospitals(searchTerm) {
-                        console.log('Filtering hospitals for:', searchTerm);
-                        if (searchTerm.length === 0) {
-                            $('.hospital-item').show();
-                            $noResults.hide();
-                            $resultsContainer.show();
-                            return;
-                        }
-                        
-                        // Make sure the results container is visible when filtering
-                        $resultsContainer.show();
-
-                        let hasResults = false;
-                        
-                        $('.hospital-item').each(function() {
-                            const $item = $(this);
-                            const hbname = $item.data('hbname');
-                            const hbid = $item.data('hbid').toString();
-                            
-                            if (hbname.includes(searchTerm) || hbid.includes(searchTerm)) {
-                                $item.show();
-                                hasResults = true;
-                            } else {
-                                $item.hide();
-                            }
-                        });
-
-                        $noResults.toggle(!hasResults);
-                        $resultsContainer.toggle(hasResults || searchTerm.length === 0);
-                    }
-
-                    function selectHospital($item) {
-                        const id = $item.data('id');
-                        const text = $item.text().trim();
-                        
-                        $select.val(id);
-                        $searchInput.val(text);
-                        $resultsContainer.hide();
-                        
-                        // Update selected state
-                        $('.hospital-item').removeClass('selected');
-                        $item.addClass('selected');
-                        
-                        // Trigger change event if needed
-                        $select.trigger('change');
-                    }
-
-                    function scrollToItem($item) {
-                        if ($item.length) {
-                            const container = $resultsContainer[0];
-                            const itemTop = $item.position().top + container.scrollTop;
-                            const itemBottom = itemTop + $item.outerHeight();
-                            const containerHeight = container.clientHeight;
-                            
-                            if (itemBottom > container.scrollTop + containerHeight) {
-                                container.scrollTop = itemBottom - containerHeight;
-                            } else if (itemTop < container.scrollTop) {
-                                container.scrollTop = itemTop;
-                            }
-                        }
-                    }
-
-                    // Initialize with selected value if any
-                    const $selectedOption = $select.find('option:selected');
-                    if ($selectedOption.length && $selectedOption.val()) {
-                        const selectedText = $selectedOption.text().trim();
-                        $searchInput.val(selectedText);
-                        
-                        // Highlight the selected item in the list
-                        const selectedId = $selectedOption.val();
-                        $(`.hospital-item[data-id="${selectedId}"]`).addClass('selected');
-                    }
-
-                    // Storage Location Search Functionality
-                    const $storageSearch = $('#storage-search');
-                    const $storageResults = $('#storage-results');
-                    const $noStorageResults = $('#no-storage-results');
-                    const $storageInput = $('#storelocation');
-
-                    // Show results on input focus
-                    $storageSearch.on('focus', function() {
-                        console.log('Storage input focused');
-                        $storageResults.show();
-                        filterStorageLocations($(this).val().toLowerCase());
-                    });
-
-                    // Hide results when clicking outside
-                    $(document).on('click', function(e) {
-                        if (!$(e.target).closest('.storage-search-container').length) {
-                            $storageResults.hide();
-                        }
-                    });
-                    
-                    // Prevent hiding when clicking inside the dropdown
-                    $storageResults.on('click', function(e) {
-                        e.stopPropagation();
-                    });
-
-                    // Clear search
-                    $('.clear-storage-search').on('click', function() {
-                        $storageSearch.val('').focus();
-                        filterStorageLocations('');
-                    });
-
-                    // Real-time search
-                    $storageSearch.on('input', function() {
-                        const searchTerm = $(this).val().toLowerCase();
-                        filterStorageLocations(searchTerm);
-                    });
-
-                    // Handle keyboard navigation
-                    $storageSearch.on('keydown', function(e) {
-                        const $items = $('.storage-item:visible');
-                        const $highlighted = $('.storage-item.highlighted');
-                        let index = $items.index($highlighted);
-
-                        switch(e.key) {
-                            case 'ArrowDown':
-                                e.preventDefault();
-                                $items.removeClass('highlighted');
-                                index = (index + 1) % $items.length;
-                                $items.eq(index).addClass('highlighted');
-                                scrollToItem($items.eq(index), $storageResults);
-                                break;
-                            case 'ArrowUp':
-                                e.preventDefault();
-                                $items.removeClass('highlighted');
-                                index = (index - 1 + $items.length) % $items.length;
-                                $items.eq(index).addClass('highlighted');
-                                scrollToItem($items.eq(index), $storageResults);
-                                break;
-                            case 'Enter':
-                                e.preventDefault();
-                                if ($highlighted.length) {
-                                    $highlighted.trigger('click');
-                                } else if ($items.length === 1) {
-                                    $items.first().trigger('click');
-                                }
-                                break;
-                        }
-                    });
-
-                    // Select storage location on click
-                    $storageResults.on('click', '.storage-item', function(e) {
-                        e.preventDefault();
-                        const locationName = $(this).data('name');
-                        const locationId = $(this).data('id');
-                        $storageInput.val(locationId);
-                        $storageSearch.val($(this).text().trim());
-                        $storageResults.hide();
-                        
-                        // Update selected state
-                        $('.storage-item').removeClass('selected');
-                        $(this).addClass('selected');
-                    });
-
-                    function filterStorageLocations(searchTerm) {
-                        console.log('Filtering storage locations for:', searchTerm);
-                        
-                        if (searchTerm.length === 0) {
-                            $('.storage-item').show();
-                            $noStorageResults.hide();
-                            $storageResults.show();
-                            return;
-                        }
-                        
-                        // Make sure the results container is visible when filtering
-                        $storageResults.show();
-
-                        let hasResults = false;
-                        
-                        $('.storage-item').each(function() {
-                            const $item = $(this);
-                            const locationName = $item.data('name');
-                            const locationId = $item.data('id').toString();
-                            
-                            if (locationName.includes(searchTerm) || locationId.includes(searchTerm)) {
-                                $item.show();
-                                hasResults = true;
-                            } else {
-                                $item.hide();
-                            }
-                        });
-
-                        $noStorageResults.toggle(!hasResults);
-                        $storageResults.toggle(hasResults || searchTerm.length === 0);
-                    }
-
-                    // Update scrollToItem to accept container parameter
-                    function scrollToItem($item, container) {
-                        if ($item.length) {
-                            const containerEl = container[0];
-                            const itemTop = $item.position().top + containerEl.scrollTop;
-                            const itemBottom = itemTop + $item.outerHeight();
-                            const containerHeight = containerEl.clientHeight;
-                            
-                            if (itemBottom > containerEl.scrollTop + containerHeight) {
-                                containerEl.scrollTop = itemBottom - containerHeight;
-                            } else if (itemTop < containerEl.scrollTop) {
-                                containerEl.scrollTop = itemTop;
-                            }
-                        }
-                    }
-                });
-            </script>
-            @endpush
             <div class="mt-4 pt-2">
             <button type="submit" class="btn btn-primary">
                 Add
